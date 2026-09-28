@@ -5,11 +5,11 @@ import { FLOW, PHASES } from '../data/content.js';
 export default function HowItWorks() {
   return (
     <>
-      <Seo title="How It Works" description="Anvexa's phased roadmap: from first SME interviews to vertical packs and channel partnerships." />
+      <Seo title="How It Works" description="A structured four-stage engagement: discover, assess, remediate and assure." />
       <div className="process-hero">
-        <div className="label">From Idea to Scale</div>
-        <h1>The Roadmap</h1>
-        <p style={{ marginTop: '1.25rem', fontSize: '1rem' }}>Anvexa is executing a phased go-to-market strategy — starting narrow, validating with real customers, then scaling into vertical packs and channel partnerships.</p>
+        <div className="label">Our Approach</div>
+        <h1>How an engagement works</h1>
+        <p style={{ marginTop: '1.25rem' }}>A structured, four-stage engagement — from scoping to continuous assurance — with evidence produced at every step.</p>
       </div>
 
       <div className="process-bottom-bar">
@@ -24,8 +24,8 @@ export default function HowItWorks() {
       </div>
 
       <div className="wrap">
-        <div className="label">The Phases</div>
-        <h2 style={{ marginBottom: '2rem' }}>From first SME interview to channel partnerships.</h2>
+        <div className="label">The Stages</div>
+        <h2 style={{ marginBottom: '2rem' }}>From first conversation to audit-ready proof.</h2>
         <div className="phases-grid">
           {PHASES.map((p, i) => (
             <Reveal className="phase" key={p.n} delay={i * 70}>

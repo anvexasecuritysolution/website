@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import Select from '../components/Select.jsx';
+import Icon from '../components/Icon.jsx';
 import Seo from '../components/Seo.jsx';
 import { api, ApiError } from '../api/client.js';
 import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
@@ -56,10 +58,10 @@ export default function Contact() {
           <h1>Your security gap is a conversation away from closing.</h1>
           <p>Whether you need a one-time assessment to understand your exposure, or a continuous security partner for the long term — we start every engagement by understanding your environment first.</p>
           <div className="cdetails">
-            <div className="cdetail"><div className="cdetail-icon" aria-hidden="true">📧</div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
-            <div className="cdetail"><div className="cdetail-icon" aria-hidden="true">📞</div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
-            <div className="cdetail"><div className="cdetail-icon" aria-hidden="true">📍</div>India · Remote Engagements Available Nationwide</div>
-            <div className="cdetail"><div className="cdetail-icon" aria-hidden="true">⏱️</div>Response within 1 business day</div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="pin" size={18} /></div>India · Remote Engagements Available Nationwide</div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="clock" size={18} /></div>Response within 1 business day</div>
           </div>
           <div className="free-box"><p><strong>Free initial assessment.</strong> Every new engagement begins with a complimentary discovery call and a brief asset inventory review — no commitment required.</p></div>
         </div>
@@ -91,17 +93,11 @@ export default function Contact() {
               </div>
               <div className="field">
                 <label htmlFor="industry">Industry</label>
-                <select id="industry" {...fieldProps('industry')}>
-                  <option value="">Select your industry</option>
-                  {INDUSTRIES.map((o) => <option key={o}>{o}</option>)}
-                </select>
+                <Select id="industry" label="Industry" value={form.industry} onChange={(v) => setForm((f) => ({ ...f, industry: v }))} options={INDUSTRIES} placeholder="Select your industry" />
               </div>
               <div className="field">
                 <label htmlFor="service">What do you need?</label>
-                <select id="service" {...fieldProps('service')}>
-                  <option value="">Select a service</option>
-                  {SERVICES.map((o) => <option key={o}>{o}</option>)}
-                </select>
+                <Select id="service" label="Service" value={form.service} onChange={(v) => setForm((f) => ({ ...f, service: v }))} options={SERVICES} placeholder="Select a service" />
               </div>
               <div className="field">
                 <label htmlFor="message">Message</label>

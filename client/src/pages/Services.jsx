@@ -1,5 +1,6 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Icon from '../components/Icon.jsx';
 import { STEPS } from '../data/content.js';
 
 export default function Services() {
@@ -9,7 +10,7 @@ export default function Services() {
       <div className="lifecycle-intro">
         <div className="label">The Lifecycle</div>
         <h1>Eight steps. One continuous loop. Zero gaps.</h1>
-        <p style={{ marginTop: '1.25rem', fontSize: '1rem' }}>This is not a point-in-time assessment. It is an operational model that reassesses continuously — turning findings into fixes, fixes into evidence, and evidence into business confidence.</p>
+        <p style={{ marginTop: '1.25rem' }}>This is not a point-in-time assessment. It is an operational model that reassesses continuously — turning findings into fixes, fixes into evidence, and evidence into business confidence.</p>
         <div className="lifecycle-tagline">Find <span>→</span> Fix <span>→</span> Verify <span>→</span> Monitor <span>→</span> Prove</div>
       </div>
       <div className="lifecycle-steps">
@@ -26,7 +27,7 @@ export default function Services() {
           ))}
         </ol>
         <div className="reassess">
-          <span aria-hidden="true" style={{ fontSize: '1.2rem' }}>🔄</span>
+          <Icon name="refresh" size={24} />
           <p><strong style={{ color: 'var(--amber)' }}>Reassess continuously.</strong> The lifecycle doesn't end at step 8. New assets are discovered, new vulnerabilities emerge, regulations update. The loop runs perpetually.</p>
         </div>
       </div>

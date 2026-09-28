@@ -10,10 +10,10 @@ export const INDUSTRIES = [
 ];
 
 export const SERVICES = [
-  'VAPT & Security Assessment (LAND)',
-  'Remediation & Compliance Setup (FIX)',
-  'Continuous Security & Monitoring (RETAIN)',
-  'Managed MDR + Incident Response (EXPAND)',
+  'VAPT & Security Assessment',
+  'Remediation & Compliance Setup',
+  'Continuous Security & Monitoring',
+  'Managed MDR + Incident Response',
   'Not sure — need a consultation',
 ];
 

@@ -1,74 +1,69 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
+import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
-import CountUp from '../components/CountUp.jsx';
 import PipelineRing from '../components/PipelineRing.jsx';
-import { STATS, GAP_CARDS, ENGAGE } from '../data/content.js';
+import { FRAMEWORKS, GAP_CARDS, ENGAGE } from '../data/content.js';
 
 export default function Home() {
   return (
     <>
-      <Seo
-        description="Continuous security operations, compliance evidence and lifecycle protection for Indian SMBs — from first discovery to audit-ready proof."
-      />
+      <Seo description="Continuous security operations, compliance evidence and lifecycle protection — from first discovery to audit-ready proof." />
       <section className="hero">
         <div className="hero-text">
-          <div className="hero-badge">India SMB Cybersecurity — 2026 Roadmap</div>
-          <h1>The product is not a VAPT report.</h1>
-          <p>Anvexa delivers continuous security operations, compliance evidence, and lifecycle protection for Indian SMBs — from first discovery to audit-ready proof.</p>
+          <div className="hero-badge">Managed cybersecurity &amp; compliance</div>
+          <h1>Continuous security. Audit-ready proof.</h1>
+          <p>Anvexa delivers continuous security operations, compliance evidence and lifecycle protection — from first discovery to audit-ready proof.</p>
           <div className="hero-acts">
-            <Link to="/contact" className="btn btn-c">Start with a Free Assessment</Link>
-            <Link to="/services" className="btn btn-ghost">See How It Works</Link>
+            <Link to="/contact" className="btn btn-c">Book a Free Assessment</Link>
+            <Link to="/services" className="btn btn-ghost">Explore the Lifecycle</Link>
           </div>
         </div>
-        <div className="pipeline-visual">
-          <div className="pipeline-ring"><PipelineRing /></div>
+        <div className="pipeline-visual"><div className="pipeline-ring"><PipelineRing /></div></div>
+      </section>
+
+      <section className="wrap-sm">
+        <div className="label">Frameworks We Map To</div>
+        <div className="stats-row">
+          {FRAMEWORKS.map((f) => (
+            <div className="stat-item" key={f.name}>
+              <div className="stat-num">{f.name}</div>
+              <div className="stat-sub">{f.text}</div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <div className="stats-row">
-        {STATS.map((s) => (
-          <div className="stat-item" key={s.t}>
-            <div className={`stat-num ${s.c}`}><CountUp value={s.n} /></div>
-            <div className="stat-sub">{s.t}</div>
-          </div>
-        ))}
-      </div>
-
       <section className="wrap">
-        <div className="label">The Market Gap</div>
-        <h2>Spending is rising. Capability is missing.</h2>
-        <p style={{ marginTop: '1rem' }}>Cybersecurity tools are being purchased. But VAPT becomes a PDF with no follow-up. Compliance becomes a checklist done once, then forgotten. Logs exist — but nobody watches them continuously. The gap is the lifecycle.</p>
+        <div className="label">The Gap</div>
+        <h2>Security spending is rising. Assurance is not.</h2>
+        <p style={{ marginTop: '1rem' }}>Tools are purchased and assessments are performed — yet findings go untracked, compliance is treated as a once-a-year exercise and logs go unreviewed. The gap is the lifecycle.</p>
         <div className="gap-grid">
           {GAP_CARDS.map((c, i) => (
             <Reveal key={c.title} className={`gap-card ${c.kind}`} delay={(i % 2) * 80}>
-              <div className="gap-icon" aria-hidden="true">{c.icon}</div>
+              <div className="gap-icon"><Icon name={c.icon} /></div>
               <h4>{c.title}</h4>
               <p>{c.text}</p>
             </Reveal>
           ))}
         </div>
-        <div style={{ marginTop: '2rem' }}>
-          <Link to="/services" className="btn btn-a">See the Full Lifecycle</Link>
-        </div>
+        <div style={{ marginTop: '2rem' }}><Link to="/services" className="btn btn-a">See the Full Lifecycle</Link></div>
       </section>
-
-      <hr className="divider" />
 
       <section className="wrap">
         <div className="label">How We Engage</div>
-        <h2>Land. Fix. Retain. Expand.</h2>
-        <p style={{ marginTop: '1rem' }}>Every engagement starts with a security assessment and grows into a long-term partnership.</p>
+        <h2>Assess. Remediate. Monitor. Respond.</h2>
+        <p style={{ marginTop: '1rem' }}>Every engagement starts with an assessment and grows into a long-term security partnership.</p>
         <div className="engage-grid">
           {ENGAGE.map((e) => (
-            <div key={e.k} className={`engage-cell${e.hl ? ' hl' : ''}`}>
-              <div className="k" style={{ color: e.color }}>{e.k}</div>
+            <div key={e.k} className="engage-cell">
+              <div className="k">{e.k}</div>
               <h4>{e.title}</h4>
               <p>{e.text}</p>
             </div>
           ))}
         </div>
-        <p className="note">Assessment opens the door · Compliance keeps you protected · Monitoring never sleeps · Evidence proves it</p>
+        <p className="note">Assessment sets the baseline · Compliance keeps controls mapped · Monitoring never sleeps · Evidence proves it</p>
       </section>
     </>
   );

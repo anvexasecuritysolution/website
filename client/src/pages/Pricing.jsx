@@ -10,7 +10,7 @@ export default function Pricing() {
       <div className="pricing-hero">
         <div className="label">Pricing</div>
         <h1>Start with a scan.<br />Stay for the security.</h1>
-        <p style={{ marginTop: '1.25rem', fontSize: '1rem' }}>Every engagement begins with an assessment and grows into a continuous partnership. No lock-in at step one — prove value first.</p>
+        <p style={{ marginTop: '1.25rem' }}>Every engagement begins with an assessment and grows into a continuous partnership. No lock-in at step one — prove value first.</p>
       </div>
       <div className="pricing-grid">
         {TIERS.map((t, i) => (

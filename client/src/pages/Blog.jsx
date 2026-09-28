@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Icon, { TAG_ICON } from '../components/Icon.jsx';
 import { api } from '../api/client.js';
 
 export const fmtDate = (d) => new Date(d).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
@@ -19,11 +20,11 @@ export default function Blog() {
 
   return (
     <>
-      <Seo title="Blog" description="Practical insights on VAPT, compliance, CERT-In updates and India's SMB threat landscape." />
+      <Seo title="Blog" description="Practical insights on VAPT, compliance, regulatory updates and the threat landscape in India." />
       <div className="blog-hero">
         <div className="label">Threat Intelligence</div>
-        <h1>From the front line of Indian SMB security.</h1>
-        <p style={{ marginTop: '1rem' }}>Practical insights on VAPT, compliance, CERT-In updates, and what's actually happening in India's SMB threat landscape.</p>
+        <h1>Insights from the security front line.</h1>
+        <p style={{ marginTop: '1rem' }}>Practical insights on VAPT, compliance, CERT-In updates, and what is actually happening in India's threat landscape.</p>
       </div>
 
       {error && <p className="state-msg" role="alert">Couldn't load articles: {error}</p>}
@@ -42,7 +43,7 @@ export default function Blog() {
         <div className="blog-grid">
           {posts.filter((p) => tag === 'All' || p.tag === tag).map((p, i) => (
             <Reveal as={Link} to={`/blog/${p.slug}`} className="bc" key={p.slug} delay={(i % 3) * 70}>
-              <div className="bc-img"><span aria-hidden="true">{p.emoji}</span><span className="bc-tag">{p.tag}</span></div>
+              <div className="bc-img"><Icon name={TAG_ICON[p.tag] || 'shield'} size={40} /><span className="bc-tag">{p.tag}</span></div>
               <div className="bc-body">
                 <div className="bc-meta">{fmtDate(p.publishedAt)} · {p.readMinutes} min read</div>
                 <h3>{p.title}</h3>

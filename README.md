@@ -1,7 +1,7 @@
 # Anvexa Security Solutions — MERN
 
 React (Vite) front end + Express/Node API + MongoDB (Mongoose).
-Your original single-file design (colours, fonts, layout) is preserved.
+Your original design language (palette, Syne + DM Sans, layout) is preserved.
 
 ## Quick start
 
@@ -65,11 +65,19 @@ anvexa/
 
 **Bug fixes** — the hero SVG had a duplicated `text-anchor` attribute and overlapping labels (now generated from data and positioned by angle); footer year is dynamic (was hard-coded 2025); the nav "Get Protected" button was hidden on mobile with no replacement (now in the menu).
 
-**Copy tweaks (review these)** — "Revenue Model" → "How We Engage" and the internal revenue line removed; "Do not build a SIEM from scratch" reworded, since both read as internal notes on a public site.
+**Positioning** — SMB/SME/MSME references removed. Internal sales terms (Land/Fix/Retain/Expand) became Assess/Remediate/Monitor/Respond, and the internal go-to-market roadmap became a client-facing four-stage engagement process.
+
+## Design system
+
+- **Type scale (fixed):** H1 48 · H2 34 · H3 25 · card title 21 · body 19 · text 17 · small 15 px (H1–H3 and body shrink slightly under 700px). Defined once as `--fs-*` tokens at the end of `global.css`; every `font-size` in the stylesheet uses a token.
+- **Fonts:** Syne for headings/labels, DM Sans for body and UI.
+- **Card colours:** seven fixed accents (`--c1`…`--c7`), assigned by position within each group in `components/Layout.jsx`.
+- **Dropdowns:** custom `components/Select.jsx` (keyboard accessible) so option lists are always dark.
+- **Icons:** `lucide-react` via `components/Icon.jsx` (no emoji).
 
 ## Before you launch
 
-- **Stats** (84%, 40%, 45%, 46%, 12%) have no source on the page — add citations; unsourced statistics hurt credibility with security buyers.
+- The old statistics bar was removed (figures were unsourced). If you reintroduce numbers, cite them.
 - **Blog bodies** in `seed.js` are short placeholder drafts (each ends with "Replace this draft…"). Write the real articles, and verify regulatory claims (CERT-In, DPDP timelines) with counsel.
 - Confirm the phone number/email in `client/src/data/content.js`, and add real Privacy Policy / Terms pages (footer text currently isn't linked).
 - Contact form only stores leads. To get notified, add an email step (e.g. Nodemailer/Resend) inside `routes/leads.js` after `Lead.create`.
@@ -80,4 +88,3 @@ anvexa/
 **Single server:** `npm run build` then `NODE_ENV=production npm start` — Express serves `client/dist` and the API from one origin.
 
 **Split:** host `client/dist` on Netlify/Vercel/S3, the API on Render/Railway/EC2; set `VITE_API_URL` at build time and `CLIENT_ORIGIN` on the API. For SPA hosting, add a rewrite of all paths to `/index.html`.
-"# anvexasecuritysolution" 
