@@ -80,3 +80,4 @@ anvexa/
 **Single server:** `npm run build` then `NODE_ENV=production npm start` — Express serves `client/dist` and the API from one origin.
 
 **Split:** host `client/dist` on Netlify/Vercel/S3, the API on Render/Railway/EC2; set `VITE_API_URL` at build time and `CLIENT_ORIGIN` on the API. For SPA hosting, add a rewrite of all paths to `/index.html`.
+"# anvexasecuritysolution" 
