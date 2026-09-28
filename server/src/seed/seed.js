@@ -6,12 +6,12 @@ import { User } from '../models/User.js';
 
 const posts = [
   {
-    slug: 'certin-15-elemental-controls',
-    title: "CERT-In Cyber Defense Controls: What They Mean for Security Teams",
-    excerpt: "CERT-In published a cyber defense baseline in September 2025. Here's a plain-language breakdown of the controls and how to assess your current coverage.",
+    slug: 'certin-15-elemental-controls-msme',
+    title: "CERT-In's 15 Elemental Controls for MSMEs: What Each One Actually Means",
+    excerpt: "CERT-In published its MSME cyber defense baseline in September 2025. Here's a plain-language breakdown of the controls and how to assess your current coverage.",
     tag: 'Compliance', emoji: '📋', readMinutes: 6, publishedAt: '2025-09-15',
     body: [
-      'CERT-In has published a baseline set of cyber defense controls designed to establish a practical cyber defense baseline. For a small team, the value of a baseline is simple: it turns "be more secure" into a checklist you can measure against.',
+      'CERT-In has published a baseline set of cyber defense controls aimed at Indian MSMEs. For a small team, the value of a baseline is simple: it turns "be more secure" into a checklist you can measure against.',
       'The practical way to use any baseline is to score each control as implemented, partially implemented, or missing, and to attach evidence to every "implemented" claim. A control with no evidence is an assumption, not a control.',
       'Start with the controls that reduce the most risk for the least effort — typically access control, patching and backups — then work through the rest as a tracked remediation plan with owners and dates.',
       'Replace this draft with your final article before launch.',
@@ -20,11 +20,11 @@ const posts = [
   {
     slug: 'dpdp-2023-enforcement-checklist',
     title: 'DPDP 2023 Enforcement Is Coming: A Practical Checklist for Indian Businesses',
-    excerpt: "India's Digital Personal Data Protection Act introduces obligations with phased enforcement. Here is how organisations can prepare for implementation.",
+    excerpt: "India's Digital Personal Data Protection Act introduces real obligations with phased enforcement. This is what SMBs need to do before the deadline hits their sector.",
     tag: 'DPDP', emoji: '🔐', readMinutes: 8, publishedAt: '2025-08-12',
     body: [
       'The Digital Personal Data Protection Act, 2023 places obligations on organisations that process personal data of individuals in India, with enforcement being phased in.',
-      'A sensible first step for any organisation is a data inventory: what personal data you hold, where it lives, who can access it, and why you collect it. Every later obligation builds on that map.',
+      'A sensible first step for any SMB is a data inventory: what personal data you hold, where it lives, who can access it, and why you collect it. Every later obligation builds on that map.',
       'From there, review consent notices, retention practices, vendor contracts, and your breach-response process. Confirm current deadlines and rules with qualified legal counsel.',
       'Replace this draft with your final article before launch.',
     ],
@@ -32,7 +32,7 @@ const posts = [
   {
     slug: 'why-your-vapt-report-didnt-make-you-secure',
     title: "Why Your VAPT Report Didn't Make You More Secure",
-    excerpt: 'Many organisations treat VAPT as a compliance activity. The report arrives, sits in a shared drive, and the vulnerabilities remain. Here’s how to break the pattern.',
+    excerpt: 'Most Indian SMBs treat VAPT as a compliance activity. The report arrives, sits in a shared drive, and the vulnerabilities remain. Here’s how to break the pattern.',
     tag: 'VAPT', emoji: '🕵️', readMinutes: 7, publishedAt: '2025-07-10',
     body: [
       'A VAPT report is a snapshot. Its value depends entirely on what happens next: who owns each finding, by when it will be fixed, and how the fix is verified.',
@@ -44,7 +44,7 @@ const posts = [
   {
     slug: 'logs-exist-nobody-is-watching',
     title: "Logs Exist. Nobody's Watching. That's the Gap.",
-    excerpt: 'Many organisations do not continuously monitor their security environment. What does real continuous monitoring look like for a small team?',
+    excerpt: 'Few Indian SMBs continuously monitor their security environment. What does real continuous monitoring look like for a small team?',
     tag: 'Monitoring', emoji: '📡', readMinutes: 5, publishedAt: '2025-06-09',
     body: [
       'Most systems already produce logs. The gap is that nobody is reviewing them in time to matter.',
@@ -54,8 +54,8 @@ const posts = [
     ],
   },
   {
-    slug: 'rbi-sebi-cybersecurity-fintech',
-    title: 'RBI & SEBI Cybersecurity Mandates: Key Considerations for Regulated Organisations',
+    slug: 'rbi-sebi-cybersecurity-fintech-smbs',
+    title: 'RBI & SEBI Cybersecurity Mandates: What Fintech SMBs Must Know',
     excerpt: 'Financial sector companies face overlapping obligations from RBI, SEBI, and IRDAI. We break down the intersection and what a compliant security posture looks like.',
     tag: 'Sector', emoji: '🏦', readMinutes: 6, publishedAt: '2025-05-08',
     body: [

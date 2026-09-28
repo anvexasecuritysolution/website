@@ -9,15 +9,15 @@ export const NAV = [
 ];
 
 export const STATS = [
-  { n: '24/7', c: 'c', t: 'continuous security monitoring' },
-  { n: '8', c: 'a', t: 'connected security lifecycle stages' },
-  { n: '100%', c: '', t: 'evidence-first security workflow' },
-  { n: '24h', c: 'a', t: 'rapid incident-response coordination' },
-  { n: '360°', c: 'c', t: 'visibility across your security environment' },
+  { n: '84%', c: 'a', t: 'of Indian SMBs plan to increase cybersecurity spend (2026)' },
+  { n: '40%', c: 'c', t: 'experienced a cyber incident in last 24 months' },
+  { n: '45%', c: '', t: 'cite lack of expertise as their biggest barrier' },
+  { n: '46%', c: 'a', t: 'allocate less than 5% of IT budget to security' },
+  { n: '12%', c: 'c', t: 'continuously monitor their cybersecurity environment' },
 ];
 
 export const GAP_CARDS = [
-  { kind: 'problem', icon: '⚠️', title: 'What security teams face today', text: 'Point-in-time VAPT reports. Annual compliance checks. Siloed tools with limited visibility. No continuous assurance, no evidence trail.' },
+  { kind: 'problem', icon: '⚠️', title: 'What Indian SMBs have today', text: 'Point-in-time VAPT reports. Annual compliance checks. Siloed tools with limited visibility. No continuous assurance, no evidence trail.' },
   { kind: 'solution', icon: '🔗', title: 'What Anvexa connects', text: 'A full lifecycle: Asset Discovery → Vulnerability Scan → Risk Prioritization → Remediation → Re-test → Compliance Mapping → Continuous Monitoring → Evidence Vault. Reassessed continuously.' },
   { kind: 'problem', icon: '📋', title: 'Regulatory pressure is real', text: 'CERT-In incident reporting obligations. DPDP personal-data protection enforcement. SEBI/RBI/IRDAI sector rules. ISO 27001, SOC 2, PCI DSS commercial requirements. Compliance is no longer optional.' },
   { kind: 'solution', icon: '🏆', title: 'One thread from scan to proof', text: 'Anvexa is built to be the single thread: from first asset scan to audit-ready evidence vault. VAPT is just the entry point — continuous security is the product.' },
@@ -44,7 +44,7 @@ export const REGULATIONS = [
   { icon: '🔐', title: 'DPDP 2023', text: 'Personal-data protection obligations with phased enforcement' },
   { icon: '🏦', title: 'Sector Regulations', text: 'SEBI / RBI / IRDAI / PFRDA requirements where applicable' },
   { icon: '🏅', title: 'Commercial Standards', text: 'ISO 27001 / SOC 2 / PCI DSS — increasingly required by enterprise customers' },
-  { icon: '📢', title: 'CERT-In: 15 Elemental Cyber Defense Controls for organisations', text: 'Published September 2025 — raising the baseline expectation for every organisation', hl: true },
+  { icon: '📢', title: 'CERT-In: 15 Elemental Cyber Defense Controls for MSMEs', text: 'Published September 2025 — raising the baseline expectation for every SMB', hl: true },
 ];
 
 // Lifecycle: tone drives colour (c = cyan, a = amber)
@@ -76,7 +76,7 @@ export const FLOW = [
 ];
 
 export const PHASES = [
-  { n: 'Phase 1', time: '0 – 3 months', items: ['Interview 30–50 organisations across one vertical', 'Choose one vertical to focus on', 'Validate the pain and willingness to pay', 'Build assessment + remediation MVP'] },
+  { n: 'Phase 1', time: '0 – 3 months', items: ['Interview 30–50 SMEs across one vertical', 'Choose one vertical to focus on', 'Validate the pain and willingness to pay', 'Build assessment + remediation MVP'] },
   { n: 'Phase 2', time: '3 – 6 months', items: ['Get 5–10 paid customers', 'Automate finding → task → evidence workflow', 'Integrate existing tools / SIEM', 'Build on proven tools rather than a SIEM from scratch'] },
   { n: 'Phase 3', time: '6 – 12 months', items: ['Launch recurring managed security package', 'Continuous compliance mappings', 'Continuous evidence collection', '24/7 monitoring operations'] },
   { n: 'Phase 4', time: '12 – 24 months', items: ['Vertical packs (BFSI, healthcare, logistics)', 'DPDP / data discovery modules', 'Sector-specific controls', 'AI-assisted triage', 'Channel partnerships'] },

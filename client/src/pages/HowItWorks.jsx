@@ -5,7 +5,7 @@ import { FLOW, PHASES } from '../data/content.js';
 export default function HowItWorks() {
   return (
     <>
-      <Seo title="How It Works" description="Anvexa's phased roadmap: from customer discovery to vertical solutions and strategic partnerships." />
+      <Seo title="How It Works" description="Anvexa's phased roadmap: from first SME interviews to vertical packs and channel partnerships." />
       <div className="process-hero">
         <div className="label">From Idea to Scale</div>
         <h1>The Roadmap</h1>
@@ -25,7 +25,7 @@ export default function HowItWorks() {
 
       <div className="wrap">
         <div className="label">The Phases</div>
-        <h2 style={{ marginBottom: '2rem' }}>From customer discovery to strategic partnerships.</h2>
+        <h2 style={{ marginBottom: '2rem' }}>From first SME interview to channel partnerships.</h2>
         <div className="phases-grid">
           {PHASES.map((p, i) => (
             <Reveal className="phase" key={p.n} delay={i * 70}>

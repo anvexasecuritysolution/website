@@ -19,11 +19,11 @@ export default function Blog() {
 
   return (
     <>
-      <Seo title="Blog" description="Practical insights on VAPT, compliance, CERT-In updates and the evolving threat landscape." />
+      <Seo title="Blog" description="Practical insights on VAPT, compliance, CERT-In updates and India's SMB threat landscape." />
       <div className="blog-hero">
         <div className="label">Threat Intelligence</div>
-        <h1>From the front line of modern cybersecurity.</h1>
-        <p style={{ marginTop: '1rem' }}>Practical insights on VAPT, compliance, CERT-In updates, and what is changing across the security landscape.</p>
+        <h1>From the front line of Indian SMB security.</h1>
+        <p style={{ marginTop: '1rem' }}>Practical insights on VAPT, compliance, CERT-In updates, and what's actually happening in India's SMB threat landscape.</p>
       </div>
 
       {error && <p className="state-msg" role="alert">Couldn't load articles: {error}</p>}

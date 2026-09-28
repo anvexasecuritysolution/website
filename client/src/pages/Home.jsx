@@ -9,13 +9,13 @@ export default function Home() {
   return (
     <>
       <Seo
-        description="Continuous security operations, compliance evidence and lifecycle protection for modern organisations — from first discovery to audit-ready proof."
+        description="Continuous security operations, compliance evidence and lifecycle protection for Indian SMBs — from first discovery to audit-ready proof."
       />
       <section className="hero">
         <div className="hero-text">
-          <div className="hero-badge">Enterprise-Ready Cybersecurity — 2026 Roadmap</div>
+          <div className="hero-badge">India SMB Cybersecurity — 2026 Roadmap</div>
           <h1>The product is not a VAPT report.</h1>
-          <p>Anvexa delivers continuous security operations, compliance evidence, and lifecycle protection for modern organisations — from first discovery to audit-ready proof.</p>
+          <p>Anvexa delivers continuous security operations, compliance evidence, and lifecycle protection for Indian SMBs — from first discovery to audit-ready proof.</p>
           <div className="hero-acts">
             <Link to="/contact" className="btn btn-c">Start with a Free Assessment</Link>
             <Link to="/services" className="btn btn-ghost">See How It Works</Link>

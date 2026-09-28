@@ -5,10 +5,10 @@ import { ABOUT_BLOCKS, REGULATIONS } from '../data/content.js';
 export default function About() {
   return (
     <>
-      <Seo title="About" description="Anvexa connects the security lifecycle — discovery, remediation, compliance, monitoring and evidence — for organisations across India." />
+      <Seo title="About" description="Anvexa connects the broken security lifecycle — discovery, remediation, compliance, monitoring and evidence — for India's SMBs." />
       <div className="about-hero wrap">
         <div className="label">Who We Are</div>
-        <h1>Built for organisations that expect security to keep pace with the business.</h1>
+        <h1>Built for India's SMB security gap — not for enterprise budgets.</h1>
         <p style={{ fontSize: '1rem', marginTop: '1.25rem' }}>Anvexa Security Solutions was founded on a single insight: India's small and mid-market businesses are spending more on cybersecurity, but getting less actual security. Tools are being purchased. Reports are being filed. And yet 40% experienced a cyber incident in the last two years.</p>
         <p style={{ marginTop: '1rem' }}>We connect the broken lifecycle — discovery, remediation, compliance, monitoring, and evidence — into one continuous service. Our mission: safer businesses, stronger compliance, a more secure India.</p>
         <div className="hero-actions-mt">
@@ -22,7 +22,7 @@ export default function About() {
           <div>
             <div className="label">What We Do</div>
             <h2>Cybersecurity Operations + Continuous Compliance + Evidence</h2>
-            <p style={{ marginTop: '1rem' }}>For organisations that need measurable security — not another PDF.</p>
+            <p style={{ marginTop: '1rem' }}>For Indian SMBs and mid-market companies that need real security — not another PDF.</p>
             <div className="about-blocks">
               {ABOUT_BLOCKS.map((b) => (
                 <div className="ab" key={b.title}>
