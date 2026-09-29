@@ -1,16 +1,26 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
+import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { FLOW, PHASES } from '../data/content.js';
 
 export default function HowItWorks() {
   return (
     <>
       <Seo title="How It Works" description="A structured four-stage engagement: discover, assess, remediate and assure." />
-      <div className="process-hero">
-        <div className="label">Our Approach</div>
-        <h1>How an engagement works</h1>
-        <p style={{ marginTop: '1.25rem' }}>A structured, four-stage engagement — from scoping to continuous assurance — with evidence produced at every step.</p>
-      </div>
+      <PageHero
+        label="Our Approach"
+        title="How an engagement works"
+        aside={(
+          <AsideCard title="Your engagement at a glance" tiles={[
+            { icon: 'search', label: 'Discover' },
+            { icon: 'shield', label: 'Assess' },
+            { icon: 'wrench', label: 'Remediate' },
+            { icon: 'vault', label: 'Assure' },
+          ]} />
+        )}
+      >
+        <p>A structured, four-stage engagement — from scoping to continuous assurance — with evidence produced at every step.</p>
+      </PageHero>
 
       <div className="process-bottom-bar">
         <div className="pb-flow" role="list" aria-label="Delivery flow">

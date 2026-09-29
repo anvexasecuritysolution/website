@@ -17,14 +17,17 @@ export default function Navbar() {
     <>
       <nav aria-label="Primary">
         <div className="nav-inner">
-          <Link to="/" className="logo" aria-label="Anvexa home">Anvexa<em>.</em></Link>
+          <Link to="/" className="brand" aria-label="Anvexa Security Solutions — home">
+            <img src="/anvexa-mark.svg" alt="" width="47" height="40" />
+            <span className="brand-text"><b>ANVEXA</b><small>Security Solutions</small></span>
+          </Link>
           <ul className="nav-links">
             {NAV.map((l) => (
               <li key={l.to}><NavLink to={l.to} end={l.end}>{l.label}</NavLink></li>
             ))}
           </ul>
           <div className="nav-right">
-            <Link to="/contact" className="nav-btn">Get Protected</Link>
+            <Link to="/contact" className="nav-btn">Book a Demo</Link>
             <button
               className="hamburger"
               aria-label="Toggle menu"
@@ -41,7 +44,7 @@ export default function Navbar() {
         {NAV.map((l) => (
           <NavLink key={l.to} to={l.to} end={l.end}>{l.label}</NavLink>
         ))}
-        <Link to="/contact" className="nav-btn">Get Protected</Link>
+        <Link to="/contact" className="nav-btn">Book a Demo</Link>
       </div>
     </>
   );

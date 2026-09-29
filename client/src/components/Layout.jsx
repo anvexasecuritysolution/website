@@ -10,10 +10,10 @@ function ScrollToTop() {
 }
 
 // Every card-like block. Colour is fixed by its position inside its group (7-colour set),
-// except tiers / engagement steps which keep LAND cyan · FIX violet · RETAIN amber · EXPAND green.
-const FX = '.gap-card,.engage-cell,.ab,.phase,.tier,.bc,.stat-item,.step-item,.reg,.free-box,.reassess,.cta-band,.cdetail';
+// except tiers / engagement steps which keep Assess cyan · Operate amber · Respond green.
+const FX = '.gap-card,.engage-cell,.ab,.phase,.tier,.bc,.stat-item,.step-item,.reg,.free-box,.reassess,.cta-band,.cdetail,.dash-card,.retain-card,.aside-card';
 const FIXED = { '.free-box': 2, '.reassess': 2, '.cta-band': 1 };
-const MEANING = [1, 3, 2, 4]; // cyan, violet, amber, green
+const MEANING = [1, 2, 4, 3]; // cyan, amber, green, violet
 
 function paint() {
   const seen = new Map();

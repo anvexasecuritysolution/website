@@ -6,7 +6,7 @@ import Seo from '../components/Seo.jsx';
 import { api, ApiError } from '../api/client.js';
 import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
 
-const PLAN_TO_SERVICE = { land: SERVICES[0], fix: SERVICES[1], retain: SERVICES[2], expand: SERVICES[3] };
+const PLAN_TO_SERVICE = { land: SERVICES[0], retain: SERVICES[1], expand: SERVICES[2] };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Contact() {

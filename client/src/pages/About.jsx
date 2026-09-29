@@ -1,22 +1,32 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
+import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { ABOUT_BLOCKS, REGULATIONS } from '../data/content.js';
 
 export default function About() {
   return (
     <>
       <Seo title="About" description="Anvexa connects the security lifecycle — discovery, remediation, compliance, monitoring and evidence — into one continuous service." />
-      <div className="about-hero wrap">
-        <div className="label">Who We Are</div>
-        <h1>Security operations built around your business, not around a report.</h1>
-        <p style={{ marginTop: '1.25rem' }}>Anvexa Security Solutions connects the security lifecycle — discovery, remediation, compliance, monitoring and evidence — into one continuous service. Organisations are investing more in security tools, yet assessments end as documents and controls go unverified. We close that gap.</p>
+      <PageHero
+        label="Who We Are"
+        title="Security operations built around your business, not around a report."
+        aside={(
+          <AsideCard title="Anvexa Security Solutions" mark="/anvexa-mark.svg" tiles={[
+            { icon: 'refresh', label: 'Continuous, not point-in-time' },
+            { icon: 'filecheck', label: 'Evidence at every step' },
+            { icon: 'landmark', label: 'Mapped to Indian frameworks' },
+            { icon: 'shield', label: 'One team, start to audit' },
+          ]} />
+        )}
+      >
+        <p>Anvexa Security Solutions connects the security lifecycle — discovery, remediation, compliance, monitoring and evidence — into one continuous service. Organisations are investing more in security tools, yet assessments end as documents and controls go unverified. We close that gap.</p>
         <p style={{ marginTop: '1rem' }}>Our mission: safer businesses, stronger compliance, a more secure India.</p>
         <div className="hero-actions-mt">
           <Link to="/contact" className="btn btn-c">Talk to us</Link>
           <Link to="/services" className="btn btn-ghost">Our Services</Link>
         </div>
-      </div>
+      </PageHero>
       <div className="wrap">
         <div className="about-cols">
           <div>

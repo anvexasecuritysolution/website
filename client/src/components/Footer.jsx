@@ -5,8 +5,8 @@ export default function Footer() {
     <footer>
       <div className="footer-inner">
         <div className="footer-brand">
-          <Link to="/" className="logo">Anvexa<em>.</em></Link>
-          <p>Safer businesses. Stronger compliance. A more secure India.</p>
+          <Link to="/" aria-label="Anvexa Security Solutions — home"><img className="footer-logo" src="/anvexa-logo-dark.svg" alt="Anvexa Security Solutions" width="200" height="175" /></Link>
+          <p>Continuous Cybersecurity, Simplified. Safer businesses, stronger compliance, a more secure India.</p>
         </div>
         <div className="fc">
           <h4>Services</h4>

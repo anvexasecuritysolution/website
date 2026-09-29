@@ -1,17 +1,27 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
+import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { TIERS } from '../data/content.js';
 
 export default function Pricing() {
   return (
     <>
       <Seo title="Pricing" description="Start with an assessment and grow into continuous security. Every engagement is scoped to your environment." />
-      <div className="pricing-hero">
-        <div className="label">Pricing</div>
-        <h1>Start with a scan.<br />Stay for the security.</h1>
-        <p style={{ marginTop: '1.25rem' }}>Every engagement begins with an assessment and grows into a continuous partnership. No lock-in at step one — prove value first.</p>
-      </div>
+      <PageHero
+        label="Pricing"
+        title={<>Start with a scan.<br />Stay for the security.</>}
+        aside={(
+          <AsideCard title="Included in every engagement" tiles={[
+            { icon: 'phone', label: 'Free discovery call' },
+            { icon: 'scan', label: 'Scoped to your environment' },
+            { icon: 'filecheck', label: 'Evidence at every step' },
+            { icon: 'badge', label: 'A dedicated security contact' },
+          ]} />
+        )}
+      >
+        <p>Every engagement begins with an assessment and grows into a continuous partnership. No lock-in at step one — prove value first.</p>
+      </PageHero>
       <div className="pricing-grid">
         {TIERS.map((t, i) => (
           <Reveal className={`tier${t.featured ? ' featured' : ''}`} key={t.name} delay={i * 70}>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import Icon, { TAG_ICON } from '../components/Icon.jsx';
+import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { api } from '../api/client.js';
 
 export const fmtDate = (d) => new Date(d).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
@@ -21,11 +22,21 @@ export default function Blog() {
   return (
     <>
       <Seo title="Blog" description="Practical insights on VAPT, compliance, regulatory updates and the threat landscape in India." />
-      <div className="blog-hero">
-        <div className="label">Threat Intelligence</div>
-        <h1>Insights from the security front line.</h1>
-        <p style={{ marginTop: '1rem' }}>Practical insights on VAPT, compliance, CERT-In updates, and what is actually happening in India's threat landscape.</p>
-      </div>
+      <PageHero
+        label="Threat Intelligence"
+        title="Insights from the security front line."
+        aside={(
+          <AsideCard title="Topics we cover" tiles={[
+            { icon: 'scan', label: 'VAPT and risk' },
+            { icon: 'lock', label: 'CERT-In and DPDP' },
+            { icon: 'landmark', label: 'RBI, SEBI, IRDAI' },
+            { icon: 'shieldalert', label: 'Application security' },
+            { icon: 'radar', label: 'Continuous monitoring' },
+          ]} />
+        )}
+      >
+        <p>Practical insights on VAPT, compliance, CERT-In updates, and what is actually happening in India's threat landscape.</p>
+      </PageHero>
 
       {error && <p className="state-msg" role="alert">Couldn't load articles: {error}</p>}
       {!posts && !error && <p className="state-msg">Loading articles…</p>}

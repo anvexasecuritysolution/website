@@ -1,18 +1,21 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import Icon from '../components/Icon.jsx';
+import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { STEPS } from '../data/content.js';
 
 export default function Services() {
   return (
     <>
-      <Seo title="Services" description="Eight steps, one continuous loop: asset discovery, VAPT, risk prioritization, remediation, re-test, compliance mapping, monitoring and evidence." />
-      <div className="lifecycle-intro">
-        <div className="label">The Lifecycle</div>
-        <h1>Eight steps. One continuous loop. Zero gaps.</h1>
-        <p style={{ marginTop: '1.25rem' }}>This is not a point-in-time assessment. It is an operational model that reassesses continuously — turning findings into fixes, fixes into evidence, and evidence into business confidence.</p>
-        <div className="lifecycle-tagline">Find <span>→</span> Fix <span>→</span> Verify <span>→</span> Monitor <span>→</span> Prove</div>
-      </div>
+      <Seo title="Services" description="A continuous lifecycle: asset discovery, VAPT and risk, remediation, retest, control mapping, continuous watch, incident response, evidence and audit." />
+      <PageHero
+        label="The Lifecycle"
+        title="Secure once. Operate continuously."
+        aside={<AsideCard title="The lifecycle at a glance" tiles={STEPS.map((s) => ({ k: s.n, label: s.title }))} />}
+      >
+        <p>Security doesn't end after the first VAPT. The environment changes every day — so the security loop keeps moving.</p>
+        <div className="lifecycle-tagline">↻ Reassess <span>→</span> Discover <span>→</span> Continue</div>
+      </PageHero>
       <div className="lifecycle-steps">
         <ol className="step-timeline" style={{ listStyle: 'none' }}>
           {STEPS.map((s) => (
