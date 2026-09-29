@@ -884,3 +884,9 @@ nav.scrolled{box-shadow:0 8px 30px var(--shadow)}
   .hero h1,.page-hero h1{-webkit-text-fill-color:var(--text);color:var(--text);background:none}
   .scroll-progress{display:none}
 }
+
+/* success / error note shown under the submit button (form stays visible) */
+.contact-form .form-ok,.contact-form .form-error{padding:.9rem 1.1rem;text-align:left;font-size:var(--fs-small);line-height:1.5;
+  animation:noteIn .45s cubic-bezier(.22,.9,.32,1)}
+.contact-form .form-ok{border-color:var(--cyan-line)}
+@keyframes noteIn{from{opacity:0;transform:translateY(-8px)}}

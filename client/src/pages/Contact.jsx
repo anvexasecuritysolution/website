@@ -11,15 +11,19 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Contact() {
   const [params] = useSearchParams();
-  const [form, setForm] = useState({
+  const emptyForm = () => ({
     firstName: '', lastName: '', email: '', company: '', industry: '',
     service: PLAN_TO_SERVICE[params.get('plan')] || '', message: '', website: '',
   });
+  const [form, setForm] = useState(emptyForm);
   const [errors, setErrors] = useState({});
   const [formError, setFormError] = useState('');
   const [status, setStatus] = useState('idle'); // idle | sending | sent
 
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const set = (k) => (e) => {
+    setStatus((st) => (st === 'sent' ? 'idle' : st)); // hide the success note once they start a new message
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+  };
 
   const validate = () => {
     const err = {};
@@ -31,6 +35,7 @@ export default function Contact() {
   async function onSubmit(e) {
     e.preventDefault();
     setFormError('');
+    setStatus('idle');
     const err = validate();
     setErrors(err);
     if (Object.keys(err).length) return;
@@ -38,6 +43,7 @@ export default function Contact() {
     setStatus('sending');
     try {
       await api.submitLead(form);
+      setForm(emptyForm()); // clear the fields; the form stays on screen
       setStatus('sent');
     } catch (ex) {
       setStatus('idle');
@@ -67,10 +73,7 @@ export default function Contact() {
         </div>
 
         <div>
-          {status === 'sent' ? (
-            <div className="form-ok" role="status">✓ Message received. We'll be in touch within one business day.</div>
-          ) : (
-            <form className="contact-form" onSubmit={onSubmit} noValidate>
+          <form className="contact-form" onSubmit={onSubmit} noValidate>
               <div className="form-row">
                 <div className="field">
                   <label htmlFor="firstName">First name</label>
@@ -107,12 +110,13 @@ export default function Contact() {
               <div className="hp" aria-hidden="true">
                 <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} /></label>
               </div>
-              {formError && <div className="form-error" role="alert">{formError}</div>}
               <button type="submit" className="form-btn" disabled={status === 'sending'}>
                 {status === 'sending' ? 'Sending…' : 'Send Message'}
               </button>
-            </form>
-          )}
+              {/* result message sits directly below the submit button */}
+              {status === 'sent' && <div className="form-ok" role="status">✓ Message received. We'll be in touch within one business day.</div>}
+              {formError && <div className="form-error" role="alert">{formError}</div>}
+          </form>
         </div>
       </div>
     </>
