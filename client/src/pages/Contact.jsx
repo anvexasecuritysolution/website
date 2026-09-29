@@ -66,7 +66,7 @@ export default function Contact() {
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
-            <div className="cdetail"><div className="cdetail-icon"><Icon name="pin" size={18} /></div>India · Remote Engagements Available Nationwide</div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="pin" size={18} /></div>Noida Sector 63</div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="clock" size={18} /></div>Response within 1 business day</div>
           </div>
           <div className="free-box"><p><strong>Free initial assessment.</strong> Every new engagement begins with a complimentary discovery call and a brief asset inventory review — no commitment required.</p></div>
