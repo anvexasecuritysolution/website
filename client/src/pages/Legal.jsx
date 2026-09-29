@@ -6,11 +6,12 @@ import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { CONTACT } from '../data/content.js';
 import { LEGAL_UPDATED, PRIVACY, TERMS } from '../data/legal.js';
 
-// Replace {email} / {phone} tokens with real links.
+// Replace {email} / {phone} / {address} tokens with real links.
 function Rich({ text }) {
-  return text.split(/(\{email\}|\{phone\})/).map((part, i) => {
+  return text.split(/(\{email\}|\{phone\}|\{address\})/).map((part, i) => {
     if (part === '{email}') return <a key={i} href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>;
     if (part === '{phone}') return <a key={i} href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}>{CONTACT.phone}</a>;
+    if (part === '{address}') return CONTACT.address;
     return part;
   });
 }

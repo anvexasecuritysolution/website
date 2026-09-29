@@ -22,7 +22,7 @@ export default function Dashboard() {
           <h4>Executive view</h4>
           <p className="dash-sub">Business owner sees outcomes, not thousands of raw events.</p>
           {METRICS.map((m, i) => (
-            <div className="metric" key={m.label}>
+            <div className="metric" key={m.label} style={{ '--mc': TONE[m.tone] }}>
               <div className="metric-row">
                 <span>{m.label}</span>
                 <strong><CountUp key={`n-${replayKey}-${m.label}`} value={`${m.value}%`} /></strong>

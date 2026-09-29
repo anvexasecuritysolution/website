@@ -13,7 +13,7 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero-text">
-          <div className="hero-badge">Continuous Cybersecurity for Indian Businesses</div>
+          <div className="hero-badge">Always-On Cybersecurity, Built for Indian Businesses</div>
           <h1>Security that doesn't stop at the report.</h1>
           <p>Anvexa connects asset discovery, VAPT, remediation, compliance, monitoring, incident response and audit evidence into one continuous security lifecycle.</p>
           <div className="hero-acts">
@@ -38,7 +38,7 @@ export default function Home() {
 
       <section className="wrap">
         <div className="label">Why Now</div>
-        <h2>The problem isn't a lack of security tools. It's the gap between having them and continuously operating them.</h2>
+        <h2 className="two-line"><span>The problem isn't a lack of security tools.</span> <span>It's the gap between having them and continuously operating them.</span></h2>
         <p style={{ marginTop: '1rem' }}>Organisations are investing more, but many still operate with fragmented visibility, reactive remediation and limited in-house expertise. The operational layer is where we focus.</p>
         <div className="gap-grid">
           {GAP_CARDS.map((c, i) => (
@@ -61,7 +61,7 @@ export default function Home() {
 
       <section className="wrap">
         <div className="label">One Operating Layer</div>
-        <h2>From “what's wrong?” to “show me that it's fixed.”</h2>
+        <h2>Security findings are only the beginning. Proof is the outcome.</h2>
         <p style={{ marginTop: '1rem' }}>We don't ask customers to replace every security product. We connect the important signals and turn them into actions.</p>
         <div className="about-blocks">
           {ABOUT_BLOCKS.map((b, i) => (

@@ -1,4 +1,4 @@
-// Legal copy for /privacy and /terms. Tokens {email} and {phone} render as links.
+// Legal copy for /privacy and /terms. Tokens {email}, {phone} and {address} render as links.
 export const LEGAL_UPDATED = '29 September 2026';
 
 export const PRIVACY = {
@@ -98,7 +98,7 @@ export const PRIVACY = {
     },
     {
       h: 'Contact',
-      p: ['Anvexa Security Solutions, India. Email: {email}. Phone: {phone}.'],
+      p: ['Anvexa Security Solutions, {address}. Email: {email}. Phone: {phone}.'],
     },
   ],
 };
@@ -199,7 +199,7 @@ export const TERMS = {
     },
     {
       h: 'Contact',
-      p: ['Questions about these Terms? Email {email} or call {phone}.'],
+      p: ['Questions about these Terms? Email {email} or call {phone}. Our address is {address}.'],
     },
   ],
 };

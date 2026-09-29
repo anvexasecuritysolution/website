@@ -9,17 +9,17 @@ export const NAV = [
 ];
 
 export const FRAMEWORKS = [
-  { name: 'CERT-In', text: 'Incident reporting and log obligations' },
-  { name: 'DPDP Act 2023', text: 'Personal-data protection' },
-  { name: 'ISO 27001', text: 'Information security management' },
-  { name: 'SOC 2', text: 'Trust services criteria' },
-  { name: 'PCI DSS', text: 'Payment card security' },
-  { name: 'SEBI / RBI / IRDAI', text: 'Sector-specific mandates' },
+  { name: 'CERT-In', text: "India's national cyber agency requires reporting incidents within six hours and retaining system logs for 180 days. We map your logging, monitoring and response processes to these directions." },
+  { name: 'DPDP Act 2023', text: "India's data protection law sets duties for consent, purpose limitation, security safeguards and breach notification. We map technical safeguards and evidence to these obligations so accountability is demonstrable." },
+  { name: 'ISO 27001', text: 'The international standard for an information security management system, built on risk assessment and Annex A controls. We link findings and fixes to controls and keep certification evidence ready.' },
+  { name: 'SOC 2', text: 'An independent attestation of security, availability, confidentiality, processing integrity and privacy controls, often demanded by enterprise customers. We collect continuous, timestamped evidence to support Type II audits.' },
+  { name: 'PCI DSS', text: 'The global standard for organisations that store, process or transmit payment card data, covering secure networks, access control, testing and monitoring. We map scans, fixes and evidence to its requirements.' },
+  { name: 'SEBI / RBI / IRDAI', text: 'Sector regulators impose cybersecurity frameworks on financial firms covering governance, audits, incident reporting and third-party risk. We align controls and evidence to whichever mandates apply to your regulated business.' },
 ];
 
 export const GAP_CARDS = [
   { kind: 'problem', icon: 'alert', title: 'Traditional approach', text: 'VAPT report → spreadsheet → email → manual remediation → audit scramble → repeat.' },
-  { kind: 'solution', icon: 'link', title: 'The Anvexa approach', text: 'Finding → owner → deadline → fix → automatic verification → compliance evidence → continuous monitoring.' },
+  { kind: 'solution', icon: 'link', title: 'The Anvexa approach', text: 'Finding → named owner → firm deadline → guided fix → automatic re-test → audit-ready evidence → continuous monitoring.' },
 ];
 
 export const ENGAGE = [
@@ -97,16 +97,25 @@ export const SERVICES = [
   'Not sure — need a consultation',
 ];
 
+// Social profiles — paste each profile URL into `url` once the pages exist.
+// While `url` is empty the icon is shown but does not navigate anywhere.
+export const SOCIALS = [
+  { name: 'instagram', label: 'Instagram', url: '' },
+  { name: 'linkedin', label: 'LinkedIn', url: '' },
+  { name: 'x', label: 'X', url: '' },
+];
+
 export const CONTACT = {
   email: 'anvexasecuritysolution@gmail.com',
   phone: '+91 78359 47340',
+  address: 'A Block, Sector 63, Noida, Uttar Pradesh 201309',
 };
 
 export const METRICS = [
-  { label: 'Security posture', value: 84 },
-  { label: 'Compliance evidence', value: 91 },
-  { label: 'MFA coverage', value: 97 },
-  { label: 'Critical risks closed', value: 78 },
+  { label: 'Security posture', value: 84, tone: 'c' },
+  { label: 'Compliance evidence', value: 91, tone: 'g' },
+  { label: 'MFA coverage', value: 97, tone: 'v' },
+  { label: 'Critical risks closed', value: 78, tone: 'a' },
 ];
 
 export const ACTIONS = [
