@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
+import Reveal from '../components/Reveal.jsx';
 import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { ABOUT_BLOCKS, REGULATIONS } from '../data/content.js';
 
@@ -34,12 +35,12 @@ export default function About() {
             <h2>Security Operations + Continuous Compliance + Evidence</h2>
             <p style={{ marginTop: '1rem' }}>Real security outcomes — not another PDF.</p>
             <div className="about-blocks">
-              {ABOUT_BLOCKS.map((b) => (
-                <div className="ab" key={b.title}>
+              {ABOUT_BLOCKS.map((b, i) => (
+                <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
                   <div className="ab-icon"><Icon name={b.icon} /></div>
                   <h4>{b.title}</h4>
                   <p>{b.text}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -47,14 +48,14 @@ export default function About() {
             <div className="label">Regulatory Landscape</div>
             <h2>Obligations that keep expanding.</h2>
             <div className="regulations">
-              {REGULATIONS.map((r) => (
-                <div className="reg" key={r.title}>
+              {REGULATIONS.map((r, i) => (
+                <Reveal as="div" className="reg" key={r.title} delay={i * 70}>
                   <div className="reg-icon"><Icon name={r.icon} size={18} /></div>
                   <div>
                     <div className="reg-title">{r.title}</div>
                     <div className="reg-text">{r.text}</div>
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>

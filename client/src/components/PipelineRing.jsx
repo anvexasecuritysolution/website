@@ -3,7 +3,7 @@ import { RING_NODES } from '../data/content.js';
 
 const CX = 230, CY = 230, R = 190;
 const DUR = '56s'; // one full lap
-const color = (tone) => (tone === 'a' ? '#F4A523' : '#00D4E8');
+const color = (tone) => (tone === 'a' ? 'var(--amber)' : 'var(--cyan)');
 
 export default function PipelineRing() {
   const svg = useRef(null);
@@ -25,13 +25,13 @@ export default function PipelineRing() {
     >
       <defs>
         <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#00D4E8" stopOpacity=".08" />
-          <stop offset="100%" stopColor="#00D4E8" stopOpacity="0" />
+          <stop offset="0%" style={{ stopColor: 'var(--cyan)' }} stopOpacity=".08" />
+          <stop offset="100%" style={{ stopColor: 'var(--cyan)' }} stopOpacity="0" />
         </radialGradient>
       </defs>
       <circle cx={CX} cy={CY} r="210" fill="url(#ringGlow)" />
-      <circle cx={CX} cy={CY} r={R} stroke="#00D4E8" strokeOpacity=".22" strokeDasharray="4 8" />
-      <circle cx={CX} cy={CY} r="140" stroke="#F4A523" strokeOpacity=".14" strokeDasharray="3 6" />
+      <circle cx={CX} cy={CY} r={R} style={{ stroke: 'var(--cyan)' }} strokeOpacity=".22" strokeDasharray="4 8" />
+      <circle cx={CX} cy={CY} r="140" style={{ stroke: 'var(--amber)' }} strokeOpacity=".14" strokeDasharray="3 6" />
 
       {/* orbit: the whole node set travels around the centre */}
       <g>
@@ -50,12 +50,11 @@ export default function PipelineRing() {
                 )}
                 <g className="ring-node">
                   <title>{`${i + 1}. ${node.label}`}</title>
-                  <circle r="22" fill="#0E1F35" stroke={color(node.tone)} strokeWidth="1.75" />
-                  <text y="6" textAnchor="middle" fontSize="16" fontWeight="700" fill={color(node.tone)} fontFamily="DM Sans, sans-serif">{i + 1}</text>
+                  <circle r="22" style={{ fill: 'var(--ink2)', stroke: color(node.tone) }} strokeWidth="1.75" />
+                  <text y="6" textAnchor="middle" fontSize="16" fontWeight="700" style={{ fill: color(node.tone) }} fontFamily="Roboto Slab, serif">{i + 1}</text>
                   <text
-                    y="46" textAnchor="middle" fontSize="18" fontWeight="500" fontFamily="DM Sans, sans-serif"
-                    fill={node.tone === 'a' ? '#F4A523' : '#E0EAF4'}
-                    stroke="#07111F" strokeWidth="5" paintOrder="stroke" strokeLinejoin="round"
+                    y="46" textAnchor="middle" fontSize="18" fontWeight="500" fontFamily="Roboto Slab, serif"
+                    style={{ fill: node.tone === 'a' ? 'var(--amber)' : 'var(--text)', stroke: 'var(--ink)' }} strokeWidth="5" paintOrder="stroke" strokeLinejoin="round"
                   >{node.label}</text>
                 </g>
               </g>
@@ -64,9 +63,9 @@ export default function PipelineRing() {
         })}
       </g>
 
-      <text x={CX} y="212" textAnchor="middle" fontSize="20" fontWeight="700" fill="#E0EAF4" fontFamily="Syne, sans-serif">Find · Fix</text>
-      <text x={CX} y="238" textAnchor="middle" fontSize="20" fontWeight="700" fill="#E0EAF4" fontFamily="Syne, sans-serif">Verify · Monitor</text>
-      <text x={CX} y="264" textAnchor="middle" fontSize="20" fontWeight="800" fill="#00D4E8" fontFamily="Syne, sans-serif">Prove</text>
+      <text x={CX} y="212" textAnchor="middle" fontSize="20" fontWeight="700" style={{ fill: 'var(--text)' }} fontFamily="Roboto Slab, serif">Find · Fix</text>
+      <text x={CX} y="238" textAnchor="middle" fontSize="20" fontWeight="700" style={{ fill: 'var(--text)' }} fontFamily="Roboto Slab, serif">Verify · Monitor</text>
+      <text x={CX} y="264" textAnchor="middle" fontSize="20" fontWeight="800" style={{ fill: 'var(--cyan)' }} fontFamily="Roboto Slab, serif">Prove</text>
     </svg>
   );
 }

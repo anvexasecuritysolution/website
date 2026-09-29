@@ -4,6 +4,7 @@ import { NAV } from '../data/content.js';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => setOpen(false), [pathname]);
@@ -13,9 +14,16 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 12);
+    on();
+    window.addEventListener('scroll', on, { passive: true });
+    return () => window.removeEventListener('scroll', on);
+  }, []);
+
   return (
     <>
-      <nav aria-label="Primary">
+      <nav aria-label="Primary" className={scrolled ? 'scrolled' : undefined}>
         <div className="nav-inner">
           <Link to="/" className="brand" aria-label="Anvexa Security Solutions — home">
             <img src="/anvexa-mark.svg" alt="" width="47" height="40" />

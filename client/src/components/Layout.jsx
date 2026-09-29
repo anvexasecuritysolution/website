@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
+import ScrollProgress from './ScrollProgress.jsx';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -11,7 +13,7 @@ function ScrollToTop() {
 
 // Every card-like block. Colour is fixed by its position inside its group (7-colour set),
 // except tiers / engagement steps which keep Assess cyan · Operate amber · Respond green.
-const FX = '.gap-card,.engage-cell,.ab,.phase,.tier,.bc,.stat-item,.step-item,.reg,.free-box,.reassess,.cta-band,.cdetail,.dash-card,.retain-card,.aside-card';
+const FX = '.gap-card,.engage-cell,.ab,.phase,.tier,.bc,.stat-item,.step-item,.reg,.free-box,.reassess,.cta-band,.cdetail,.retain-card,.aside-card';
 const FIXED = { '.free-box': 2, '.reassess': 2, '.cta-band': 1 };
 const MEANING = [1, 2, 4, 3]; // cyan, amber, green, violet
 
@@ -29,6 +31,29 @@ function paint() {
     }
     el.dataset.c = String(c);
   });
+  animateCards();
+}
+
+// Cards fade/rise in as they enter the viewport, staggered by their place in the group.
+let cardIO;
+function animateCards() {
+  if (!('IntersectionObserver' in window)) return;
+  if (!cardIO) {
+    cardIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('seen'); cardIO.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  }
+  const groups = new Map();
+  document.querySelectorAll(FX).forEach((el) => {
+    if (el.dataset.anim) return;
+    const n = groups.get(el.parentElement) || 0;
+    groups.set(el.parentElement, n + 1);
+    el.dataset.anim = '1';
+    el.style.setProperty('--i', String(Math.min(n, 6)));
+    cardIO.observe(el);
+  });
 }
 
 function useCards() {
@@ -42,12 +67,15 @@ function useCards() {
 
 export default function Layout() {
   useCards();
+  const { pathname } = useLocation();
   return (
     <>
       <a href="#main" className="skip-link">Skip to content</a>
+      <ScrollProgress />
       <ScrollToTop />
       <Navbar />
-      <main id="main"><Outlet /></main>
+      <ThemeToggle />
+      <main id="main"><div className="page-fade" key={pathname}><Outlet /></div></main>
       <Footer />
     </>
   );

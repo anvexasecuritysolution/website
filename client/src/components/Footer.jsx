@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useTheme } from '../hooks/useTheme.js';
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer>
       <div className="footer-inner">
         <div className="footer-brand">
-          <Link to="/" aria-label="Anvexa Security Solutions — home"><img className="footer-logo" src="/anvexa-logo-dark.svg" alt="Anvexa Security Solutions" width="200" height="175" /></Link>
+          <Link to="/" aria-label="Anvexa Security Solutions — home"><img className="footer-logo" src={theme === 'light' ? '/anvexa-logo.svg' : '/anvexa-logo-dark.svg'} alt="Anvexa Security Solutions" width="200" height="175" /></Link>
           <p>Continuous Cybersecurity, Simplified. Safer businesses, stronger compliance, a more secure India.</p>
         </div>
         <div className="fc">

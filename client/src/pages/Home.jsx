@@ -64,12 +64,12 @@ export default function Home() {
         <h2>From “what's wrong?” to “show me that it's fixed.”</h2>
         <p style={{ marginTop: '1rem' }}>We don't ask customers to replace every security product. We connect the important signals and turn them into actions.</p>
         <div className="about-blocks">
-          {ABOUT_BLOCKS.map((b) => (
-            <div className="ab" key={b.title}>
+          {ABOUT_BLOCKS.map((b, i) => (
+            <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
               <div className="ab-icon"><Icon name={b.icon} /></div>
               <h4>{b.n} · {b.title}</h4>
               <p>{b.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
         <div style={{ marginTop: '2rem' }}><Link to="/services" className="btn btn-a">See the Full Lifecycle</Link></div>
@@ -87,12 +87,12 @@ export default function Home() {
         <h2>Start with an assessment. Continue with continuous security.</h2>
         <p style={{ marginTop: '1rem' }}>One-time work opens the relationship. Recurring operations create durable value.</p>
         <div className="engage-grid">
-          {ENGAGE.map((e) => (
-            <div key={e.k} className="engage-cell">
+          {ENGAGE.map((e, i) => (
+            <Reveal as="div" key={e.k} className="engage-cell" delay={i * 80}>
               <div className="k">{e.k}</div>
               <h4>{e.title}</h4>
               <p>{e.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -101,12 +101,12 @@ export default function Home() {
         <div className="label">Why Customers Stay</div>
         <h2>The value compounds over time.</h2>
         <div className="engage-grid">
-          {RETENTION.map((r) => (
-            <div className="retain-card" key={r.title}>
+          {RETENTION.map((r, i) => (
+            <Reveal as="div" className="retain-card" key={r.title} delay={i * 80}>
               <div className="ab-icon"><Icon name={r.icon} /></div>
               <h4>{r.title}</h4>
               <p>{r.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
