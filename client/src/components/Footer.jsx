@@ -39,7 +39,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Anvexa Security Solutions. All rights reserved.</p>
-        <p>Privacy Policy · Terms of Service</p>
+        <p className="footer-legal"><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms of Service</Link></p>
       </div>
     </footer>
   );

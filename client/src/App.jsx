@@ -10,6 +10,7 @@ import Blog from './pages/Blog.jsx';
 import BlogPost from './pages/BlogPost.jsx';
 import Contact from './pages/Contact.jsx';
 import NotFound from './pages/NotFound.jsx';
+import { PrivacyPage, TermsPage } from './pages/Legal.jsx';
 import AdminLogin from './pages/admin/Login.jsx';
 import AdminLeads from './pages/admin/Leads.jsx';
 
@@ -25,6 +26,8 @@ export default function App() {
         <Route path="blog" element={<Blog />} />
         <Route path="blog/:slug" element={<BlogPost />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="privacy" element={<PrivacyPage />} />
+        <Route path="terms" element={<TermsPage />} />
         <Route path="admin/login" element={<AdminLogin />} />
         <Route path="admin/leads" element={<RequireAuth><AdminLeads /></RequireAuth>} />
         <Route path="*" element={<NotFound />} />
