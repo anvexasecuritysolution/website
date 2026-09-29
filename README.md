@@ -41,6 +41,30 @@ Setup:
 If GitHub is unreachable the request is still saved in MongoDB and the error is logged.
 The JSON file is a snapshot at submit time; later status changes in the admin page are not written back.
 
+## No-server setup (recommended for Vercel/Netlify static hosting)
+
+The contact form can run with no backend at all. Set one or both in Vercel > Settings > Environment Variables, then redeploy:
+
+- `VITE_WEB3FORMS_KEY`: get a free key at web3forms.com (enter your email, the key arrives by mail). Each enquiry is emailed to you. Free plan: 250/month, no stored history.
+- `VITE_SHEETS_URL`: each enquiry becomes a row in your own Google Sheet. Open a Sheet > Extensions > Apps Script, paste `google-apps-script/Code.gs`, set `NOTIFY_EMAIL` if you want an email alert, then Deploy > New deployment > Web app (Execute as: Me, Access: Anyone) and copy the `/exec` URL.
+
+If neither is set, the form uses the `/api` backend instead. The blog works without a backend (articles are bundled in `client/src/data/posts.js`).
+Note: `VITE_` values are public in the built site. That is normal for both services.
+
+## Deploying on Vercel (no separate server)
+
+`client/api/` contains Vercel serverless functions, so the site works on Vercel alone:
+
+- `POST /api/leads` validates the form and saves it to `data/leads.json` in your private GitHub repo.
+- `GET /api/posts` and `GET /api/posts/:slug` serve the blog articles (`client/api/_lib/posts.js`).
+
+Steps:
+1. In Vercel, set the project **Root Directory** to `client`.
+2. Add Environment Variables: `GITHUB_TOKEN`, `GITHUB_REPO` (and optionally `GITHUB_BRANCH`, `GITHUB_LEADS_PATH`).
+3. Redeploy. Leave `VITE_API_URL` empty.
+
+The MongoDB admin panel (`/admin`) needs the Express server and is not part of the Vercel-only setup.
+
 ## Structure
 
 ```
