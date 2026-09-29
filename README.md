@@ -21,6 +21,26 @@ npm run dev
 
 Open http://localhost:5173 · Admin: http://localhost:5173/admin/login
 
+## Saving leads as JSON in GitHub
+
+Every contact/demo request is saved in MongoDB **and** appended to a JSON file in a GitHub repo
+(default `data/leads.json`, one commit per lead). Example entry:
+
+```json
+{ "id": "...", "submittedAt": "2026-09-29T10:15:00.000Z", "firstName": "Asha", "lastName": "Rao",
+  "email": "asha@example.com", "company": "Acme", "industry": "IT / SaaS",
+  "service": "Security Assessment (VAPT & Risk)", "message": "...", "status": "new" }
+```
+
+Setup:
+1. Create a **private** GitHub repo (the file holds names and emails), e.g. `anvexa-leads`.
+2. GitHub > Settings > Developer settings > Fine-grained tokens > select only that repo > *Contents: Read and write*.
+3. In `server/.env` set `GITHUB_TOKEN`, `GITHUB_REPO=your-username/anvexa-leads`, and optionally `GITHUB_BRANCH` / `GITHUB_LEADS_PATH`.
+4. Restart the API. Leave `GITHUB_TOKEN` blank to switch this off.
+
+If GitHub is unreachable the request is still saved in MongoDB and the error is logged.
+The JSON file is a snapshot at submit time; later status changes in the admin page are not written back.
+
 ## Structure
 
 ```

@@ -4,6 +4,7 @@ import rateLimit from 'express-rate-limit';
 import { Lead, INDUSTRIES, SERVICES } from '../models/Lead.js';
 import { requireAuth } from '../middleware/auth.js';
 import { HttpError } from '../middleware/error.js';
+import { saveLeadToGithub } from '../services/githubStore.js';
 
 const router = Router();
 
@@ -31,7 +32,18 @@ router.post('/', submitLimiter, async (req, res, next) => {
   try {
     const { website, ...data } = leadSchema.parse(req.body);
     if (website) return res.status(201).json({ ok: true }); // bot: pretend success, store nothing
-    await Lead.create({ ...data, ip: req.ip });
+    const lead = await Lead.create({ ...data, ip: req.ip });
+    // Also keep a JSON copy in GitHub. A GitHub problem must never lose or fail the request.
+    try {
+      await saveLeadToGithub({
+        id: String(lead._id),
+        submittedAt: lead.createdAt.toISOString(),
+        ...data,
+        status: lead.status,
+      });
+    } catch (err) {
+      console.error('GitHub lead backup failed:', err.message);
+    }
     res.status(201).json({ ok: true });
   } catch (e) { next(e); }
 });

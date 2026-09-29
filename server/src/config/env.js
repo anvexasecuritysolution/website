@@ -15,4 +15,11 @@ export const env = {
   clientOrigins: (process.env.CLIENT_ORIGIN || 'http://localhost:5173').split(',').map((s) => s.trim()),
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '8h',
+  github: {
+    token: process.env.GITHUB_TOKEN || '',
+    repo: process.env.GITHUB_REPO || '', // "owner/name"
+    branch: process.env.GITHUB_BRANCH || 'main',
+    path: process.env.GITHUB_LEADS_PATH || 'data/leads.json',
+    apiUrl: process.env.GITHUB_API_URL || 'https://api.github.com',
+  },
 };
