@@ -12,7 +12,7 @@ export default function Footer() {
             <img src="/anvexa-mark.svg" alt="" width="47" height="40" />
             <span className="brand-text"><b>ANVEXA</b><small>Security Solutions</small></span>
           </Link>
-          <p>We identify hidden vulnerabilities, help fix critical risks, and verify every remediation. Through continuous security testing, compliance support, and evidence-driven validation, we help organizations strengthen their defenses, reduce cyber risk, and build digital environments they can trust.</p>
+          <p>We find hidden vulnerabilities, help remediate the critical ones and verify every fix. We also map your controls to the frameworks you answer to and keep testing as your environment changes.</p>
           <div className="follow-row">
             <span className="follow-label">Follow us on</span>
             <div className="social-row">

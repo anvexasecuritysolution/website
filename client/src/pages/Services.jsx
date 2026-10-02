@@ -7,14 +7,14 @@ import { STEPS } from '../data/content.js';
 export default function Services() {
   return (
     <>
-      <Seo title="Services" description="A continuous lifecycle: asset discovery, VAPT and risk, remediation, retest, control mapping, continuous watch, incident response, evidence and audit." />
+      <Seo title="Services" description="Our eight-step lifecycle: asset discovery, VAPT and risk, remediation, retest, control mapping, continuous watch, incident response, evidence and audit." />
       <PageHero
-        label="The Lifecycle"
-        title="Secure once. Operate continuously."
+        label="Our services"
+        title="Test it once. Keep it secure after that."
         aside={<AsideCard title="The lifecycle at a glance" tiles={STEPS.map((s) => ({ k: s.n, label: s.title }))} />}
       >
-        <p>Security doesn't end after the first VAPT. The environment changes every day — so the security loop keeps moving.</p>
-        <div className="lifecycle-tagline">↻ Reassess <span>→</span> Discover <span>→</span> Continue</div>
+        <p>Your first VAPT is a start, not the finish. Your environment changes every week, with new assets, new vulnerabilities and new access, so the security loop keeps running.</p>
+        <div className="lifecycle-tagline">↻ Check again <span>→</span> Find what's new <span>→</span> Repeat</div>
       </PageHero>
       <div className="lifecycle-steps">
         <ol className="step-timeline" style={{ listStyle: 'none' }}>
@@ -31,7 +31,7 @@ export default function Services() {
         </ol>
         <div className="reassess">
           <Icon name="refresh" size={24} />
-          <p><strong style={{ color: 'var(--amber)' }}>Reassess continuously.</strong> The lifecycle doesn't end at step 8. New assets are discovered, new vulnerabilities emerge, regulations update. The loop runs perpetually.</p>
+          <p><strong style={{ color: 'var(--amber)' }}>Then go round again.</strong> Step 8 isn't the finish line. New assets appear, new vulnerabilities are disclosed and regulations change, so we return to step 1.</p>
         </div>
       </div>
     </>

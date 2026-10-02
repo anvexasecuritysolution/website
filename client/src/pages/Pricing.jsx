@@ -7,20 +7,20 @@ import { TIERS } from '../data/content.js';
 export default function Pricing() {
   return (
     <>
-      <Seo title="Pricing" description="Start with an assessment and grow into continuous security. Every engagement is scoped to your environment." />
+      <Seo title="Pricing" description="Anvexa prices each engagement after looking at your environment. Start with a one-time assessment or go straight to ongoing security." />
       <PageHero
         label="Pricing"
-        title={<>Start with a scan.<br />Stay for the security.</>}
+        title={<>Start with a scan.<br />Stay if it helps.</>}
         aside={(
           <AsideCard title="Included in every engagement" tiles={[
             { icon: 'phone', label: 'Free discovery call' },
             { icon: 'scan', label: 'Scoped to your environment' },
             { icon: 'filecheck', label: 'Evidence at every step' },
-            { icon: 'badge', label: 'A dedicated security contact' },
+            { icon: 'badge', label: 'One named contact' },
           ]} />
         )}
       >
-        <p>Every engagement begins with an assessment and grows into a continuous partnership. No lock-in at step one — prove value first.</p>
+        <p>Most clients begin with a single assessment and decide later whether to continue. There is no lock-in at the start. We'd rather earn the next step.</p>
       </PageHero>
       <div className="pricing-grid">
         {TIERS.map((t, i) => (
@@ -38,7 +38,7 @@ export default function Pricing() {
           </Reveal>
         ))}
       </div>
-      <p className="pricing-note">All engagements are scoped to your environment. Contact us for a tailored quote — no templates, no surprises.</p>
+      <p className="pricing-note">We price every project after looking at your environment, so we don't publish fixed rates. Get in touch and we'll send you a quote.</p>
     </>
   );
 }

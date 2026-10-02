@@ -21,7 +21,7 @@ export default function PipelineRing() {
     <svg
       ref={svg} onMouseEnter={pause} onMouseLeave={play}
       viewBox="-150 -30 760 520" role="img" fill="none" xmlns="http://www.w3.org/2000/svg"
-      aria-label="Eight-step security lifecycle: discovery, scan, risk, remediation, re-test, compliance, monitoring and evidence"
+      aria-label="Eight-step security lifecycle: asset discovery, VAPT, remediation, retest, control mapping, monitoring, incident response and evidence"
     >
       <defs>
         <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">

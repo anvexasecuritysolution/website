@@ -21,12 +21,12 @@ export default function Blog() {
 
   return (
     <>
-      <Seo title="Blog" description="Practical insights on VAPT, compliance, regulatory updates and the threat landscape in India." />
+      <Seo title="Blog" description="Practical articles from Anvexa on VAPT, compliance, CERT-In and DPDP, and security for Indian businesses." />
       <PageHero
-        label="Threat Intelligence"
-        title="Insights from the security front line."
+        label="Blog"
+        title="Notes from our security work."
         aside={(
-          <AsideCard title="Topics we cover" tiles={[
+          <AsideCard title="What we write about" tiles={[
             { icon: 'scan', label: 'VAPT and risk' },
             { icon: 'lock', label: 'CERT-In and DPDP' },
             { icon: 'landmark', label: 'RBI, SEBI, IRDAI' },
@@ -35,12 +35,12 @@ export default function Blog() {
           ]} />
         )}
       >
-        <p>Practical insights on VAPT, compliance, CERT-In updates, and what is actually happening in India's threat landscape.</p>
+        <p>Practical articles on VAPT, compliance, CERT-In updates and the threats Indian businesses actually run into.</p>
       </PageHero>
 
-      {error && <p className="state-msg" role="alert">Couldn't load articles: {error}</p>}
+      {error && <p className="state-msg" role="alert">We couldn't load the articles: {error}</p>}
       {!posts && !error && <p className="state-msg">Loading articles…</p>}
-      {posts && posts.length === 0 && <p className="state-msg">No articles yet — check back soon.</p>}
+      {posts && posts.length === 0 && <p className="state-msg">Nothing here yet. Please check back soon.</p>}
 
       {posts && posts.length > 0 && (
         <div className="chips" role="group" aria-label="Filter articles by topic">

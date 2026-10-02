@@ -18,7 +18,7 @@ export default function BlogPost() {
   }, [slug]);
 
   if (error?.status === 404) return <NotFound />;
-  if (error) return <p className="state-msg" role="alert">Couldn't load this article: {error.message}</p>;
+  if (error) return <p className="state-msg" role="alert">We couldn't load this article: {error.message}</p>;
   if (!post) return <p className="state-msg">Loading…</p>;
 
   return (
@@ -32,7 +32,7 @@ export default function BlogPost() {
         {post.body.map((para, i) => <p key={i}>{para}</p>)}
       </article>
       <div className="cta-band">
-        <h3>Want this applied to your environment?</h3>
+        <h3>Want help applying this to your own setup?</h3>
         <Link to="/contact" className="btn btn-c">Talk to us</Link>
       </div>
     </>

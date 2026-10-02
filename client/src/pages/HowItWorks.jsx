@@ -6,10 +6,10 @@ import { FLOW, PHASES } from '../data/content.js';
 export default function HowItWorks() {
   return (
     <>
-      <Seo title="How It Works" description="A structured four-stage engagement: discover, assess, remediate and assure." />
+      <Seo title="How It Works" description="How an Anvexa engagement runs in four stages: discover, assess, remediate and assure." />
       <PageHero
-        label="Our Approach"
-        title="How an engagement works"
+        label="How we work"
+        title="What happens after you contact us"
         aside={(
           <AsideCard title="Your engagement at a glance" tiles={[
             { icon: 'search', label: 'Discover' },
@@ -19,7 +19,7 @@ export default function HowItWorks() {
           ]} />
         )}
       >
-        <p>A structured, four-stage engagement — from scoping to continuous assurance — with evidence produced at every step.</p>
+        <p>Every engagement runs in four stages, from scoping to continuous assurance, and produces evidence at each one.</p>
       </PageHero>
 
       <div className="process-bottom-bar">
@@ -34,8 +34,8 @@ export default function HowItWorks() {
       </div>
 
       <div className="wrap">
-        <div className="label">The Stages</div>
-        <h2 style={{ marginBottom: '2rem' }}>From first conversation to audit-ready proof.</h2>
+        <div className="label">The stages</div>
+        <h2 style={{ marginBottom: '2rem' }}>From the first call to audit-ready records.</h2>
         <div className="phases-grid">
           {PHASES.map((p, i) => (
             <Reveal className="phase" key={p.n} delay={i * 70}>

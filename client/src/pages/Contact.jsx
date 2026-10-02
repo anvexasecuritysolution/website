@@ -57,19 +57,19 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Talk to Anvexa about a one-time assessment or continuous security. Free initial discovery call." />
+      <Seo title="Contact" description="Contact Anvexa about a one-time security assessment or ongoing security. The first call is free." />
       <div className="contact-grid">
         <div className="contact-info">
-          <div className="label">Talk to Us</div>
-          <h1>Your security gap is a conversation away from closing.</h1>
-          <p>Whether you need a one-time assessment to understand your exposure, or a continuous security partner for the long term — we start every engagement by understanding your environment first.</p>
+          <div className="label">Contact</div>
+          <h1>Let's talk about your security.</h1>
+          <p>Maybe you want a one-off assessment to see where you're exposed, or someone to look after security month to month. Either way, we begin by learning how your setup works.</p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="pin" size={18} /></div>{CONTACT.address}</div>
-            <div className="cdetail"><div className="cdetail-icon"><Icon name="clock" size={18} /></div>Response within 1 business day</div>
+            <div className="cdetail"><div className="cdetail-icon"><Icon name="clock" size={18} /></div>We reply within one business day</div>
           </div>
-          <div className="free-box"><p><strong>Free initial assessment.</strong> Every new engagement begins with a complimentary discovery call and a brief asset inventory review — no commitment required.</p></div>
+          <div className="free-box"><p><strong>The first call is free.</strong> We'll talk through your setup and take a quick look at your asset list. You don't have to commit to anything.</p></div>
         </div>
 
         <div>
@@ -104,7 +104,7 @@ export default function Contact() {
               </div>
               <div className="field">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows="4" maxLength={4000} placeholder="Describe your situation, environment, or what you'd like assessed..." {...fieldProps('message')} />
+                <textarea id="message" rows="4" maxLength={4000} placeholder="Tell us about your environment and what you'd like assessed..." {...fieldProps('message')} />
               </div>
               {/* honeypot: hidden from people, tempting to bots */}
               <div className="hp" aria-hidden="true">
@@ -115,7 +115,7 @@ export default function Contact() {
                 {status === 'sending' ? 'Sending…' : 'Send Message'}
               </button>
               {/* result message sits directly below the submit button */}
-              {status === 'sent' && <div className="form-ok" role="status">✓ Message received. We'll be in touch within one business day.</div>}
+              {status === 'sent' && <div className="form-ok" role="status">✓ Thanks, we've got your message and will reply within one business day.</div>}
               {formError && <div className="form-error" role="alert">{formError}</div>}
           </form>
         </div>
