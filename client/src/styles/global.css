@@ -661,7 +661,10 @@ body .tier-price{font-size:var(--fs-h3);white-space:nowrap}
 .home-flow{margin-top:2rem;flex-wrap:wrap;gap:.5rem}
 .gap-flow{flex-wrap:wrap;gap:.35rem;row-gap:.6rem}
 .gap-flow .pb-step{gap:.35rem}
-.gap-flow .pb-chip{padding:.35rem .6rem}
+.gap-flow .pb-chip{padding:.28rem .45rem}
+body .gap-flow .pb-chip{font-size:.8rem}
+.gap-flow .pb-arrow{font-size:.75rem}
+@media(min-width:901px){.gap-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}}
 .cta-band p{font-size:var(--fs-text);max-width:60ch}
 
 /* pricing: 3 tiers */
@@ -689,7 +692,10 @@ body .tier-price{font-size:var(--fs-h3);white-space:nowrap}
 .social-link{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;
   color:var(--muted);background:var(--ink2);border:1px solid var(--border);text-decoration:none;
   transition:color .15s,border-color .15s,background .15s,transform .2s}
-.social-link:hover{color:var(--cyan);border-color:var(--cyan-line);background:var(--cyan-dim);transform:translateY(-2px)}
+.social-link{color:var(--text)}
+.social-link:hover{border-color:var(--cyan-line);background:var(--cyan-dim);transform:translateY(-2px)}
+.social-link svg{display:block;transition:transform .2s}
+.social-link:hover svg{transform:scale(1.08)}
 .social-link:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
 .footer-brand-link .brand-text small{display:block}
 
