@@ -38,7 +38,7 @@ export default function Home() {
         <p className="note">{FRAMEWORKS_NOTE}</p>
       </section>
 
-      <section className="wrap">
+      <section className="wrap why-now">
         <div className="label">Why Now</div>
         <h2 className="two-line"><span>The Problem Isn't a Lack of Security Tools.</span> <span>It's the Gap Between Having Them and Continuously Operating Them.</span></h2>
         <p style={{ marginTop: '1rem' }}>Organisations are investing more, but many still operate with fragmented visibility, reactive remediation and limited in-house expertise. The operational layer is where we focus.</p>

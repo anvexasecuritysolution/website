@@ -28,7 +28,7 @@ export const GAP_CARDS = [
   { kind: 'problem', icon: 'alert', title: 'Traditional Approach',
     steps: ['VAPT Report', 'Spreadsheet', 'Email', 'Manual Fix', 'Audit Scramble', 'Repeat'] },
   { kind: 'solution', icon: 'link', title: 'The Anvexa Approach',
-    steps: ['Asset Discovery', 'VAPT & Risk', 'Remediation', 'Retest', 'Control Mapping', 'Continuous Watch', 'Incident Response', 'Evidence & Audit'] },
+    steps: ['Finding', 'Risk Ranking', 'Named Owner', 'Firm Deadline', 'Guided Fix', 'Auto Re-Test', 'Audit Evidence', 'Continuous Monitoring'] },
 ];
 
 export const ENGAGE = [

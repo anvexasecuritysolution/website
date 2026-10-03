@@ -120,7 +120,7 @@ p{color:var(--muted);line-height:1.75;max-width:58ch}
 
 /* market gap section */
 .gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
-.gap-card{background:var(--ink2);border:1px solid var(--border);border-radius:12px;padding:1.5rem}
+.gap-card{background:var(--ink2);border:1px solid var(--border);border-radius:12px;padding:1.5rem 1.2rem}
 .gap-card.problem{border-color:rgba(244,165,35,.25);background:rgba(244,165,35,.04)}
 .gap-card.solution{border-color:rgba(0,212,232,.25);background:var(--cyan-dim)}
 .gap-icon{font-size:var(--fs-h3);margin-bottom:.75rem}
@@ -659,12 +659,12 @@ body .tier-price{font-size:var(--fs-h3);white-space:nowrap}
 .retain-card p{font-size:var(--fs-text)}
 .fx .retain-card .ab-icon,.retain-card.fx .ab-icon{color:var(--accent)}
 .home-flow{margin-top:2rem;flex-wrap:wrap;gap:.5rem}
-.gap-flow{flex-wrap:wrap;gap:.35rem;row-gap:.6rem}
-.gap-flow .pb-step{gap:.35rem}
-.gap-flow .pb-chip{padding:.28rem .45rem}
-body .gap-flow .pb-chip{font-size:.8rem}
-.gap-flow .pb-arrow{font-size:.75rem}
-@media(min-width:901px){.gap-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}}
+.gap-flow{flex-wrap:wrap;gap:.25rem;row-gap:.55rem}
+.gap-flow .pb-step{gap:.25rem}
+.gap-flow .pb-chip{padding:.25rem .38rem}
+body .gap-flow .pb-chip{font-size:.74rem}
+.gap-flow .pb-arrow{font-size:.7rem}
+@media(min-width:901px){.gap-grid{grid-template-columns:1fr 1fr}}
 .cta-band p{font-size:var(--fs-text);max-width:60ch}
 
 /* pricing: 3 tiers */
@@ -692,10 +692,7 @@ body .gap-flow .pb-chip{font-size:.8rem}
 .social-link{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;
   color:var(--muted);background:var(--ink2);border:1px solid var(--border);text-decoration:none;
   transition:color .15s,border-color .15s,background .15s,transform .2s}
-.social-link{color:var(--text)}
-.social-link:hover{border-color:var(--cyan-line);background:var(--cyan-dim);transform:translateY(-2px)}
-.social-link svg{display:block;transition:transform .2s}
-.social-link:hover svg{transform:scale(1.08)}
+.social-link:hover{color:var(--cyan);border-color:var(--cyan-line);background:var(--cyan-dim);transform:translateY(-2px)}
 .social-link:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
 .footer-brand-link .brand-text small{display:block}
 
@@ -958,3 +955,11 @@ nav.scrolled{box-shadow:0 8px 30px var(--shadow)}
 
 .stat-who{font-size:var(--fs-small);color:var(--text);margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--border);line-height:1.5}
 .stat-who b{color:var(--cyan);font-weight:600}
+
+/* Why Now section: all fonts 1px smaller */
+body .why-now .label{font-size:calc(var(--fs-small) - 1px)}
+body .why-now h2{font-size:calc(var(--fs-h2) - 1px)}
+body .why-now > p{font-size:calc(var(--fs-body) - 1px)}
+body .why-now .gap-card h4{font-size:calc(var(--fs-h4) - 1px)}
+body .why-now .gap-flow .pb-chip{font-size:calc(.74rem - 1px)}
+body .why-now .gap-flow .pb-arrow{font-size:calc(.7rem - 1px)}
