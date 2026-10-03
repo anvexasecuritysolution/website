@@ -963,3 +963,8 @@ body .why-now > p{font-size:calc(var(--fs-body) - 1px)}
 body .why-now .gap-card h4{font-size:calc(var(--fs-h4) - 1px)}
 body .why-now .gap-flow .pb-chip{font-size:calc(.74rem - 1px)}
 body .why-now .gap-flow .pb-arrow{font-size:calc(.7rem - 1px)}
+
+/* Social logos keep their brand colours; X follows the text colour */
+.social-link.x{color:var(--text)}
+.social-link.x:hover,.social-link.instagram:hover,.social-link.linkedin:hover{color:var(--text)}
+.social-link svg{display:block}

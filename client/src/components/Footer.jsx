@@ -19,7 +19,7 @@ export default function Footer() {
             {SOCIALS.map((so) => (
               <a
                 key={so.name}
-                className="social-link"
+                className={`social-link ${so.name}`}
                 href={so.url || '#'}
                 aria-label={`Anvexa on ${so.label}`}
                 {...(so.url ? { target: '_blank', rel: 'noopener noreferrer' } : { onClick: (e) => e.preventDefault() })}
