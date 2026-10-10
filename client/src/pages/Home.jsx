@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       <section className="wrap-sm" aria-labelledby="partner-summary-title">
-        <div className="label">Development support partner</div>
+        <div className="label development-support-label">Development Support Partner</div>
         <h2 id="partner-summary-title">Benkyō Technologies</h2>
         <p>Our development support partner for websites, mobile apps, custom software, AI automation and quality assurance.</p>
         <Link to="/about" className="btn btn-ghost partner-more">Meet our development partner</Link>

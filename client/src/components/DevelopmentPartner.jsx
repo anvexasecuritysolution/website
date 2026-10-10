@@ -15,7 +15,7 @@ export default function DevelopmentPartner() {
   return (
     <section className="wrap partner-section" aria-labelledby="development-partner-title">
       <Reveal className="ab partner-card">
-        <div className="label">Our development support partner</div>
+        <div className="label development-support-label">Our Development Support Partner</div>
         <h2 id="development-partner-title">Benkyō Technologies</h2>
         <p className="partner-tagline">Build Smarter. Grow Faster. Go Digital.</p>
         <p className="partner-description">Benkyō Technologies is our partner for development-related support. This India-based IT company focuses on software development, digital transformation and AI-powered solutions, helping startups and businesses build scalable digital products and streamline operations.</p>
@@ -37,7 +37,7 @@ export default function DevelopmentPartner() {
         </div>
         <div className="partner-footer">
           <p>Benkyō aims to deliver reliable, user-friendly and business-focused technology solutions tailored to clients’ needs. Contact our team to arrange development support.</p>
-          <Link to="/contact?plan=development" className="btn btn-c">Discuss development support</Link>
+          <Link to="/contact?plan=development" className="btn btn-c">Discuss Development Support</Link>
         </div>
       </Reveal>
     </section>

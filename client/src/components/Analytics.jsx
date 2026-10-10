@@ -6,8 +6,9 @@ import { CONSENT_EVENT, readConsent } from '../privacy/consent.js';
 const origin = import.meta.env.VITE_SITE_URL;
 const analytics = createAnalytics({
   measurementId: import.meta.env.VITE_GA_MEASUREMENT_ID,
-  enabled: import.meta.env.PROD && globalThis.window?.location.origin === origin,
-  origin, windowImpl: globalThis.window, documentImpl: globalThis.document,
+  enabled: import.meta.env.PROD,
+  origin: globalThis.window?.location.origin || origin,
+  windowImpl: globalThis.window, documentImpl: globalThis.document,
 });
 
 export default function Analytics() {

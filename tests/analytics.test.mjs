@@ -47,6 +47,7 @@ test('consenting public page views load once, deduplicate effects, omit URL quer
 test('withdrawal disables collection and deletes GA cookies without interrupting the current page', () => {
   const env = setup();
   env.analytics.sync('/', { analytics: true });
+  env.scripts[0].onload();
   env.analytics.sync('/', { analytics: false });
   assert.equal(env.windowImpl['ga-disable-G-B2XQDE7L8D'], true);
   assert.equal(env.scripts[0].removed, true);
@@ -60,6 +61,37 @@ test('cookie cleanup leaves consent and other first-party cookies intact', () =>
   const env = setup();
   clearAnalyticsCookies({ cookie: 'anvexa_consent=abc; theme=dark' }, 'example.com');
   assert.equal(env.cookies.length, 0);
+});
+
+test('reaccepting consent restarts an interrupted script download', () => {
+  const env = setup();
+  env.analytics.sync('/', { analytics: true });
+  env.analytics.sync('/', { analytics: false });
+  env.analytics.sync('/contact', { analytics: true });
+  assert.equal(env.scripts.length, 2);
+  assert.equal(env.windowImpl['ga-disable-G-B2XQDE7L8D'], false);
+  assert.equal(env.events().length, 1);
+  assert.equal(env.events()[0][2].page_location, 'https://anvexasecuritysolution.vercel.app/contact');
+});
+
+test('a failed download can retry on a later sync without stale queued visits', () => {
+  const env = setup();
+  env.analytics.sync('/', { analytics: true });
+  env.scripts[0].onerror();
+  env.analytics.sync('/contact', { analytics: true });
+  assert.equal(env.scripts.length, 2);
+  assert.equal(env.events().length, 1);
+});
+
+test('a loaded tracker resumes after consent changes without loading twice', () => {
+  const env = setup();
+  env.analytics.sync('/', { analytics: true });
+  env.scripts[0].onload();
+  env.analytics.sync('/', { analytics: false });
+  env.analytics.sync('/contact', { analytics: true });
+  assert.equal(env.scripts.length, 1);
+  assert.equal(env.windowImpl['ga-disable-G-B2XQDE7L8D'], false);
+  assert.equal(env.events().length, 2);
 });
 
 test('analytics and preferences are independent and old consent cannot grant analytics', () => {

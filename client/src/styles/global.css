@@ -1034,3 +1034,4 @@ body .why-now .gap-flow .pb-arrow{font-size:calc(.7rem - 1px)}
 @media(max-width:480px){.cookie-banner{inset-inline:.75rem;padding:1rem}.cookie-banner .cookie-actions{display:grid;grid-template-columns:1fr}.cookie-dialog{padding:1.25rem}.cookie-dialog .cookie-actions{display:grid;grid-template-columns:1fr;width:100%}.cookie-category{align-items:flex-start}.cookie-always{white-space:normal;text-align:right}}
 
 .field input[aria-invalid="true"],.field select[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--amber)}
+.label.development-support-label { text-transform: none; }

@@ -20,6 +20,7 @@ export function createAnalytics({ measurementId, enabled, origin, windowImpl, do
   let active = false;
   let lastPath = null;
   let script;
+  let loaded = false;
   const disableKey = `ga-disable-${measurementId}`;
   const valid = enabled && /^G-[A-Z0-9]+$/.test(measurementId || '');
   const tag = (...args) => windowImpl.gtag(...args);
@@ -31,11 +32,21 @@ export function createAnalytics({ measurementId, enabled, origin, windowImpl, do
       if (active && consent?.analytics !== true) {
         active = false;
         // The GA opt-out flag also blocks its already-loaded background collectors.
-        script?.remove();
+        if (script) {
+          script.onload = null;
+          script.onerror = null;
+          script.remove();
+        }
+        script = null;
+        if (!loaded) {
+          started = false;
+          windowImpl.dataLayer = [];
+        }
         clearAnalyticsCookies(documentImpl, windowImpl.location.hostname);
       }
       return;
     }
+    const resuming = !active;
     active = true;
     const location = origin + pathname;
     if (!started) {
@@ -48,10 +59,21 @@ export function createAnalytics({ measurementId, enabled, origin, windowImpl, do
       script = documentImpl.createElement('script');
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      script.onload = () => { loaded = true; };
+      script.onerror = () => {
+        script?.remove();
+        script = null;
+        started = false;
+        active = false;
+        lastPath = null;
+        windowImpl.dataLayer = [];
+      };
       const nonce = documentImpl.querySelector('script[nonce]')?.nonce;
       if (nonce) script.nonce = nonce;
       documentImpl.head.appendChild(script);
       started = true;
+    } else if (resuming) {
+      tag('consent', 'update', { analytics_storage: 'granted' });
     }
     if (lastPath === pathname) return;
     tag('event', 'page_view', { send_to: measurementId, page_location: location, page_referrer: lastPath ? origin + lastPath : '', page_title: pathname === '/' ? 'Anvexa Security Solutions' : `Anvexa · ${pathname}` });
