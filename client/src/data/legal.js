@@ -1,5 +1,5 @@
 // Legal copy for /privacy and /terms. Tokens {email}, {phone} and {address} render as links.
-export const LEGAL_UPDATED = '29 September 2026';
+export const LEGAL_UPDATED = '8 October 2026';
 
 export const PRIVACY = {
   slug: 'privacy',
@@ -17,13 +17,23 @@ export const PRIVACY = {
     },
     {
       h: 'What we collect',
-      p: ['We collect only what is needed to respond to you.'],
+      p: ['We collect enquiry details to respond to you, technical data to run the website, and optional analytics when you allow it.'],
       ul: [
-        'Contact form details you choose to give us: first name, last name, work email, company, industry, the service you are interested in, and your message.',
+        'Contact form details you choose to give us: first name, last name, work email, phone number, company, industry, the service you are interested in, and your message.',
         'Technical data that our hosting provider records automatically when you visit any website, such as IP address, browser type, device type, pages requested and timestamps. We use this to keep the site running and secure.',
-        'A preference stored in your browser (local storage) that remembers whether you chose light or dark mode. It stays on your device, is not sent to us, and can be cleared any time in your browser settings.',
+        'Your cookie choice, stored in a first-party cookie for up to 180 days, so we remember whether you allowed preferences and analytics.',
+        'If you allow Analytics, Google Analytics 4 measures visits to public pages, approximate location, device/browser information and engagement, using identifiers in first-party _ga cookies (up to two years). We do not send contact form details to Analytics. Google processes this information to provide reports. We do not enable advertising features.',
+        'If you allow Preferences, your light or dark theme is saved in local storage. It stays on your device and can be cleared using Cookie settings or your browser settings.',
       ],
-      after: 'We do not use advertising trackers, we do not run third-party analytics on this site, and we do not sell your data. We do not knowingly collect sensitive personal data through this website; please do not put passwords, keys, or confidential vulnerability details in the contact form.',
+      after: 'We do not use advertising trackers, we do not sell your data. We do not knowingly collect sensitive personal data through this website; please do not put passwords, keys, or confidential vulnerability details in the contact form.',
+    },
+    {
+      h: 'Cookies and browser storage',
+      p: [
+        'The cookie banner lets you Accept all, Reject optional, or choose in Settings. Optional preferences and analytics are off until you allow it. Essential storage remembers your consent choice and supports admin sign-in.',
+        'Preferences remembers your light or dark theme across visits. If you reject it, you can still switch themes during the current page session. Rejecting or withdrawing preference consent removes the saved theme.',
+        'You can reopen Cookie settings from the footer at any time. We ask again when your consent cookie expires or is cleared. Analytics loads only after you allow it. Withdrawing analytics consent stops collection and removes Analytics cookies on this domain.',
+      ],
     },
     {
       h: 'Why we use your data',
@@ -43,6 +53,7 @@ export const PRIVACY = {
       h: 'Who we share it with',
       p: ['We share personal data only with service providers who help us run the website and handle enquiries, and only as needed for that purpose. These include:'],
       ul: [
+        'Google Analytics, only when you allow Analytics, to understand website traffic and improve public pages.',
         'Website hosting and delivery (for example Vercel).',
         'Form and email delivery services (for example Web3Forms and Google services such as Google Sheets and Gmail) that receive and store the enquiries you submit.',
         'Code and record-keeping tools (for example GitHub) where enquiries or site content are stored.',

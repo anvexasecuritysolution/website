@@ -1,6 +1,6 @@
 import { useCallback, useSyncExternalStore } from 'react';
+import { persistTheme } from '../privacy/consent.js';
 
-const KEY = 'anvexa-theme';
 const root = () => document.documentElement;
 const read = () => (root().dataset.theme === 'light' ? 'light' : 'dark');
 
@@ -14,7 +14,7 @@ export function applyTheme(t) {
   const el = root();
   el.classList.add('theme-anim');
   el.dataset.theme = t;
-  try { localStorage.setItem(KEY, t); } catch { /* storage unavailable */ }
+  persistTheme(t);
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', t === 'light' ? '#F3F7FB' : '#07111F');
   document.querySelector('meta[name="color-scheme"]')?.setAttribute('content', t);
   window.setTimeout(() => el.classList.remove('theme-anim'), 500);

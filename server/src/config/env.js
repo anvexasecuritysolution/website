@@ -20,6 +20,9 @@ export const env = {
     repo: process.env.GITHUB_REPO || '', // "owner/name"
     branch: process.env.GITHUB_BRANCH || 'main',
     path: process.env.GITHUB_LEADS_PATH || 'data/leads.json',
+    storageMode: process.env.GITHUB_STORAGE_MODE || 'array',
+    recordsPath: process.env.GITHUB_RECORDS_PATH || 'data/leads',
+    ratePath: process.env.GITHUB_RATE_PATH || 'data/_rate-limits',
     apiUrl: process.env.GITHUB_API_URL || 'https://api.github.com',
   },
 };

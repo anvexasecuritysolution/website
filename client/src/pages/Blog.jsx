@@ -5,11 +5,13 @@ import Reveal from '../components/Reveal.jsx';
 import Icon, { TAG_ICON } from '../components/Icon.jsx';
 import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { api } from '../api/client.js';
+import { usePrerenderPosts } from '../context/PrerenderContext.jsx';
 
 export const fmtDate = (d) => new Date(d).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
 
 export default function Blog() {
-  const [posts, setPosts] = useState(null);
+  const prerenderPosts = usePrerenderPosts();
+  const [posts, setPosts] = useState(prerenderPosts);
   const [error, setError] = useState('');
   const [tag, setTag] = useState('All');
 

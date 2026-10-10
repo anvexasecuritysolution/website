@@ -7,7 +7,7 @@ export default function CountUp({ value, duration = 1200 }) {
   const m = String(value).match(/^(\d+)(.*)$/);
   const target = m ? Number(m[1]) : 0;
   const suffix = m ? m[2] : '';
-  const [n, setN] = useState(0);
+  const [n, setN] = useState(() => typeof window === 'undefined' ? target : 0);
 
   useEffect(() => {
     if (!m) return undefined;

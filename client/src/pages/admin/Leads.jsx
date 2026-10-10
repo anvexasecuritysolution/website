@@ -52,10 +52,10 @@ export default function AdminLeads() {
               {leads.map((l) => (
                 <tr key={l._id}>
                   <td>{new Date(l.createdAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}</td>
-                  <td>{l.firstName} {l.lastName}<small><a href={`mailto:${l.email}`} style={{ color: 'var(--cyan)' }}>{l.email}</a></small></td>
-                  <td>{l.company || '—'}<small>{l.industry}</small></td>
-                  <td>{l.service || '—'}</td>
-                  <td style={{ maxWidth: 280, whiteSpace: 'pre-wrap' }}>{l.message || '—'}</td>
+                  <td>{l.firstName} {l.lastName}<small><a href={`mailto:${l.email}`} style={{ color: 'var(--cyan)' }}>{l.email}</a></small>{l.phone && <small><a href={`tel:${l.phone.replace(/[^\d+]/g, '')}`} style={{ color: 'var(--cyan)' }}>{l.phone}</a></small>}</td>
+                  <td>{l.company || ' - '}<small>{l.industry}</small></td>
+                  <td>{l.service || ' - '}</td>
+                  <td style={{ maxWidth: 280, whiteSpace: 'pre-wrap' }}>{l.message || ' - '}</td>
                   <td>
                     <select className="status-sel" aria-label={`Status for ${l.firstName}`} value={l.status} onChange={(e) => changeStatus(l._id, e.target.value)}>
                       {STATUSES.map((s) => <option key={s}>{s}</option>)}

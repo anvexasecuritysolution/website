@@ -39,8 +39,8 @@ function useActiveSection(count) {
 
 const GLANCE = {
   privacy: [
-    { icon: 'lock', label: 'No ads or trackers' },
-    { icon: 'shield', label: 'Aligned to India\'s DPDP Act' },
+    { icon: 'lock', label: 'No advertising trackers' },
+    { icon: 'shield', label: 'Analytics only with permission' },
     { icon: 'mail', label: 'Your data is never sold' },
     { icon: 'clock', label: 'Access or delete on request' },
   ],

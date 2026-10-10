@@ -98,13 +98,7 @@ export const TIERS = [
     features: ['24×7 MDR options', 'Incident response', 'Threat hunting', 'vCISO / advisory'] },
 ];
 
-export const INDUSTRIES = ['Fintech / BFSI', 'Healthcare / Pharma', 'E-commerce / Retail', 'Manufacturing / Logistics', 'IT / SaaS', 'Other'];
-export const SERVICES = [
-  'Security Assessment (VAPT & Risk)',
-  'Continuous Security Operations',
-  'Managed MDR + Incident Response',
-  'Not sure — need a consultation',
-];
+export { INDUSTRIES, SERVICES } from '../../shared/leads.js';
 
 // Social profiles — paste each profile URL into `url` once the pages exist.
 // While `url` is empty the icon is shown but does not navigate anywhere.

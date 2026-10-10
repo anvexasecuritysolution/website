@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { z } from 'zod';
 import rateLimit from 'express-rate-limit';
-import { Lead, INDUSTRIES, SERVICES } from '../models/Lead.js';
+import { Lead } from '../models/Lead.js';
 import { requireAuth } from '../middleware/auth.js';
 import { HttpError } from '../middleware/error.js';
-import { saveLeadToGithub } from '../services/githubStore.js';
+import { githubEnabled, flushGithubBackups } from '../services/githubStore.js';
+import { validateLead } from '../../../client/shared/leads.js';
 
 const router = Router();
 
@@ -16,35 +17,17 @@ const submitLimiter = rateLimit({
   message: { message: 'Too many submissions. Please try again later.' },
 });
 
-const leadSchema = z.object({
-  firstName: z.string().trim().min(1, 'First name is required').max(80),
-  lastName: z.string().trim().max(80).optional().default(''),
-  email: z.string().trim().toLowerCase().email('Enter a valid email').max(160),
-  company: z.string().trim().max(160).optional().default(''),
-  industry: z.enum(INDUSTRIES).or(z.literal('')).optional().default(''),
-  service: z.enum(SERVICES).or(z.literal('')).optional().default(''),
-  message: z.string().trim().max(4000).optional().default(''),
-  website: z.string().optional().default(''), // honeypot — real users leave this empty
-});
-
 // Public: submit contact form
 router.post('/', submitLimiter, async (req, res, next) => {
   try {
-    const { website, ...data } = leadSchema.parse(req.body);
+    const { data: fields, errors } = validateLead(req.body);
+    if (Object.keys(errors).length) return res.status(422).json({ message: 'Please check the highlighted fields.', errors });
+    const { website, ...data } = fields;
     if (website) return res.status(201).json({ ok: true }); // bot: pretend success, store nothing
-    const lead = await Lead.create({ ...data, ip: req.ip });
-    // Also keep a JSON copy in GitHub. A GitHub problem must never lose or fail the request.
-    try {
-      await saveLeadToGithub({
-        id: String(lead._id),
-        submittedAt: lead.createdAt.toISOString(),
-        ...data,
-        status: lead.status,
-      });
-    } catch (err) {
-      console.error('GitHub lead backup failed:', err.message);
-    }
+    await Lead.create({ ...data, ip: req.ip, ...(githubEnabled ? { githubBackup: { state: 'pending', nextAttemptAt: new Date() } } : {}) });
     res.status(201).json({ ok: true });
+    // The MongoDB record is already durable; backup retries never hold up the visitor.
+    if (githubEnabled) void flushGithubBackups();
   } catch (e) { next(e); }
 });
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import SocialIcon from './SocialIcon.jsx';
 import Icon from './Icon.jsx';
 import { SOCIALS, CONTACT } from '../data/content.js';
+import { openCookieSettings } from '../privacy/consent.js';
 
 export default function Footer() {
   return (
@@ -67,7 +68,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Anvexa Security Solutions. All rights reserved.</p>
-        <p className="footer-legal"><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms of Service</Link></p>
+        <p className="footer-legal"><Link to="/privacy">Privacy Policy</Link> · <Link to="/terms">Terms of Service</Link> · <button type="button" className="footer-cookie-settings" onClick={openCookieSettings}>Cookie settings</button></p>
       </div>
     </footer>
   );

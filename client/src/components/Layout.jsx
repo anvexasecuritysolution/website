@@ -4,6 +4,8 @@ import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
 import ScrollProgress from './ScrollProgress.jsx';
+import CookieConsent from './CookieConsent.jsx';
+import Analytics from './Analytics.jsx';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -77,6 +79,8 @@ export default function Layout() {
       <ThemeToggle />
       <main id="main"><div className="page-fade" key={pathname}><Outlet /></div></main>
       <Footer />
+      <CookieConsent />
+      <Analytics />
     </>
   );
 }

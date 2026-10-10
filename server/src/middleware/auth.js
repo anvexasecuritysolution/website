@@ -7,7 +7,8 @@ export function requireAuth(req, res, next) {
   const token = header.startsWith('Bearer ') ? header.slice(7) : null;
   if (!token) return next(new HttpError(401, 'Authentication required.'));
   try {
-    req.user = jwt.verify(token, env.jwtSecret);
+    req.user = jwt.verify(token, env.jwtSecret, { algorithms: ['HS256'] });
+    if (req.user.role !== 'admin' || !req.user.sub) return next(new HttpError(403, 'Administrator access required.'));
     next();
   } catch {
     next(new HttpError(401, 'Session expired. Please sign in again.'));

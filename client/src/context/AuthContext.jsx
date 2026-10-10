@@ -5,7 +5,9 @@ const AuthContext = createContext(null);
 const KEY = 'anvexa_admin_token';
 
 export function AuthProvider({ children }) {
-  const [token, setToken] = useState(() => sessionStorage.getItem(KEY));
+  const [token, setToken] = useState(() => {
+    try { return globalThis.sessionStorage?.getItem(KEY) || null; } catch { return null; }
+  });
 
   const login = useCallback(async (email, password) => {
     const { token: t } = await api.login(email, password);

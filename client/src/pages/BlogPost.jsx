@@ -4,10 +4,12 @@ import Seo from '../components/Seo.jsx';
 import NotFound from './NotFound.jsx';
 import { api } from '../api/client.js';
 import { fmtDate } from './Blog.jsx';
+import { usePrerenderPosts } from '../context/PrerenderContext.jsx';
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
+  const prerenderPosts = usePrerenderPosts();
+  const [post, setPost] = useState(() => prerenderPosts?.find((entry) => entry.slug === slug) || null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function BlogPost() {
 
   return (
     <>
-      <Seo title={post.title} description={post.excerpt} />
+      <Seo title={post.title} description={post.excerpt} article publishedAt={post.publishedAt} />
       <article className="article">
         <Link to="/blog" className="back-link">← All articles</Link>
         <div className="label">{post.tag}</div>
