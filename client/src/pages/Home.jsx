@@ -112,6 +112,13 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="wrap-sm" aria-labelledby="partner-summary-title">
+        <div className="label">Development support partner</div>
+        <h2 id="partner-summary-title">Benkyō Technologies</h2>
+        <p>Our development support partner for websites, mobile apps, custom software, AI automation and quality assurance.</p>
+        <Link to="/about" className="btn btn-ghost partner-more">Meet our development partner</Link>
+      </section>
+
       <div className="cta-band">
         <div>
           <h3>Want to know where your gaps are?</h3>

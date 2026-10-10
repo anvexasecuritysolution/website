@@ -5,9 +5,9 @@ import Icon from '../components/Icon.jsx';
 import Seo from '../components/Seo.jsx';
 import { api, ApiError } from '../api/client.js';
 import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
-import { validateLead } from '../../shared/leads.js';
+import { validateLead, DEVELOPMENT_SERVICE } from '../../shared/leads.js';
 
-const PLAN_TO_SERVICE = { land: SERVICES[0], retain: SERVICES[1], expand: SERVICES[2] };
+const PLAN_TO_SERVICE = { land: SERVICES[0], retain: SERVICES[1], expand: SERVICES[2], development: DEVELOPMENT_SERVICE };
 
 export default function Contact() {
   const [params] = useSearchParams();
@@ -71,6 +71,7 @@ export default function Contact() {
           <div className="label">Contact</div>
           <h1>Let's talk about your security.</h1>
           <p>Maybe you want a one-off assessment to see where you're exposed, or someone to look after security month to month. Either way, we begin by learning how your setup works.</p>
+          <p className="contact-development-note">For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>

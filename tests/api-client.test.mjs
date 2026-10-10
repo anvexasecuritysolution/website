@@ -1,11 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createApi } from '../client/src/api/createClient.js';
-import { validateLead, isValidPhone, isValidEmail, isValidName } from '../client/shared/leads.js';
+import { validateLead, isValidPhone, isValidEmail, isValidName, DEVELOPMENT_SERVICE } from '../client/shared/leads.js';
 
 const lead = { firstName: ' Asha ', email: ' ASHA@example.com ', phone: ' +91 98765 43210 ' };
 const post = { slug: 'article', body: ['Text'], publishedAt: '2026-01-01' };
 const response = (data, status = 200) => new Response(JSON.stringify(data), { status });
+
+test('development enquiries use the existing Anvexa lead destination and retain the selected service', async () => {
+  const requests = [];
+  const api = createApi({ fetchImpl: async (url, options) => {
+    requests.push({ url, data: JSON.parse(options.body) });
+    return response({ ok: true });
+  } });
+  await api.submitLead({ ...lead, service: DEVELOPMENT_SERVICE });
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].url, '/api/leads');
+  assert.equal(requests[0].data.service, DEVELOPMENT_SERVICE);
+  assert.equal(requests[0].data.email, 'asha@example.com');
+});
 
 test('lead validation normalizes fields and rejects oversized or invalid values', () => {
   const { data, errors } = validateLead(lead);

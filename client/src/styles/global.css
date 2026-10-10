@@ -262,10 +262,11 @@ p{color:var(--muted);line-height:1.75;max-width:58ch}
    FOOTER
 ═══════════════════════════════ */
 footer{background:var(--ink);border-top:1px solid var(--border);padding:3rem clamp(1.25rem,7vw,5rem) 2rem}
-.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.5fr;gap:2.5rem;margin-bottom:2.5rem}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr .8fr 1.5fr;gap:2.5rem;margin-bottom:2.5rem}
 .footer-brand p{font-size:var(--fs-small);margin-top:.85rem;max-width:44ch;line-height:1.65}
 .fc h4{font-family:var(--syne);font-size:var(--fs-small);font-weight:700;margin-bottom:.9rem;color:var(--text)}
 .fc ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer .fc h4,footer .fc li,footer .fc a{line-height:1.25}
 .fc a{color:var(--muted);text-decoration:none;font-size:var(--fs-small);transition:color .15s}
 .fc a:hover{color:var(--text)}
 .footer-bottom{border-top:1px solid var(--border);padding-top:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem}
@@ -315,6 +316,36 @@ main{min-height:60vh;padding-top:calc(68px + env(safe-area-inset-top,0px))}
 /* forms */
 .field .err{color:var(--amber);font-size:var(--fs-small)}
 .field input[aria-invalid="true"],.field select[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:var(--amber)}
+
+/* Full partner profile with compact spacing and all details visible. */
+.partner-section{padding-block:clamp(2rem,4vw,3rem)}
+.partner-card{margin:0;padding:1.5rem}
+.partner-card .label{font-size:.75rem;margin-bottom:.65rem}
+.partner-card h2{font-size:clamp(1.4rem,2.3vw,2rem);line-height:1.25}
+.partner-card .partner-tagline{color:var(--cyan);font-weight:600;font-size:.9rem;margin:.5rem 0 .75rem}
+.partner-card .partner-description{font-size:.95rem;line-height:1.65;max-width:none}
+.partner-profile-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;margin-top:1.25rem}
+.partner-profile-grid h3{font-size:1rem;line-height:1.4;margin-bottom:.6rem;color:var(--text)}
+.partner-service-list{padding-left:1.15rem;color:var(--muted);font-size:.95rem;line-height:1.65}
+.partner-service-list li+li{margin-top:.25rem}
+.partner-service-list li::marker{color:var(--cyan)}
+.partner-leaders{display:grid;gap:.5rem}
+.partner-leaders>div{display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:.75rem;padding:.6rem .75rem;background:var(--ink3);border:1px solid var(--border);border-left:3px solid var(--cyan);border-radius:8px;transition:transform .2s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease}
+.js .partner-leaders .reveal.in{animation:partnerLeaderIn .45s ease var(--d,0ms) backwards}
+.partner-leaders>div:hover{transform:translateX(3px);border-color:var(--cyan);background:color-mix(in srgb,var(--cyan) 6%,var(--ink3));box-shadow:0 4px 14px var(--cyan-dim)}
+@keyframes partnerLeaderIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.js .partner-leaders .reveal.in{animation:none}.partner-leaders>div{transition:none}.partner-leaders>div:hover{transform:none}}
+.partner-leaders dt{color:var(--muted);font-size:.8rem;line-height:1.45}
+.partner-leaders dd{color:var(--text);font-size:.9rem;font-weight:600;line-height:1.45}
+.partner-profile-grid .partner-focus-heading{margin-top:1rem}
+.partner-card .partner-focus{font-size:.9rem;line-height:1.65;max-width:none}
+.partner-footer{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;border-top:1px solid var(--border);padding-top:1rem;margin-top:1.25rem}
+.partner-footer p{font-size:.85rem;line-height:1.6;max-width:70ch}
+.partner-footer .btn{font-size:.85rem;padding:.75rem 1rem;flex:none;text-align:center}
+@media(max-width:750px){.partner-profile-grid{grid-template-columns:1fr;gap:1.25rem}.partner-footer{flex-direction:column;align-items:flex-start;gap:1rem}.partner-card{padding:1.25rem}}
+@media(max-width:380px){.partner-leaders>div{grid-template-columns:1fr;gap:.2rem}}
+.contact-development-note{margin-top:1rem}
+.partner-more{margin-top:1.25rem}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .form-error{padding:.85rem 1rem;border:1px solid rgba(244,165,35,.35);background:rgba(244,165,35,.08);color:var(--amber);border-radius:8px;font-size:var(--fs-small)}
 .form-btn[disabled]{opacity:.6;cursor:not-allowed}
@@ -388,6 +419,9 @@ h4{font-size:var(--fs-h4)}
 .field input,.field textarea,.field select{font-size:var(--fs-text);padding:.8rem 1rem}
 .cdetail{font-size:var(--fs-text)}
 .fc a,.footer-brand p{font-size:var(--fs-text)}
+body footer .footer-brand p{text-align:justify;text-justify:inter-word;hyphens:auto}
+body footer .footer-brand p,body footer .brand-text b,body footer .brand-text small,body footer .fc a,body footer .fc.fc-services a,body footer .fc h4,body footer .fc.fc-contact .fc-loc,body footer .follow-label,body footer .footer-bottom p,body footer .footer-legal a,body footer .footer-cookie-settings{font-size:calc(var(--fs-text) - 1.5px)}
+body footer .brand-text small{letter-spacing:.08em}
 .pb-chip{font-size:var(--fs-text)}
 .note{font-size:var(--fs-text)}
 table.leads{font-size:var(--fs-text)}
@@ -689,6 +723,11 @@ body .gap-flow .pb-chip{font-size:.74rem}
 .fc-contact svg{flex-shrink:0;margin-top:.2em;color:var(--cyan)}
 .fc-contact .fc-loc{color:var(--muted);font-size:var(--fs-small)}
 .fc.fc-contact a:hover{translate:0 0}
+.fc.fc-services a{white-space:nowrap}
+@media(min-width:1101px){.footer-inner{grid-template-columns:minmax(0,2fr) max-content minmax(0,1fr) minmax(0,.8fr) minmax(0,1.5fr)}}
+@media(min-width:769px) and (max-width:1100px){.footer-inner{grid-template-columns:max-content minmax(0,1fr) minmax(0,1fr)}}
+@media(min-width:461px) and (max-width:768px){.fc-services{grid-column:1/-1}}
+@media(max-width:460px){.fc.fc-services a{font-size:clamp(.85rem,3.8vw,1rem)}}
 .social-link{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;
   color:var(--muted);background:var(--ink2);border:1px solid var(--border);text-decoration:none;
   transition:color .15s,border-color .15s,background .15s,transform .2s}

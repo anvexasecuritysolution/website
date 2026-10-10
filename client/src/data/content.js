@@ -103,9 +103,9 @@ export { INDUSTRIES, SERVICES } from '../../shared/leads.js';
 // Social profiles — paste each profile URL into `url` once the pages exist.
 // While `url` is empty the icon is shown but does not navigate anywhere.
 export const SOCIALS = [
-  { name: 'instagram', label: 'Instagram', url: '' },
+  { name: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/anvexasecuritysolution/' },
   { name: 'linkedin', label: 'LinkedIn', url: '' },
-  { name: 'x', label: 'X', url: '' },
+  { name: 'x', label: 'X', url: 'https://x.com/anvexasecurity' },
 ];
 
 export const CONTACT = {

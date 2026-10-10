@@ -6,7 +6,7 @@
 var NOTIFY_EMAIL = '';
 var HEADERS = ['Submitted at', 'First name', 'Last name', 'Email', 'Company', 'Industry', 'Service', 'Message', 'Status', 'Phone'];
 var INDUSTRIES = ['Fintech / BFSI', 'Healthcare / Pharma', 'E-commerce / Retail', 'Manufacturing / Logistics', 'IT / SaaS', 'Other'];
-var SERVICES = ['Security Assessment (VAPT & Risk)', 'Continuous Security Operations', 'Managed MDR + Incident Response', 'Not sure — need a consultation'];
+var SERVICES = ['Security Assessment (VAPT & Risk)', 'Continuous Security Operations', 'Managed MDR + Incident Response', 'Development Support (Web, Apps, Software & AI)', 'Not sure — need a consultation'];
 
 function output(value) {
   return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON);

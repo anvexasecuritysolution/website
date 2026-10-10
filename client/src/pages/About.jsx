@@ -4,6 +4,7 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { ABOUT_BLOCKS, REGULATIONS } from '../data/content.js';
+import DevelopmentPartner from '../components/DevelopmentPartner.jsx';
 
 export default function About() {
   return (
@@ -61,6 +62,7 @@ export default function About() {
           </div>
         </div>
       </div>
+      <DevelopmentPartner />
     </>
   );
 }

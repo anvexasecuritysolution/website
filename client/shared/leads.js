@@ -1,5 +1,6 @@
 export const INDUSTRIES = ['Fintech / BFSI', 'Healthcare / Pharma', 'E-commerce / Retail', 'Manufacturing / Logistics', 'IT / SaaS', 'Other'];
-export const SERVICES = ['Security Assessment (VAPT & Risk)', 'Continuous Security Operations', 'Managed MDR + Incident Response', 'Not sure — need a consultation'];
+export const DEVELOPMENT_SERVICE = 'Development Support (Web, Apps, Software & AI)';
+export const SERVICES = ['Security Assessment (VAPT & Risk)', 'Continuous Security Operations', 'Managed MDR + Incident Response', DEVELOPMENT_SERVICE, 'Not sure — need a consultation'];
 
 export function isValidPhone(value) {
   if (typeof value !== 'string') return false;

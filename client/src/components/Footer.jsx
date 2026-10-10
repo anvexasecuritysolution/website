@@ -31,7 +31,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="fc">
+        <div className="fc fc-services">
           <h4>Services</h4>
           <ul>
             {['Asset Discovery & VAPT', 'Remediation & Retest', 'Compliance Mapping', 'Continuous Monitoring', 'Incident Response', 'Evidence Vault'].map((t) => (
