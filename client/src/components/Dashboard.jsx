@@ -14,8 +14,8 @@ export default function Dashboard() {
     <div className="dash-window" ref={ref}>
       <div className="dash-titlebar">
         <span className="dash-dot r" /><span className="dash-dot y" /><span className="dash-dot g" />
-        <span className="dash-url">app.anvexa.in/dashboard</span>
-        <span className="dash-live"><i />Live</span>
+        <span className="dash-url">Example security overview</span>
+        <span className="dash-live"><i />Sample</span>
       </div>
       <div className="dash-body">
         <div className="dash-pane">

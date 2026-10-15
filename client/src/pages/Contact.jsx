@@ -65,12 +65,12 @@ export default function Contact() {
 
   return (
     <>
-      <Seo title="Contact" description="Contact Anvexa about a one-time security assessment or ongoing security. The first call is free." />
+      <Seo title="Contact" description="Contact Anvexa about security assessments, ongoing monitoring, response support or development requirements. The first call is free." />
       <div className="contact-grid">
         <div className="contact-info">
           <div className="label">Contact</div>
-          <h1>Let's talk about your security.</h1>
-          <p>Maybe you want a one-off assessment to see where you're exposed, or someone to look after security month to month. Either way, we begin by learning how your setup works.</p>
+          <h1>Tell us what you need.</h1>
+          <p>Share the service you are interested in, a short description of your requirements and any target dates. Our team will follow up to clarify the scope and next steps.</p>
           <p className="contact-development-note">For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
@@ -122,7 +122,7 @@ export default function Contact() {
               </div>
               <div className="field">
                 <label htmlFor="message">Message</label>
-                <textarea id="message" rows="4" maxLength={4000} placeholder="Tell us about your environment and what you'd like assessed..." {...fieldProps('message')} />
+                <textarea id="message" rows="4" maxLength={4000} placeholder="Describe your security or development requirements and any target dates. Do not include passwords or confidential findings." {...fieldProps('message')} />
                 <Err k="message" />
               </div>
               {/* honeypot: hidden from people, tempting to bots */}

@@ -10,7 +10,7 @@ export default function Pricing() {
       <Seo title="Pricing" description="Anvexa prices each engagement after looking at your environment. Start with a one-time assessment or go straight to ongoing security." />
       <PageHero
         label="Pricing"
-        title={<>Start with a scan.<br />Stay if it helps.</>}
+        title="Pricing based on your scope."
         aside={(
           <AsideCard title="Included in every engagement" tiles={[
             { icon: 'phone', label: 'Free discovery call' },
@@ -20,7 +20,7 @@ export default function Pricing() {
           ]} />
         )}
       >
-        <p>Most clients begin with a single assessment and decide later whether to continue. There is no lock-in at the start. We'd rather earn the next step.</p>
+        <p>Choose a one-time assessment, ongoing security support or managed response. We review your requirements before preparing a proposal with the scope, deliverables, timelines and fees.</p>
       </PageHero>
       <div className="pricing-grid">
         {TIERS.map((t, i) => (
@@ -38,7 +38,16 @@ export default function Pricing() {
           </Reveal>
         ))}
       </div>
-      <p className="pricing-note">We price every project after looking at your environment, so we don't publish fixed rates. Get in touch and we'll send you a quote.</p>
+      <p className="pricing-note">Fees are quoted after scoping. Your written proposal confirms the included work and any optional services before the engagement begins.</p>
+      <section className="wrap" aria-labelledby="quote-scope-title">
+        <div className="label">What shapes your quote</div>
+        <h2 id="quote-scope-title">Three things we clarify before pricing.</h2>
+        <div className="engage-grid">
+          <Reveal className="engage-cell"><h3>Environment and scope</h3><p>The applications, APIs, cloud resources or infrastructure in scope, their complexity and any testing restrictions.</p></Reveal>
+          <Reveal className="engage-cell" delay={70}><h3>Coverage and frequency</h3><p>Whether you need a single assessment or recurring work, including the required monitoring coverage, review schedule and response support.</p></Reveal>
+          <Reveal className="engage-cell" delay={140}><h3>Deliverables and timing</h3><p>The reports, retesting, evidence and handover you need, along with target dates and dependencies on your team.</p></Reveal>
+        </div>
+      </section>
     </>
   );
 }

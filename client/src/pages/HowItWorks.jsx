@@ -19,7 +19,7 @@ export default function HowItWorks() {
           ]} />
         )}
       >
-        <p>Every engagement runs in four stages, from scoping to continuous assurance, and produces evidence at each one.</p>
+        <p>We agree the scope, assess the risks, support remediation and document the results. Monitoring, recurring reviews and ongoing assurance are included when they form part of your agreed engagement.</p>
       </PageHero>
 
       <div className="process-bottom-bar">
@@ -35,7 +35,7 @@ export default function HowItWorks() {
 
       <div className="wrap">
         <div className="label">The stages</div>
-        <h2 style={{ marginBottom: '2rem' }}>From the first call to audit-ready records.</h2>
+        <h2 style={{ marginBottom: '2rem' }}>What each delivery stage includes.</h2>
         <div className="phases-grid">
           {PHASES.map((p, i) => (
             <Reveal className="phase" key={p.n} delay={i * 70}>
@@ -45,6 +45,7 @@ export default function HowItWorks() {
             </Reveal>
           ))}
         </div>
+        <p className="note">A one-time assessment and a recurring engagement have different coverage; the proposal confirms the activities, responsibilities and schedule included.</p>
       </div>
     </>
   );

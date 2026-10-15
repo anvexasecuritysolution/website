@@ -56,14 +56,14 @@ export const REGULATIONS = [
 
 // Lifecycle: tone drives colour (c = cyan, a = amber)
 export const STEPS = [
-  { n: '01', tone: 'c', title: 'Asset Discovery', tag: 'Discover', text: "You can't protect what you haven't inventoried." },
-  { n: '02', tone: 'c', title: 'VAPT & Risk', tag: 'Assess', text: 'Find the weaknesses and prioritise them by business impact.' },
-  { n: '03', tone: 'a', title: 'Remediation', tag: 'Fix', text: 'Assign, track and escalate every meaningful finding.' },
-  { n: '04', tone: 'a', title: 'Retest', tag: 'Verify', text: "A vulnerability isn't closed until a retest confirms the fix." },
-  { n: '05', tone: 'c', title: 'Control Mapping', tag: 'Comply', text: 'Connect each requirement to a control, an owner and evidence.' },
-  { n: '06', tone: 'c', title: 'Continuous Watch', tag: 'Monitor', text: 'Detect risky changes, suspicious activity and control drift.' },
-  { n: '07', tone: 'a', title: 'Incident Response', tag: 'Respond', text: 'Triage, escalate, contain and document when something happens.' },
-  { n: '08', tone: 'a', title: 'Evidence & Audit', tag: 'Prove', text: 'Keep proof ready all year, not just before an audit.' },
+  { n: '01', tone: 'c', title: 'Asset Discovery', tag: 'Discover', text: 'Identify the applications, APIs, endpoints, cloud resources and internet-facing systems within the agreed scope. The resulting inventory establishes what needs to be assessed and who owns it.' },
+  { n: '02', tone: 'c', title: 'VAPT & Risk', tag: 'Assess', text: 'Assess vulnerabilities, test agreed attack paths and review relevant configurations. Findings describe the affected assets, potential impact and remediation priorities for your technical and business teams.' },
+  { n: '03', tone: 'a', title: 'Remediation', tag: 'Fix', text: 'Turn findings into actions with owners, deadlines and practical fix guidance. Track unresolved issues and agreed interim safeguards while your team implements the changes.' },
+  { n: '04', tone: 'a', title: 'Retest', tag: 'Verify', text: 'Check remediated findings against the original issue and record the result. Findings stay open when the weakness remains, so closure is supported by verification rather than a status update alone.' },
+  { n: '05', tone: 'c', title: 'Control Mapping', tag: 'Comply', text: 'Connect applicable framework requirements to technical controls, responsible owners and supporting records. This shows where evidence exists and where control gaps still need attention.' },
+  { n: '06', tone: 'c', title: 'Continuous Watch', tag: 'Monitor', text: 'For ongoing engagements, review agreed log sources and security signals for suspicious activity, risky changes and control drift. Monitoring coverage, alert handling and escalation are defined in the service scope.' },
+  { n: '07', tone: 'a', title: 'Incident Response', tag: 'Respond', text: 'Support triage, escalation, containment and recovery within the agreed response scope. Record the incident timeline, actions taken and follow-up improvements for your team’s review.' },
+  { n: '08', tone: 'a', title: 'Evidence & Audit', tag: 'Prove', text: 'Organise assessment results, remediation records and retest evidence for audits and customer reviews. Ongoing engagements keep these records updated as scheduled work is completed.' },
 ];
 
 // Ring nodes on the home hero — order matches STEPS
@@ -86,7 +86,7 @@ export const PHASES = [
   { n: 'Stage 1', time: 'Discover', items: ['Scoping call and environment walkthrough', 'Asset inventory and attack-surface mapping', 'Agreed scope and rules of engagement', 'Defined success criteria'] },
   { n: 'Stage 2', time: 'Assess', items: ['Vulnerability scanning and penetration testing', 'Risk ranking by business impact', 'Executive and technical reporting', 'Prioritised remediation roadmap'] },
   { n: 'Stage 3', time: 'Remediate', items: ['Findings converted to tracked tasks', 'Owners and deadlines assigned', 'Patch verification and retesting', 'Controls mapped to applicable frameworks'] },
-  { n: 'Stage 4', time: 'Assure', items: ['Continuous monitoring and alerting', 'Monthly compliance evidence', 'Quarterly reassessment', 'Audit-ready evidence vault'] },
+  { n: 'Stage 4', time: 'Handover & ongoing assurance', items: ['Reports and verification records handed over', 'Outstanding risks and next steps documented', 'Monitoring and reporting where contracted', 'Reassessment schedule for ongoing engagements'] },
 ];
 
 export const TIERS = [

@@ -118,7 +118,7 @@ Preferences controls saving the light/dark theme in local storage. Rejecting or 
 
 The canonical origin defaults to `https://anvexasecuritysolution.vercel.app`. Override it with `VITE_SITE_URL` when you adopt a custom domain. Each build generates `sitemap.xml` and `robots.txt`, including public pages and bundled articles. Admin pages use noindex metadata and headers, and API routes are excluded from crawling. Rebuild after changing the public domain or shared articles. MongoDB-only articles outside the shared list must be added there to appear in the generated sitemap.
 
-Pages have canonical links, titles, descriptions and Open Graph/Twitter metadata. A 1200 × 630 PNG social preview is included, with its editable SVG source. Initial HTML includes site-wide social metadata for crawlers that do not execute JavaScript; article-specific tags update in React. Distinct article previews on non-JavaScript social crawlers would require prerendering or server rendering.
+Pages have canonical links, titles, descriptions and Open Graph/Twitter metadata. A 1200 × 630 PNG social preview is included, with its editable SVG source. Production builds prerender page-specific and article-specific metadata into the initial HTML for crawlers that do not execute JavaScript. See Search optimization and publishing below.
 
 ## Validation
 
@@ -156,7 +156,7 @@ server/src/
 
 ## Google Analytics 4
 
-The public website uses measurement ID `G-B2XQDE7L8D`. `VITE_GA_MEASUREMENT_ID` can override it; an empty value disables analytics. Tracking runs only in production on the configured `VITE_SITE_URL` origin, so local development and preview domains do not inflate reports.
+The public website uses measurement ID `G-B2XQDE7L8D`. `VITE_GA_MEASUREMENT_ID` can override it; an empty value disables analytics. Tracking runs in production builds and uses the visitor's actual website origin, including custom domains. The Vite development server does not track visits. Production previews can send visits after consent; build with an empty measurement ID when testing without collection. `VITE_SITE_URL` controls canonical URLs and the sitemap, rather than restricting Analytics to one host.
 
 Google's script loads only after Analytics consent. Accept all enables Preferences and Analytics, Reject optional disables both, and Settings saves them independently. Previous consent is requested again because Analytics is a new purpose. Withdrawal sets GA's opt-out flag and deletes first-party `_ga` cookies without reloading the page. Only known public routes produce manual page views; admin routes and unknown URLs are excluded. Page locations omit queries and fragments, and contact form fields are never sent by this integration. Ads and Google Signals are disabled in the tag.
 
@@ -177,3 +177,15 @@ To make the improvements live, redeploy the updated project to Vercel. Then veri
 ## Development support enquiries
 
 Benkyō Technologies is listed as Anvexa's development support partner on Home and About. Their direct website, email and phone are not displayed. The partner CTA links to `/contact?plan=development`, preselecting Development Support in Anvexa's existing form. Visitors can also choose that service manually. All enquiries use the existing Anvexa delivery providers and admin lead records; the website does not send them directly to Benkyō. Express, Vercel and the Apps Script validator accept the new service option. If Google Sheets capture is configured, redeploy the updated Apps Script web app before publishing this frontend so the old deployed validator does not reject development enquiries.
+
+## Homepage content
+
+The homepage contains an introduction, three service choices with deliverables, a four-stage engagement overview, a compact framework summary, an illustrative dashboard, the development partner introduction and a final contact prompt. Detailed service, company and engagement information remains on Services, About and How It Works. The homepage's service enquiry links preselect the matching service in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`; shared service descriptions are in `client/src/data/content.js`. The original theme, lifecycle animation and card reveals remain in use.
+
+## Public page content
+
+Public page content has distinct roles: Home summarises the available support; About explains the working approach, frameworks and development partner; Services describes technical activities; How It Works describes delivery and handover; Pricing explains engagement options and quote factors; Contact gathers security and development requirements. Ongoing monitoring and response depend on the agreed scope. Dashboard figures are explicitly marked as a sample.
+
+## Database migrations
+
+This repository does not currently include migration files or a migration command. MongoDB models are in `server/src/models`. The seed command initializes missing content and an admin account; it is not a database migration. Switching GitHub storage modes does not move historical records automatically.

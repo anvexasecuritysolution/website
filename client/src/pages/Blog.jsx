@@ -26,7 +26,7 @@ export default function Blog() {
       <Seo title="Blog" description="Practical articles from Anvexa on VAPT, compliance, CERT-In and DPDP, and security for Indian businesses." />
       <PageHero
         label="Blog"
-        title="Notes from our security work."
+        title="Practical cybersecurity guidance."
         aside={(
           <AsideCard title="What we write about" tiles={[
             { icon: 'scan', label: 'VAPT and risk' },

@@ -13,7 +13,7 @@ export default function Services() {
         title="Test it once. Keep it secure after that."
         aside={<AsideCard title="The lifecycle at a glance" tiles={STEPS.map((s) => ({ k: s.n, label: s.title }))} />}
       >
-        <p>Your first VAPT is a start, not the finish. Your environment changes every week, with new assets, new vulnerabilities and new access, so the security loop keeps running.</p>
+        <p>Explore the work available across our security lifecycle, from identifying assets to verifying fixes and preparing evidence. Your proposal defines which services are included, with ongoing monitoring and response scoped separately where needed.</p>
         <div className="lifecycle-tagline">↻ Check again <span>→</span> Find what's new <span>→</span> Repeat</div>
       </PageHero>
       <div className="lifecycle-steps">
