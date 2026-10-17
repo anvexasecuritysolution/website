@@ -1,7 +1,7 @@
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme.js';
 
-// Fixed on the left edge, vertically centred.
+// Fixed at the left edge on desktop and inside the header area on mobile.
 export default function ThemeToggle() {
   const { theme, toggle } = useTheme();
   const next = theme === 'dark' ? 'light' : 'dark';

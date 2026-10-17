@@ -1,9 +1,9 @@
 export const NAV = [
   { to: '/', label: 'Home', end: true },
-  { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
   { to: '/how-it-works', label: 'How It Works' },
   { to: '/pricing', label: 'Pricing' },
+  { to: '/about', label: 'About' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
 ];
@@ -28,13 +28,13 @@ export const GAP_CARDS = [
   { kind: 'problem', icon: 'alert', title: 'Traditional Approach',
     steps: ['VAPT Report', 'Spreadsheet', 'Email', 'Manual Fix', 'Audit Scramble', 'Repeat'] },
   { kind: 'solution', icon: 'link', title: 'The Anvexa Approach',
-    steps: ['Finding', 'Risk Ranking', 'Named Owner', 'Firm Deadline', 'Guided Fix', 'Auto Re-Test', 'Audit Evidence', 'Continuous Monitoring'] },
+    steps: ['Finding', 'Risk Ranking', 'Named Owner', 'Agreed Deadline', 'Guided Fix', 'Verified Re-Test', 'Recorded Evidence', 'Scheduled Review'] },
 ];
 
 export const ENGAGE = [
-  { k: 'ASSESS · ONE-TIME', title: 'Security Assessment', text: 'Asset discovery, VAPT and vulnerability assessment, a risk report and a compliance gap assessment.' },
-  { k: 'OPERATE · MONTHLY', title: 'Continuous Security', text: 'Continuous monitoring, remediation tracking, compliance evidence, monthly reporting and quarterly reassessment.' },
-  { k: 'RESPOND · PREMIUM', title: 'Managed MDR & Advisory', text: '24×7 MDR options, incident response, threat hunting and vCISO advisory.' },
+  { k: 'ASSESS · ONE-TIME', title: 'Security Assessment', text: 'Vulnerability assessment and penetration testing (VAPT) for agreed web applications, APIs, servers or network assets.' },
+  { k: 'REVIEW · RECURRING', title: 'Recurring Security Reviews', text: 'Plan reassessment after important releases or infrastructure changes, with remediation follow-up and reporting defined in your proposal.' },
+  { k: 'SPECIALIST SUPPORT · BY AGREEMENT', title: 'Response & Advisory Enquiries', text: 'Discuss monitoring, managed detection and response (MDR) or incident support. Availability, coverage hours and escalation terms require written confirmation.' },
 ];
 
 export const ABOUT_BLOCKS = [
@@ -56,14 +56,14 @@ export const REGULATIONS = [
 
 // Lifecycle: tone drives colour (c = cyan, a = amber)
 export const STEPS = [
-  { n: '01', tone: 'c', title: 'Asset Discovery', tag: 'Discover', text: 'Identify the applications, APIs, endpoints, cloud resources and internet-facing systems within the agreed scope. The resulting inventory establishes what needs to be assessed and who owns it.' },
-  { n: '02', tone: 'c', title: 'VAPT & Risk', tag: 'Assess', text: 'Assess vulnerabilities, test agreed attack paths and review relevant configurations. Findings describe the affected assets, potential impact and remediation priorities for your technical and business teams.' },
-  { n: '03', tone: 'a', title: 'Remediation', tag: 'Fix', text: 'Turn findings into actions with owners, deadlines and practical fix guidance. Track unresolved issues and agreed interim safeguards while your team implements the changes.' },
-  { n: '04', tone: 'a', title: 'Retest', tag: 'Verify', text: 'Check remediated findings against the original issue and record the result. Findings stay open when the weakness remains, so closure is supported by verification rather than a status update alone.' },
-  { n: '05', tone: 'c', title: 'Control Mapping', tag: 'Comply', text: 'Connect applicable framework requirements to technical controls, responsible owners and supporting records. This shows where evidence exists and where control gaps still need attention.' },
-  { n: '06', tone: 'c', title: 'Continuous Watch', tag: 'Monitor', text: 'For ongoing engagements, review agreed log sources and security signals for suspicious activity, risky changes and control drift. Monitoring coverage, alert handling and escalation are defined in the service scope.' },
-  { n: '07', tone: 'a', title: 'Incident Response', tag: 'Respond', text: 'Support triage, escalation, containment and recovery within the agreed response scope. Record the incident timeline, actions taken and follow-up improvements for your team’s review.' },
-  { n: '08', tone: 'a', title: 'Evidence & Audit', tag: 'Prove', text: 'Organise assessment results, remediation records and retest evidence for audits and customer reviews. Ongoing engagements keep these records updated as scheduled work is completed.' },
+  { n: '01', tone: 'c', title: 'Asset Discovery', tag: 'Discover', text: 'Identify authorised applications, endpoints, servers and network assets. Establish an inventory with ownership, exposure and agreed testing boundaries.' },
+  { n: '02', tone: 'c', title: 'VAPT & Risk Assessment', tag: 'Assess', text: 'Combine vulnerability checks with validation of agreed attack paths, permissions and configurations. Report evidence, business impact and fix priorities.' },
+  { n: '03', tone: 'a', title: 'Remediation Guidance', tag: 'Fix', text: 'Explain recommended fixes to your developers or IT team. Track owners, target dates and interim safeguards; implementation support is agreed separately.' },
+  { n: '04', tone: 'a', title: 'Retesting & Verification', tag: 'Verify', text: 'Recheck agreed fixes within the retest window. Record which findings are resolved, which remain open and any limits to verification.' },
+  { n: '05', tone: 'c', title: 'Compliance Control Mapping', tag: 'Align', text: 'Link relevant technical findings and evidence to applicable framework controls. Identify gaps for your compliance team or auditor to review.' },
+  { n: '06', tone: 'c', title: 'Monitoring Support', tag: 'By agreement', text: 'Discuss the log sources and security signals you need reviewed. Coverage hours, alert handling and escalation must be confirmed before the service starts.' },
+  { n: '07', tone: 'a', title: 'Incident Response Support', tag: 'By agreement', text: 'Agree support for triage, containment and recovery, including contacts and responsibilities. Response availability and timings require written confirmation.' },
+  { n: '08', tone: 'a', title: 'Evidence & Audit Preparation', tag: 'Document', text: 'Organise assessment reports, remediation actions and retest records for audits and customer reviews. Independent certification or attestation is outside this service.' },
 ];
 
 // Ring nodes on the home hero — order matches STEPS
@@ -90,12 +90,12 @@ export const PHASES = [
 ];
 
 export const TIERS = [
-  { badge: 'land', name: 'ASSESS', title: 'Security Assessment', type: 'One-time', price: 'Custom', unit: '/ project', cta: 'Get a Quote', ctaClass: 'btn-ghost',
-    features: ['Asset discovery', 'VAPT / vulnerability assessment', 'Risk report', 'Compliance gap assessment'] },
-  { badge: 'retain', name: 'OPERATE', title: 'Continuous Security', type: 'Monthly', price: 'On request', unit: '/ mo', cta: 'Start Protecting', ctaClass: 'btn-a', featured: true,
-    features: ['Continuous monitoring', 'Remediation tracking', 'Compliance evidence', 'Monthly security reporting', 'Quarterly reassessment'] },
-  { badge: 'expand', name: 'RESPOND', title: 'Managed MDR & Advisory', type: 'Premium', price: 'On request', unit: '/ mo', cta: 'Talk to Us', ctaClass: 'btn-ghost',
-    features: ['24×7 MDR options', 'Incident response', 'Threat hunting', 'vCISO / advisory'] },
+  { badge: 'land', name: 'ASSESS', title: 'Security Assessment', type: 'Defined scope', price: 'Custom quote', unit: '/ project', cta: 'Scope an Assessment', ctaClass: 'btn-ghost',
+    features: ['Agreed application or infrastructure scope', 'Evidence-based technical findings', 'Management summary and fix priorities', 'Retest terms specified in the proposal'] },
+  { badge: 'retain', name: 'REVIEW', title: 'Recurring Security Reviews', type: 'Agreed schedule', price: 'Custom quote', unit: '/ engagement', cta: 'Plan Recurring Reviews', ctaClass: 'btn-a', featured: true,
+    features: ['Reassessment of agreed assets', 'Review after significant changes', 'Remediation and retest follow-up', 'Reporting and cadence agreed in writing'] },
+  { badge: 'expand', name: 'DISCUSS', title: 'Response & Advisory', type: 'Availability confirmed first', price: 'By agreement', unit: '', cta: 'Discuss Requirements', ctaClass: 'btn-ghost',
+    features: ['Coverage and hours confirmed before purchase', 'Defined escalation responsibilities', 'Scope-specific advisory requirements', 'Separate agreement for monitoring or response'] },
 ];
 
 export { INDUSTRIES, SERVICES } from '../../shared/leads.js';

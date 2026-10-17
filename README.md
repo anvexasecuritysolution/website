@@ -180,6 +180,8 @@ Benkyō Technologies is listed as Anvexa's development support partner on Home a
 
 ## Homepage content
 
+The client-focused positioning review is in `docs/CLIENT-POV-REVIEW.md`. Primary coverage is web application, API, server and network assessments for Indian MSMEs and startups. Buyer FAQs are in `client/src/data/positioning.js`. The original scope illustration is `client/public/assessment-scope.svg`; `sample-security-report.html` is an explicitly illustrative, noindex report-format preview. Published research figures link to their dated source and are not presented as Anvexa results. Advanced monitoring/response availability requires written confirmation; existing lead service identifiers remain unchanged for compatibility. The mobile theme switch sits in the header to avoid obscuring section headings.
+
 The homepage contains an introduction, three service choices with deliverables, a four-stage engagement overview, a compact framework summary, an illustrative dashboard, the development partner introduction and a final contact prompt. Detailed service, company and engagement information remains on Services, About and How It Works. The homepage's service enquiry links preselect the matching service in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`; shared service descriptions are in `client/src/data/content.js`. The original theme, lifecycle animation and card reveals remain in use.
 
 ## Public page content

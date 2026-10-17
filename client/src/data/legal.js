@@ -1,5 +1,5 @@
 // Legal copy for /privacy and /terms. Tokens {email}, {phone} and {address} render as links.
-export const LEGAL_UPDATED = '8 October 2026';
+export const LEGAL_UPDATED = '16 October 2026';
 
 export const PRIVACY = {
   slug: 'privacy',
@@ -74,7 +74,7 @@ export const PRIVACY = {
     },
     {
       h: 'Your rights',
-      p: ['Under the DPDP Act you have the right to:'],
+      p: ['You can contact us with the requests below. Statutory rights under the DPDP framework depend on the applicable provisions, their commencement and any exemptions:'],
       ul: [
         'Get a summary of the personal data we hold about you and how we use it.',
         'Ask us to correct inaccurate or incomplete data, or update it.',
@@ -88,7 +88,7 @@ export const PRIVACY = {
       h: 'Grievances and complaints',
       p: [
         'If you have a concern about how we handle your personal data, write to {email} with the subject "Privacy grievance". We will review it and respond promptly.',
-        'If you are not satisfied with our response, you may complain to the Data Protection Board of India once it is operational under the DPDP Act.',
+        'If you are not satisfied with our response, the applicable law may provide a route to the Data Protection Board of India or another competent authority. The available route depends on the provisions in force and their procedures.',
       ],
     },
     {

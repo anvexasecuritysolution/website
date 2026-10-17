@@ -13,11 +13,11 @@ export default function Footer() {
             <img src="/anvexa-mark.svg" alt="" width="47" height="40" />
             <span className="brand-text"><b>ANVEXA</b><small>Security Solutions</small></span>
           </Link>
-          <p>We find hidden vulnerabilities, help remediate the critical ones and verify every fix. We also map your controls to the frameworks you answer to and keep testing as your environment changes.</p>
+          <p>We assess web applications, APIs, servers and networks, help your team prioritise remediation and verify agreed fixes. Our focus is practical security work for Indian MSMEs and startups.</p>
           <div className="follow-row">
             <span className="follow-label">Follow us on</span>
             <div className="social-row">
-            {SOCIALS.map((so) => (
+            {SOCIALS.filter((so) => so.url).map((so) => (
               <a
                 key={so.name}
                 className={`social-link ${so.name}`}

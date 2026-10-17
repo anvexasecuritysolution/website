@@ -20,7 +20,7 @@ export default function Pricing() {
           ]} />
         )}
       >
-        <p>Choose a one-time assessment, ongoing security support or managed response. We review your requirements before preparing a proposal with the scope, deliverables, timelines and fees.</p>
+        <p>Start with a defined assessment or discuss a recurring review schedule. We confirm the assets, testing depth, deliverables, retest window and fees in a written proposal. Specialist monitoring or response support needs a separate availability and scope discussion.</p>
       </PageHero>
       <div className="pricing-grid">
         {TIERS.map((t, i) => (

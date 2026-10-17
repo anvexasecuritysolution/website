@@ -7,10 +7,10 @@ import { FRAMEWORK_GUIDE } from '../data/frameworks.js';
 import DevelopmentPartner from '../components/DevelopmentPartner.jsx';
 
 const approach = [
-  { icon: 'search', title: 'Understand your environment', text: 'We start with your systems, business priorities and existing security tools, so the work addresses the risks you actually face.' },
-  { icon: 'wrench', title: 'Work alongside your team', text: 'Findings need people who can act on them. We help your technical team understand the issues, agree priorities and track remediation.' },
-  { icon: 'filecheck', title: 'Verify and document', text: 'We retest remediated findings and keep the results connected to the original issue, giving your team a clear record of what changed.' },
-  { icon: 'refresh', title: 'Agree the next step', text: 'An assessment and an ongoing engagement serve different needs. We define the scope with you, including any follow-up testing, monitoring or reporting.' },
+  { icon: 'search', title: 'Business context matters', text: 'A customer portal, an internal ERP and a public API carry different risks. Recommendations should reflect the data, users and business operations involved.' },
+  { icon: 'wrench', title: 'Practical collaboration', text: 'Your developers and IT staff know your systems. We value their context and discuss constraints so recommendations can fit the way your team works.' },
+  { icon: 'filecheck', title: 'Claims need evidence', text: 'We distinguish observed weaknesses from assumptions and explain limitations. A report should make clear what was tested and what remains uncertain.' },
+  { icon: 'refresh', title: 'Clear commitments', text: 'We distinguish assessment work from ongoing monitoring and specialist response. Service boundaries and responsibilities should be clear before you commit.' },
 ];
 
 export default function About() {
@@ -22,14 +22,14 @@ export default function About() {
         title="Security work built around your business, not around a report."
         aside={(
           <AsideCard title="Anvexa Security Solutions" mark="/anvexa-mark.svg" tiles={[
-            { icon: 'refresh', label: 'Ongoing, not a one-off test' },
+            { icon: 'refresh', label: 'Defined assessment scopes' },
             { icon: 'filecheck', label: 'Evidence at every step' },
             { icon: 'landmark', label: 'Mapped to Indian frameworks' },
-            { icon: 'shield', label: 'One team from test to audit' },
+            { icon: 'shield', label: 'Developer handover and retesting' },
           ]} />
         )}
       >
-        <p>Anvexa Security Solutions is a cybersecurity team based in Noida. We cover the whole chain: asset discovery, VAPT, remediation, compliance, monitoring and audit evidence. Too many assessments end as a PDF nobody acts on, and too many controls go unverified. We built Anvexa to close that gap.</p>
+        <p>Anvexa Security Solutions is a cybersecurity startup based in Noida, focused on web application, API, server and network security for Indian MSMEs and startups. We help teams understand vulnerabilities, plan fixes and verify remediation, with deliverables and access agreed for each engagement.</p>
         <p style={{ marginTop: '1rem' }}>What we want is simple: safer businesses, compliance that holds up, and a more secure India.</p>
         <div className="hero-actions-mt">
           <Link to="/contact" className="btn btn-c">Get in touch</Link>
@@ -39,9 +39,9 @@ export default function About() {
       <div className="wrap">
         <div>
           <div>
-            <div className="label">Our approach</div>
-            <h2>How we work with your team.</h2>
-            <p style={{ marginTop: '1rem' }}>Our role is to make security findings understandable, actionable and verifiable within the scope we agree.</p>
+            <div className="label">Our principles</div>
+            <h2>What guides our decisions.</h2>
+            <p style={{ marginTop: '1rem' }}>These principles shape how we discuss risk, make recommendations and set expectations with your team.</p>
             <div className="about-blocks">
               {approach.map((b, i) => (
                 <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
@@ -65,7 +65,8 @@ export default function About() {
               <h3>{framework.title}</h3>
               <p>{framework.explanation}</p>
               <dl>
-                <dt>Who it’s relevant to</dt><dd>{framework.audience}</dd>
+                <dt>Relevant to</dt><dd>{framework.audience}</dd>
+                <dt>Our support</dt><dd>{framework.support}</dd>
               </dl>
             </Reveal>
           ))}

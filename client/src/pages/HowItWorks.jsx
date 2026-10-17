@@ -1,7 +1,9 @@
 import Seo from '../components/Seo.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PageHero, { AsideCard } from '../components/PageHero.jsx';
-import { FLOW, PHASES } from '../data/content.js';
+import { PHASES } from '../data/content.js';
+
+const DELIVERY_FLOW = ['Enquiry', 'Written proposal', 'Authorisation', 'Assessment', 'Remediation', 'Retest', 'Handover'];
 
 export default function HowItWorks() {
   return (
@@ -15,19 +17,27 @@ export default function HowItWorks() {
             { icon: 'search', label: 'Discover' },
             { icon: 'shield', label: 'Assess' },
             { icon: 'wrench', label: 'Remediate' },
-            { icon: 'vault', label: 'Assure' },
+            { icon: 'vault', label: 'Verify and hand over' },
           ]} />
         )}
       >
         <p>We agree the scope, assess the risks, support remediation and document the results. Monitoring, recurring reviews and ongoing assurance are included when they form part of your agreed engagement.</p>
       </PageHero>
+      <section className="wrap" aria-labelledby="testing-safeguards-title">
+        <div className="label">Before testing begins</div><h2 id="testing-safeguards-title">Agree how the work and your information will be handled.</h2>
+        <div className="engage-grid">
+          <Reveal className="engage-cell"><h3>Authority and scope</h3><p>Document asset ownership or testing permission, environments, access, exclusions and third-party constraints. Testing starts within the authorised scope.</p></Reveal>
+          <Reveal className="engage-cell" delay={70}><h3>Operational safeguards</h3><p>Agree the testing window, escalation contact and stop conditions. Discuss backups, staging and synthetic data. Testing can affect availability, so safeguards must match the environment.</p></Reveal>
+          <Reveal className="engage-cell" delay={140}><h3>Confidentiality and handover</h3><p>Agree confidentiality terms, report recipients, secure access sharing, evidence retention and credential revocation. Confirm the retest window and final deliverables in writing.</p></Reveal>
+        </div>
+      </section>
 
       <div className="process-bottom-bar">
         <div className="pb-flow" role="list" aria-label="Delivery flow">
-          {FLOW.map(([label, hl], i) => (
+          {DELIVERY_FLOW.map((label, i) => (
             <div className="pb-step" role="listitem" key={label}>
-              <div className={`pb-chip${hl ? ' c' : ''}`}>{label}</div>
-              {i < FLOW.length - 1 && <div className="pb-arrow" aria-hidden="true">→</div>}
+              <div className="pb-chip c">{label}</div>
+              {i < DELIVERY_FLOW.length - 1 && <div className="pb-arrow" aria-hidden="true">→</div>}
             </div>
           ))}
         </div>

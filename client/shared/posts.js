@@ -2,11 +2,11 @@
 export default [
   {
     "slug": "certin-baseline-cyber-defense-controls",
-    "title": "CERT-In's Baseline Cyber Defence Controls: What Each One Means in Practice",
+    "title": "Using CERT-In Baseline Cyber Defence Controls to Plan Security Work",
     "excerpt": "What a baseline control set is for, and a simple way to score how much of it you already have in place.",
     "tag": "Compliance",
     "emoji": "📋",
-    "readMinutes": 6,
+    "readMinutes": 2,
     "publishedAt": "2025-09-15",
     "body": [
       "CERT-In has published a baseline set of cyber defence controls for organisations. Its main value is that it turns a vague goal like \"be more secure\" into a list you can measure yourself against.",
@@ -19,18 +19,18 @@ export default [
   {
     "slug": "dpdp-2023-enforcement-checklist",
     "title": "DPDP Act 2023: A Practical Checklist for Indian Businesses",
-    "excerpt": "Enforcement is being phased in. Here is what most organisations can start on now, before the rules reach their sector.",
+    "excerpt": "Map personal data, review access and prepare a response process while checking the DPDP framework’s phased commencement and your organisation’s scope.",
     "tag": "DPDP",
     "emoji": "🔐",
-    "readMinutes": 8,
+    "readMinutes": 2,
     "publishedAt": "2025-08-12",
     "body": [
-      "The Digital Personal Data Protection Act, 2023 applies to any organisation that processes the personal data of people in India. Enforcement is being phased in, which makes it easy to postpone. That is a mistake, because most of the preparation takes months.",
+      "The Digital Personal Data Protection Act, 2023 addresses digital personal data processed in India and certain overseas processing connected with offering goods or services to people in India, subject to its scope and exemptions. The Act and the notified 2025 Rules have phased commencement, so check which provisions apply before treating a duty as already enforceable.",
       "Start with a data inventory. Record what personal data you hold, where it is stored, who can access it and why you collected it. A spreadsheet is enough. Nearly every other obligation depends on this map.",
       "Next, review consent. Check your sign-up forms, cookie banners and privacy notices. Do they state the purpose clearly? Can a customer withdraw consent as easily as they gave it? If not, that is your first fix.",
       "Then look at retention and third parties. Many companies keep data indefinitely because nobody set a deletion rule. Your processors, such as payment gateways, CRMs and cloud hosts, often hold your customers' data too, so check what your contracts say about security safeguards and breach notification.",
       "Finally, document your breach-response process: who detects, who decides, who notifies the Board and affected individuals, and how quickly. Run it once as a tabletop exercise and the weak points show up fast.",
-      "Deadlines and rules are still being clarified, so confirm the current position with qualified legal counsel before relying on any date mentioned here."
+      "Use the notified Act, Rules and commencement notifications to confirm the current position with qualified counsel. A technical assessment can support security safeguards and evidence, but it does not by itself establish compliance with every legal duty."
     ]
   },
   {
@@ -39,7 +39,7 @@ export default [
     "excerpt": "The report arrives, gets filed, and the vulnerabilities are still open six months later. Here is how to break the pattern.",
     "tag": "VAPT",
     "emoji": "🕵️",
-    "readMinutes": 7,
+    "readMinutes": 1,
     "publishedAt": "2025-07-10",
     "body": [
       "Many organisations commission a VAPT because a customer, regulator or auditor asked for one. The report arrives, someone skims the executive summary, and it goes into a shared drive. Six months later, most of the findings are still open.",
@@ -55,7 +55,7 @@ export default [
     "excerpt": "Most organisations collect logs and never review them. What continuous monitoring looks like for a lean team.",
     "tag": "Monitoring",
     "emoji": "📡",
-    "readMinutes": 5,
+    "readMinutes": 2,
     "publishedAt": "2025-06-09",
     "body": [
       "Nearly every system you run already produces logs: servers, firewalls, cloud accounts, email and identity providers. The problem is that in most organisations nobody reviews them until after an incident, by which time the useful entries may have been overwritten.",
@@ -71,11 +71,11 @@ export default [
     "excerpt": "Financial firms often face overlapping obligations from RBI, SEBI and IRDAI. How to handle them without doing the work twice.",
     "tag": "Sector",
     "emoji": "🏦",
-    "readMinutes": 6,
+    "readMinutes": 1,
     "publishedAt": "2025-05-08",
     "body": [
       "If you run a fintech, a broking business or an insurance intermediary, you may answer to more than one regulator. RBI, SEBI and IRDAI each issue their own cybersecurity requirements, with their own reporting formats and timelines. They overlap heavily, but they are not identical.",
-      "The most common mistake we see is preparing separate evidence for each audit. A team builds one pack for RBI, another for SEBI and a third for a customer's vendor review, even though most of the content is the same.",
+      "Preparing entirely separate evidence packs for each review can duplicate work. A team may build one pack for a regulator and another for a customer even where the underlying controls overlap. Keep each regulator’s specific requirements visible while reusing evidence where appropriate.",
       "A better approach is to map your controls once, covering access management, encryption, patching, logging, backups and vendor checks, and note which requirement each control satisfies. When an auditor asks, you reuse the same evidence and present it against their framework.",
       "Third-party risk deserves special attention. Regulators expect you to know how your cloud providers, payment partners and outsourced developers handle security, and to have that written into your contracts.",
       "Which circulars apply depends on your licence category, so confirm this with your compliance team or counsel before building anything around it."
@@ -87,10 +87,10 @@ export default [
     "excerpt": "The most damaging application vulnerabilities aren't new. They slip through because sprints reward speed over review.",
     "tag": "AppSec",
     "emoji": "🧱",
-    "readMinutes": 9,
+    "readMinutes": 2,
     "publishedAt": "2025-04-07",
     "body": [
-      "The OWASP Top 10 has barely changed in spirit over the years. Broken access control, injection and security misconfiguration keep appearing at the top. They are old, well-understood problems, yet we still find them in most of the applications we test.",
+      "Broken access control, injection and security misconfiguration are established application security risks. OWASP guidance helps teams organise their testing, but each application also needs checks based on its own roles, data and business workflows.",
       "The cause is rarely a lack of skill. It is how the work is planned. Sprints are judged on features shipped, and a security review is one more thing that can push the release date. So it gets skipped, and the same classes of bug go live again.",
       "Broken access control is the classic example. A user changes an ID in the URL and sees someone else's invoice. It is easy to fix but easy to miss, because each developer tests that their own feature works, not that it fails for the wrong person.",
       "You can catch a lot with cheap guardrails in the pipeline. Run dependency scanning so you know when a library has a known vulnerability. Add secret scanning so API keys don't end up in Git. Put a short security checklist in your pull-request template, with three or four questions the author must answer.",

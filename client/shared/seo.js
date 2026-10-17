@@ -1,7 +1,7 @@
 export const SITE_NAME = 'Anvexa Security Solutions';
 
 export const PAGE_META = {
-  '/': { title: 'Cybersecurity & VAPT Services in India | Anvexa', description: 'Anvexa Security Solutions in Noida helps Indian businesses with VAPT, remediation, compliance mapping, continuous monitoring and incident response.' },
+  '/': { title: 'Web, API, Server & Network Security | Anvexa India', description: 'Security assessments for Indian MSMEs and startups: web applications, APIs, servers and networks, with remediation guidance and agreed retesting.' },
   '/about': { title: 'About Our Cybersecurity Team in Noida | Anvexa', description: 'Meet Anvexa Security Solutions, a Noida-based cybersecurity team helping Indian businesses assess risk, verify fixes and maintain audit evidence.' },
   '/services': { title: 'VAPT, Compliance & Cybersecurity Services | Anvexa', description: 'Explore Anvexa’s cybersecurity services: asset discovery, VAPT, remediation, retesting, compliance mapping, continuous monitoring and incident response.' },
   '/how-it-works': { title: 'Our Security Assessment & Remediation Process | Anvexa', description: 'See how an Anvexa engagement works: discover your environment, assess vulnerabilities, support remediation and verify controls with ongoing assurance.' },

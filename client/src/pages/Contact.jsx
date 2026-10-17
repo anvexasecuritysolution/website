@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Select from '../components/Select.jsx';
 import Icon from '../components/Icon.jsx';
 import Seo from '../components/Seo.jsx';
+import BuyerQuestions from '../components/BuyerQuestions.jsx';
 import { api, ApiError } from '../api/client.js';
 import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
 import { validateLead, DEVELOPMENT_SERVICE } from '../../shared/leads.js';
@@ -71,6 +72,7 @@ export default function Contact() {
           <div className="label">Contact</div>
           <h1>Tell us what you need.</h1>
           <p>Share the service you are interested in, a short description of your requirements and any target dates. Our team will follow up to clarify the scope and next steps.</p>
+          <p className="contact-development-note">For a security assessment, tell us whether you need web application, API, server or network testing. Approximate asset counts and any customer or auditor requirements help us scope the work. Share access details only through an agreed secure channel.</p>
           <p className="contact-development-note">For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
@@ -139,6 +141,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
+      <BuyerQuestions />
     </>
   );
 }
