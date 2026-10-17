@@ -1,6 +1,6 @@
 # Anvexa Security Solutions
 
-Cybersecurity marketing website, blog and contact capture. The public site is https://anvexasecuritysolution.vercel.app. React/Vite powers the frontend. Express/MongoDB supports the optional admin dashboard; Vercel functions support standalone hosting.
+Cybersecurity website, blog and enquiry capture for Anvexa Security Solutions, focused on web application, API, server and network assessments for Indian MSMEs and startups. The public site is [anvexasecuritysolution.vercel.app](https://anvexasecuritysolution.vercel.app). React/Vite powers the frontend. Express/MongoDB supports the optional admin dashboard; Vercel functions support standalone hosting.
 
 ## Local setup
 
@@ -18,6 +18,32 @@ npm run dev
 ```
 
 The frontend runs at http://localhost:5173 and the API at http://localhost:5000. Admin login is `/admin/login`.
+
+For frontend-only work, use `npm run dev --prefix client`. Contact delivery still needs one of the configured backends or providers described below. To inspect the production build locally:
+
+```sh
+npm run build
+npm run preview --prefix client -- --host 127.0.0.1 --port 4173
+```
+
+The preview is available at http://127.0.0.1:4173. It does not start Express or deploy the website. Production previews can send Analytics page views after consent; see the Analytics section before testing.
+
+## Pages and navigation
+
+| URL | Purpose |
+| --- | --- |
+| `/` | Assessment coverage, application examples, delivery overview, support options and deliverables |
+| `/services` | Four assessment domains, OWASP references and eight assessment/follow-up services |
+| `/how-it-works` | Testing safeguards, animated delivery journey and engagement stages |
+| `/pricing` | Engagement options and factors used to prepare a quote |
+| `/about` | Company principles, concise rules/framework summaries and development partner |
+| `/blog` and `/blog/:slug` | Published cybersecurity articles |
+| `/contact` | Validated security and development enquiry form |
+| `/faqs` | Dedicated FAQ page, linked below Contact in the footer's Company column |
+| `/team` | Eight team profiles, roles, portraits and LinkedIn links |
+| `/privacy` and `/terms` | Privacy and website terms |
+
+The Team page has no header or footer navigation link and is accessible directly at `/team`. It remains a public page included in the sitemap; it is not password-protected. FAQs are no longer embedded on Home or Contact.
 
 ## Choose the deployment that fits your current setup
 
@@ -94,7 +120,7 @@ Optional server variables: `GITHUB_BRANCH` (default `main`), `GITHUB_RATE_PATH` 
 
 ## Blog, seeding and content
 
-All deployment paths share `client/shared/posts.js`. Edit the articles there. Frontend and Vercel import it; the MongoDB seed uses it. Static page copy is in `client/src/data/content.js`; legal page copy is in `client/src/data/legal.js`.
+All deployment paths share `client/shared/posts.js`. Edit the articles there. Frontend and Vercel import it; the MongoDB seed uses it. Shared service copy is in `client/src/data/content.js`, assessment domains and FAQs in `client/src/data/positioning.js`, framework summaries in `client/src/data/frameworks.js`, and legal copy in `client/src/data/legal.js`. Page-specific copy lives in `client/src/pages`.
 
 Default `npm run seed` only inserts missing posts and creates a missing admin. It preserves existing articles, unpublished status, additional posts and existing passwords. Explicit maintenance options are available:
 
@@ -124,8 +150,8 @@ Pages have canonical links, titles, descriptions and Open Graph/Twitter metadata
 
 ```sh
 npm run lint
-npm test
 npm run build
+npm test
 # all three together:
 npm run check
 ```
@@ -142,7 +168,7 @@ client/
   shared/       Blog articles, lead validation, site metadata
   api/          Vercel handlers and shared GitHub storage
   build/        Generated sitemap/robots/social metadata
-  public/       Logos, fonts, favicon and social preview
+  public/       Logos, fonts, favicon, social preview and active team portraits
 server/src/
   config/       Environment and MongoDB setup
   models/       Lead, Post, User
@@ -167,7 +193,7 @@ Redeploy the site, visit the public domain, allow Analytics, and check Reports ‚
 
 ## Search optimization and publishing
 
-Production builds prerender all nine public pages and every bundled blog article into complete HTML, including their real headings, text, links, unique page titles, descriptions, canonical URLs, social previews and Organization/WebSite/WebPage or BlogPosting JSON-LD. The same React app takes over for interactive navigation, forms, themes and consent; this does not change contact delivery. No ratings, prices, certifications or social profiles are invented for structured data.
+Production builds prerender all eleven public pages and every bundled blog article into complete HTML, including their real headings, text, links, unique page titles, descriptions, canonical URLs, social previews and Organization/WebSite/WebPage or BlogPosting JSON-LD. Routes and metadata are registered in `client/shared/site.js` and `client/shared/seo.js`. The same React app takes over for interactive navigation, forms, themes and consent; this does not change contact delivery. No ratings, prices, certifications or social profiles are invented for structured data.
 
 Vercel rewrites serve each generated page at its existing URL. Trailing slashes redirect to the canonical URL, and unmatched routes use the generated `404.html` rather than the homepage. Admin pages are noindex; robots.txt allows crawlers to read that instruction. Express serves the same pages with per-response CSP nonces and preserves contact query parameters on redirects. MongoDB articles added after a build still load through the client API; add them to the shared published content and rebuild to include their full static HTML and sitemap entries. Static snapshots describe the published content at build time, so content and publication-status changes need a rebuild.
 
@@ -180,13 +206,33 @@ Benky≈ç Technologies is listed as Anvexa's development support partner on Home a
 
 ## Homepage content
 
-The client-focused positioning review is in `docs/CLIENT-POV-REVIEW.md`. Primary coverage is web application, API, server and network assessments for Indian MSMEs and startups. Buyer FAQs are in `client/src/data/positioning.js`. The original scope illustration is `client/public/assessment-scope.svg`; `sample-security-report.html` is an explicitly illustrative, noindex report-format preview. Published research figures link to their dated source and are not presented as Anvexa results. Advanced monitoring/response availability requires written confirmation; existing lead service identifiers remain unchanged for compatibility. The mobile theme switch sits in the header to avoid obscuring section headings.
+The client-focused positioning review is in `docs/CLIENT-POV-REVIEW.md`. Primary coverage is web application, API, server and network assessments for Indian MSMEs and startups. The responsive scope diagram is `client/src/components/AssessmentScope.jsx`; its original standalone SVG remains at `client/public/assessment-scope.svg`. Cards highlight in sequence and the diagram adapts to light/dark mode. `client/public/sample-security-report.html` is an explicitly illustrative, noindex report-format preview. Published research figures link to their dated source and are not presented as Anvexa results. Advanced monitoring/response availability requires written confirmation; existing lead service identifiers remain unchanged for compatibility. The mobile theme switch sits in the header to avoid obscuring section headings.
 
-The homepage contains an introduction, three service choices with deliverables, a four-stage engagement overview, a compact framework summary, an illustrative dashboard, the development partner introduction and a final contact prompt. Detailed service, company and engagement information remains on Services, About and How It Works. The homepage's service enquiry links preselect the matching service in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`; shared service descriptions are in `client/src/data/content.js`. The original theme, lifecycle animation and card reveals remain in use.
+The homepage includes four assessment cards, permanently visible application examples, four engagement steps, three support options, a traditional-versus-Anvexa comparison, a compact framework summary and a separate deliverables section. The illustrative dashboard stays behind a disclosure. A compact development partner introduction and contact prompt follow. Service enquiry links preselect the matching option in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`. The theme, lifecycle animation and card reveals remain in use.
 
 ## Public page content
 
 Public page content has distinct roles: Home summarises the available support; About explains the working approach, frameworks and development partner; Services describes technical activities; How It Works describes delivery and handover; Pricing explains engagement options and quote factors; Contact gathers security and development requirements. Ongoing monitoring and response depend on the agreed scope. Dashboard figures are explicitly marked as a sample.
+
+Services distinguishes OWASP Top 10:2025, OWASP API Security Top 10:2023 and the Web Security Testing Guide (WSTG). These are testing/risk references, not claims of OWASP certification or exhaustive coverage. About's six rules/framework cards use concise bullet points and distinguish applicability from Anvexa's technical support.
+
+## Styling and interactions
+
+`client/src/styles/global.css` contains the established theme and card effects. `client/src/styles/refinement.css`, imported afterward, controls the shared font hierarchy, compact section spacing and scoped page refinements. `client/src/components/CopyStyle.jsx` applies Title Case to headings and selective bold/Title Case emphasis to important phrases; body paragraphs otherwise retain sentence case.
+
+Assessment and principle cards use four columns on desktop, two on tablets and one on phones. The eight Services lifecycle cards follow the same pattern. The How It Works journey animates icons and connecting lines without a highlighted background. Reduced-motion preferences disable decorative animation.
+
+FAQ content is in `client/src/data/positioning.js`, rendered by `BuyerQuestions.jsx` on `/faqs`. Questions appear in one column. Mouse hover opens a card and leaving it closes it; native details/summary controls retain tap and keyboard operation.
+
+## Team profiles and photos
+
+Edit `client/src/data/team.js` to maintain the eight profiles. Each entry has a name, role, description, LinkedIn URL, photo path and explicit `order`; the page sorts by that order. `highlight` selects a key responsibility to emphasise. Optional `photoPosition`, `photoScale` and `photoOrigin` adjust framing without modifying the photo file. Shraddha and Shruti currently use a closer crop.
+
+`client/src/pages/Team.jsx` renders the cards in four desktop columns, two tablet columns and one mobile column. Cards use square portraits, compact role descriptions, LinkedIn buttons, border animations and no numbering. Naresh Jain is listed as CTO; Vartika's role is Digital Forensics.
+
+Only the eight active WebP portraits are retained in `client/public/team`. Unused originals, intermediate edits and PNG duplicates were removed from the project to reduce deployment size. Files in the user's Downloads folder were not removed. Photo editing history and prompts are documented in `docs/TEAM-PHOTO-EDITS.md`.
+
+To replace a portrait, add the approved image to `client/public/team`, update its `photo` field, check the square framing and rebuild. Use local assets rather than expiring LinkedIn image URLs. Before deleting an image, confirm that no profile or other source file references it.
 
 ## Database migrations
 
