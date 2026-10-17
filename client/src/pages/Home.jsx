@@ -4,6 +4,7 @@ import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PipelineRing from '../components/PipelineRing.jsx';
 import Dashboard from '../components/Dashboard.jsx';
+import AssessmentScope from '../components/AssessmentScope.jsx';
 import { SECURITY_DOMAINS } from '../data/positioning.js';
 import { FRAMEWORKS, ENGAGE, GAP_CARDS } from '../data/content.js';
 
@@ -50,7 +51,7 @@ export default function Home() {
         <div className="label">What we assess</div>
         <h2 id="home-applications-title">Four connected areas of your business security.</h2>
         <p className="home-section-intro">Start with the systems that matter to your business. We agree which assets, environments and testing activities are included before work begins.</p>
-        <div className="security-domain-grid">
+        <div className="security-domain-grid home-assessment-grid">
           {SECURITY_DOMAINS.map((domain, i) => (
             <Reveal as="article" className="ab security-domain-card" key={domain.title} delay={(i % 2) * 70}>
               <div className="ab-icon"><Icon name={domain.icon} /></div>
@@ -58,7 +59,7 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
-        <figure className="scope-figure"><img src="/assessment-scope.svg" width="1080" height="340" loading="lazy" alt="Assessment scope connects web applications, APIs, servers and networks, with testing boundaries agreed before work starts." /><figcaption>Illustrative scope diagram. Your proposal defines the components and access included.</figcaption></figure>
+        <figure className="scope-figure"><AssessmentScope /><figcaption>Illustrative scope diagram. Your proposal defines the components and access included.</figcaption></figure>
         <div className="application-coverage-examples" aria-labelledby="application-examples-title">
         <h3 id="application-examples-title">Where this applies in your business.</h3>
         <p className="home-section-intro">For IT MSMEs and startups, these systems often hold customer, student, patient or staff data. We scope testing around the applications you use and the access each user should have.</p>
@@ -85,7 +86,10 @@ export default function Home() {
           {engagement.map((stage, i) => (
             <li key={stage.title}>
               <Reveal className="ab" delay={i * 70}>
-                <span className="home-stage-number" aria-hidden="true">0{i + 1}</span>
+                <div className="home-stage-header" aria-hidden="true">
+                  <div className="ab-icon"><Icon name={['search', 'shield', 'wrench', 'filecheck'][i]} /></div>
+                  <span className="home-stage-number">0{i + 1}</span>
+                </div>
                 <h3>{stage.title}</h3>
                 <p>{stage.text}</p>
               </Reveal>

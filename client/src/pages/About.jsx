@@ -42,7 +42,7 @@ export default function About() {
             <div className="label">Our principles</div>
             <h2>What guides our decisions.</h2>
             <p style={{ marginTop: '1rem' }}>These principles shape how we discuss risk, make recommendations and set expectations with your team.</p>
-            <div className="about-blocks">
+            <div className="about-blocks about-principles-grid">
               {approach.map((b, i) => (
                 <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
                   <div className="ab-icon"><Icon name={b.icon} /></div>
@@ -57,21 +57,21 @@ export default function About() {
       <section className="wrap framework-guide" aria-labelledby="framework-guide-title" id="frameworks">
         <div className="label">Rules and frameworks explained</div>
         <h2 id="framework-guide-title">Understand what applies to your business.</h2>
-        <p className="home-section-intro">Laws set obligations, standards organise security practices, and assurance reports provide independent evidence. We help connect the requirements relevant to your business with practical technical work.</p>
+        <p className="home-section-intro">A quick guide to key requirements and how our technical work supports them.</p>
         <div className="framework-guide-grid">
           {FRAMEWORK_GUIDE.map((framework, i) => (
             <Reveal as="article" className="ab framework-guide-card" key={framework.title} delay={(i % 2) * 70}>
               <p className="framework-kind">{framework.type}</p>
               <h3>{framework.title}</h3>
-              <p>{framework.explanation}</p>
-              <dl>
-                <dt>Relevant to</dt><dd>{framework.audience}</dd>
-                <dt>Our support</dt><dd>{framework.support}</dd>
-              </dl>
+              <ul className="framework-points">
+                <li>{framework.explanation}</li>
+                <li><strong>For:</strong> {framework.audience}</li>
+                <li><strong>We help:</strong> {framework.support}</li>
+              </ul>
             </Reveal>
           ))}
         </div>
-        <p className="note">Applicability depends on your business, scope and current notifications. Anvexa supports technical readiness and evidence; certification, assurance and regulatory decisions remain with the relevant independent bodies.</p>
+        <p className="note">Applicability depends on scope, exemptions and current notifications. We support technical readiness; independent bodies handle certification and assurance.</p>
       </section>
       <DevelopmentPartner />
     </>

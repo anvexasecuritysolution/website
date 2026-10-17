@@ -14,12 +14,12 @@
   </style>
   <rect width="1080" height="340" rx="24" fill="#0e1f35"/>
   <rect class="scope-boundary" x="24" y="24" width="1032" height="292" rx="18" fill="none" stroke="#00d4e8" stroke-opacity=".45" stroke-dasharray="7 6"/>
-  <g font-family="Georgia,serif" fill="#e0eaf4" text-anchor="middle">
-    <text x="540" y="64" font-size="23">Your agreed testing scope</text>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#e0eaf4" text-anchor="middle">
+    <text x="540" y="64" font-size="24" font-weight="600">Your agreed testing scope</text>
     <g stroke="#00d4e8" stroke-width="2" fill="none"><path class="scope-links" d="M244 164H292m198 0h48m198 0h48"/><path d="m282 157 10 7-10 7m246-14 10 7-10 7m246-14 10 7-10 7"/></g>
     <g class="scope-nodes" fill="#162840" stroke="#3e647c"><rect x="48" y="105" width="196" height="118" rx="12"/><rect x="294" y="105" width="196" height="118" rx="12"/><rect x="540" y="105" width="196" height="118" rx="12"/><rect x="786" y="105" width="246" height="118" rx="12"/></g>
-    <g font-size="24"><text x="146" y="151">Web application</text><text x="392" y="151">API</text><text x="638" y="151">Servers</text><text x="909" y="151">Network</text></g>
-    <g font-size="16" fill="#a9bfd0"><text x="146" y="184">User journeys &amp; roles</text><text x="392" y="184">Access &amp; data exposure</text><text x="638" y="184">Services &amp; configuration</text><text x="909" y="184">Exposure &amp; access boundaries</text></g>
+    <g font-size="21" font-weight="600"><text x="146" y="151">Web application</text><text x="392" y="151">API</text><text x="638" y="151">Servers</text><text x="909" y="151">Network</text></g>
+    <g font-size="14" fill="#a9bfd0"><text x="146" y="184">User journeys &amp; roles</text><text x="392" y="184">Access &amp; data exposure</text><text x="638" y="184">Services &amp; configuration</text><text x="909" y="184">Exposure &amp; access boundaries</text></g>
     <text x="540" y="271" font-size="18" fill="#a9bfd0">Agree scope → Assess → Support remediation → Retest → Report</text>
     <text x="540" y="296" font-size="14" fill="#a9bfd0">Illustrative architecture. Components and testing depth vary by engagement.</text>
   </g>

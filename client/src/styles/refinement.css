@@ -38,8 +38,31 @@ body .label{font-size:.75rem;letter-spacing:.13em;margin-bottom:1rem}
 body .label::before{animation:none;width:1.4rem}
 body .home-section-intro{max-width:72ch;margin-top:1rem;line-height:1.8}
 body .home-process-grid .ab{display:flex;flex-direction:column}
+body .home-process-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+body .home-process-grid>li{position:relative}
+body .home-process-grid .ab{padding:1.25rem}
+body .home-process-grid>li:nth-child(1) .ab.fx.fx{--accent:var(--c1)}
+body .home-process-grid>li:nth-child(2) .ab.fx.fx{--accent:var(--c2)}
+body .home-process-grid>li:nth-child(3) .ab.fx.fx{--accent:var(--c3)}
+body .home-process-grid>li:nth-child(4) .ab.fx.fx{--accent:var(--c4)}
+body .home-stage-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem;color:var(--accent)}
+body .home-stage-header .ab-icon{margin-bottom:0}
+body .home-stage-header .home-stage-number{
+  display:grid;place-items:center;min-width:2.2rem;height:2.2rem;margin:0;padding:.25rem;
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);border-radius:8px;
+  background:color-mix(in srgb,var(--accent) 10%,var(--ink2));color:var(--accent);
+  font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.04em;line-height:1;
+}
+body .home-process-grid h3{min-height:2.8em;margin-bottom:.6rem}
+body .home-process-grid .ab>p:not(.home-stage-output){margin-bottom:0}
+@media(max-width:1100px){
+  body .home-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  body .home-process-grid{grid-template-columns:1fr}
+  body .home-process-grid h3{min-height:0}
+}
 body .home-process-grid .home-stage-output{margin-top:auto;padding-top:1rem}
-body .home-process-grid .ab>p:not(.home-stage-output){margin-bottom:1.25rem}
 body .home-stage-number{font-family:var(--dm);font-size:.85rem;letter-spacing:.08em;margin-bottom:1rem}
 body .home-service-need{font-size:1.05rem}
 body .engage-cell .k{font-size:.72rem;letter-spacing:.1em;line-height:1.6}
@@ -51,6 +74,32 @@ body .target-business-grid h3{font-size:1.05rem;line-height:1.45}
 body .target-business-grid p{font-size:1rem;line-height:1.75}
 body .scope-figure{margin-block:2rem 1.5rem;border:1px solid var(--border);padding:.7rem;border-radius:18px;background:var(--ink2)}
 body .scope-figure img{border-radius:12px}
+.assessment-scope{position:relative;padding:1.5rem;border:0;border-radius:12px;background:var(--ink2)}
+.assessment-scope-boundary{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.assessment-scope-boundary rect{fill:none;stroke:var(--cyan);stroke-opacity:.45;stroke-width:1;stroke-dasharray:7 6;animation:scopeBoundaryFlow 16s linear infinite}
+.assessment-scope>h3{text-align:center;margin-bottom:1.5rem}
+.assessment-scope-nodes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem;list-style:none;padding:0;margin:0}
+.assessment-scope-nodes>li{--scope-accent:var(--c1);position:relative;padding:1.25rem .85rem;text-align:center;border:1.5px solid color-mix(in srgb,var(--scope-accent) 50%,transparent);border-radius:14px;background:var(--ink3);animation:scopeNodeHighlight 12s ease-in-out var(--scope-delay) infinite;transition:translate .3s ease,box-shadow .3s ease}
+.assessment-scope-nodes>li:nth-child(2){--scope-accent:var(--c2)}
+.assessment-scope-nodes>li:nth-child(3){--scope-accent:var(--c3)}
+.assessment-scope-nodes>li:nth-child(4){--scope-accent:var(--c4)}
+.assessment-scope-nodes>li:hover{translate:-3px -3px;box-shadow:5px 5px 0 color-mix(in srgb,var(--scope-accent) 40%,var(--ink))}
+.assessment-scope-nodes>li:not(:last-child)::after{content:'→';position:absolute;right:-1.15rem;top:50%;color:var(--scope-accent);line-height:1;transform:translateY(-50%);animation:scopeArrowFlow 12s linear var(--scope-delay) infinite}
+.assessment-scope-icon{display:grid;place-items:center;color:var(--scope-accent);margin-bottom:.75rem;animation:scopeIconFloat 4s ease-in-out infinite}
+.assessment-scope-nodes h4{margin-bottom:.5rem}
+.assessment-scope-nodes p{margin:0;line-height:1.6}
+body main .assessment-scope-flow{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem .75rem;margin-top:1.5rem;font-size:var(--type-caption)!important}
+.assessment-scope-flow span{color:var(--cyan)}
+@keyframes scopeNodeHighlight{
+  0%,23%{border-color:var(--scope-accent);background:color-mix(in srgb,var(--scope-accent) 12%,var(--ink3));box-shadow:0 0 0 2px color-mix(in srgb,var(--scope-accent) 20%,transparent)}
+  25%,100%{border-color:color-mix(in srgb,var(--scope-accent) 50%,transparent);background:var(--ink3);box-shadow:0 0 0 0 transparent}
+}
+@keyframes scopeBoundaryFlow{to{stroke-dashoffset:-52}}
+@keyframes scopeArrowFlow{0%,12%{opacity:.35;transform:translate(-2px,-50%)}18%,23%{opacity:1;transform:translate(2px,-50%)}25%,100%{opacity:.25;transform:translate(-2px,-50%)}}
+@keyframes scopeIconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(max-width:900px){.assessment-scope-nodes{grid-template-columns:repeat(2,minmax(0,1fr))}.assessment-scope-nodes>li:nth-child(2)::after{display:none}}
+@media(max-width:600px){.assessment-scope{padding:1rem}.assessment-scope-nodes{grid-template-columns:1fr;gap:1rem}.assessment-scope-nodes>li::after{display:none}.assessment-scope-nodes>li{padding:1rem}}
+@media(prefers-reduced-motion:reduce){.assessment-scope-nodes>li,.assessment-scope-icon,.assessment-scope-boundary rect,.assessment-scope-nodes>li::after{animation:none}.assessment-scope-nodes>li:hover{translate:none}}
 body .application-coverage-examples{margin-top:3rem}
 body .application-coverage-examples>h3{font-size:var(--fs-h3)}
 body .scope-figure figcaption{padding:.3rem .4rem;font-size:.8rem;line-height:1.6}
@@ -137,6 +186,28 @@ body .field input,body .field textarea,body .dd-btn{border-radius:9px}
 @media(prefers-reduced-motion:reduce){body .hero h1,body .page-hero h1,body .hero-acts .btn-c{animation:none}}
 
 /* Shared type hierarchy overrides legacy component-specific font sizes. */
+body .services-assessment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+body .home-assessment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+body .home-assessment-grid .security-domain-card{min-width:0;padding:1.25rem}
+@media(max-width:1100px){body .home-assessment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body .home-assessment-grid{grid-template-columns:1fr}}
+body .about-principles-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem}
+body .about-principles-grid .ab{min-width:0;padding:1.25rem}
+@media(max-width:1100px){body .about-principles-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body .about-principles-grid{grid-template-columns:1fr}}
+body .services-assessment-grid .security-domain-card{min-width:0;padding:1.25rem}
+body .lifecycle-steps{max-width:1360px;margin-inline:auto}
+body .lifecycle-steps .step-timeline{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:2rem;gap:1.1rem}
+body .lifecycle-steps .step-item{flex-direction:column;align-items:stretch;min-width:0;padding:1.25rem;gap:1rem}
+body .lifecycle-steps .step-num-wrap{align-items:flex-start}
+body .lifecycle-steps .step-num{width:2.75rem;height:2.75rem}
+body .lifecycle-steps .step-body{display:flex;flex-direction:column;flex:1;min-width:0}
+body .lifecycle-steps .step-body p{margin-bottom:1rem}
+body .lifecycle-steps .step-tag{margin-top:auto;align-self:flex-start}
+@media(max-width:1100px){body .lifecycle-steps .step-timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body .lifecycle-steps .step-timeline{grid-template-columns:1fr}}
+@media(max-width:1100px){body .services-assessment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){body .services-assessment-grid{grid-template-columns:1fr}}
 :root{
   --type-page:clamp(2rem,3.7vw,3.25rem);
   --type-section:2rem;
@@ -159,6 +230,10 @@ body .partner-card .partner-description{margin-top:.65rem}
 body .partner-footer{justify-content:flex-end;margin-top:1rem;padding-top:.85rem}
 body .home-partner{gap:1rem 2rem}
 body .framework-guide-card dl{margin-bottom:0}
+body .framework-points{padding-left:1.1rem;margin:.75rem 0 0;color:var(--muted);line-height:1.65}
+body .framework-points li+li{margin-top:.6rem}
+body .framework-points li::marker{color:var(--accent,var(--cyan))}
+body .framework-points strong{color:var(--text);font-weight:600}
 @media(max-width:600px){
   :root{--type-page:2rem;--type-section:1.65rem;--type-card:1.2rem;--type-subheading:1.067rem}
 }
