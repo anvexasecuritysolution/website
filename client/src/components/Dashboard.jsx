@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from './CopyStyle.jsx';
 import CountUp from './CountUp.jsx';
 import { useReplay } from '../hooks/useReplay.js';
 import { METRICS, ACTIONS } from '../data/content.js';
@@ -19,8 +20,8 @@ export default function Dashboard() {
       </div>
       <div className="dash-body">
         <div className="dash-pane">
-          <h4>Executive view</h4>
-          <p className="dash-sub">Business owners see outcomes, not thousands of raw events.</p>
+          <h4><TitleCase>Executive view</TitleCase></h4>
+          <p className="dash-sub"><Emphasis>Business owners see outcomes, not thousands of raw events.</Emphasis></p>
           {METRICS.map((m, i) => (
             <div className="metric" key={m.label} style={{ '--mc': TONE[m.tone] }}>
               <div className="metric-row">
@@ -35,7 +36,7 @@ export default function Dashboard() {
         </div>
         <div className="dash-divider" aria-hidden="true" />
         <div className="dash-pane">
-          <h4>Action queue</h4>
+          <h4><TitleCase>Action queue</TitleCase></h4>
           <div className="queue-list">
             {ACTIONS.map((a, i) => (
               <div className="queue-row" key={`${replayKey}-${a.issue}`} style={{ animationDelay: `${i * 90}ms` }}>

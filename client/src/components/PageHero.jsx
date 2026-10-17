@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from './CopyStyle.jsx';
 import Icon from './Icon.jsx';
 
 // Small colourful icon tiles — a mosaic, not a table row list.
@@ -5,7 +6,7 @@ export function AsideCard({ title, tiles, mark }) {
   return (
     <aside className="aside-card">
       {mark && <img className="aside-mark" src={mark} alt="" width="112" height="96" />}
-      {title && <h4>{title}</h4>}
+      {title && <h4><TitleCase>{title}</TitleCase></h4>}
       {tiles && (
         <div className="tile-grid">
           {tiles.map((t, i) => (
@@ -26,7 +27,7 @@ export default function PageHero({ label, title, aside, children }) {
     <section className="page-hero">
       <div className="page-hero-copy">
         <div className="label">{label}</div>
-        <h1>{title}</h1>
+        <h1><TitleCase>{title}</TitleCase></h1>
         {children}
       </div>
       {aside}
@@ -38,8 +39,8 @@ export function SectionHead({ label, title, children }) {
   return (
     <div className="section-head">
       <div className="label">{label}</div>
-      <h2>{title}</h2>
-      {children && <p>{children}</p>}
+      <h2><TitleCase>{title}</TitleCase></h2>
+      {children && <p><Emphasis>{children}</Emphasis></p>}
     </div>
   );
 }

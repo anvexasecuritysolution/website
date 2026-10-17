@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from '../components/CopyStyle.jsx';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
@@ -29,8 +30,8 @@ export default function About() {
           ]} />
         )}
       >
-        <p>Anvexa Security Solutions is a cybersecurity startup based in Noida, focused on web application, API, server and network security for Indian MSMEs and startups. We help teams understand vulnerabilities, plan fixes and verify remediation, with deliverables and access agreed for each engagement.</p>
-        <p style={{ marginTop: '1rem' }}>What we want is simple: safer businesses, compliance that holds up, and a more secure India.</p>
+        <p><Emphasis>Anvexa Security Solutions is a cybersecurity startup based in Noida, focused on web application, API, server and network security for Indian MSMEs and startups. We help teams understand vulnerabilities, plan fixes and verify remediation, with deliverables and access agreed for each engagement.</Emphasis></p>
+        <p style={{ marginTop: '1rem' }}><Emphasis>What we want is simple: safer businesses, compliance that holds up, and a more secure India.</Emphasis></p>
         <div className="hero-actions-mt">
           <Link to="/contact" className="btn btn-c">Get in touch</Link>
           <Link to="/services" className="btn btn-ghost">Our services</Link>
@@ -40,14 +41,14 @@ export default function About() {
         <div>
           <div>
             <div className="label">Our principles</div>
-            <h2>What guides our decisions.</h2>
-            <p style={{ marginTop: '1rem' }}>These principles shape how we discuss risk, make recommendations and set expectations with your team.</p>
+            <h2><TitleCase>What guides our decisions.</TitleCase></h2>
+            <p style={{ marginTop: '1rem' }}><Emphasis>These principles shape how we discuss risk, make recommendations and set expectations with your team.</Emphasis></p>
             <div className="about-blocks about-principles-grid">
               {approach.map((b, i) => (
                 <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
                   <div className="ab-icon"><Icon name={b.icon} /></div>
-                  <h3>{b.title}</h3>
-                  <p>{b.text}</p>
+                  <h3><TitleCase>{b.title}</TitleCase></h3>
+                  <p><Emphasis>{b.text}</Emphasis></p>
                 </Reveal>
               ))}
             </div>
@@ -56,22 +57,23 @@ export default function About() {
       </div>
       <section className="wrap framework-guide" aria-labelledby="framework-guide-title" id="frameworks">
         <div className="label">Rules and frameworks explained</div>
-        <h2 id="framework-guide-title">Understand what applies to your business.</h2>
-        <p className="home-section-intro">A quick guide to key requirements and how our technical work supports them.</p>
+        <h2 id="framework-guide-title"><TitleCase>Understand what applies to your business.</TitleCase></h2>
+        <p className="home-section-intro"><Emphasis>A quick guide to key requirements and how our technical work supports them.</Emphasis></p>
+        <p className="note"><Emphasis><strong>Testing Guidance:</strong> OWASP Top 10, OWASP API Security Top 10 and the Web Security Testing Guide (WSTG) inform application testing. They are technical references, separate from the laws and assurance frameworks below.</Emphasis></p>
         <div className="framework-guide-grid">
           {FRAMEWORK_GUIDE.map((framework, i) => (
             <Reveal as="article" className="ab framework-guide-card" key={framework.title} delay={(i % 2) * 70}>
-              <p className="framework-kind">{framework.type}</p>
-              <h3>{framework.title}</h3>
+              <p className="framework-kind"><Emphasis>{framework.type}</Emphasis></p>
+              <h3><TitleCase>{framework.title}</TitleCase></h3>
               <ul className="framework-points">
-                <li>{framework.explanation}</li>
-                <li><strong>For:</strong> {framework.audience}</li>
-                <li><strong>We help:</strong> {framework.support}</li>
+                <li><Emphasis>{framework.explanation}</Emphasis></li>
+                <li><Emphasis><strong>For:</strong> {framework.audience}</Emphasis></li>
+                <li><Emphasis><strong>We Help:</strong> {framework.support}</Emphasis></li>
               </ul>
             </Reveal>
           ))}
         </div>
-        <p className="note">Applicability depends on scope, exemptions and current notifications. We support technical readiness; independent bodies handle certification and assurance.</p>
+        <p className="note"><Emphasis>Applicability depends on scope, exemptions and current notifications. We support technical readiness; independent bodies handle certification and assurance.</Emphasis></p>
       </section>
       <DevelopmentPartner />
     </>

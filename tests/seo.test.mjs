@@ -28,7 +28,9 @@ test('every built public URL has its own crawlable content, canonical and valid 
     assert.equal(data['@graph'][2].url, DEFAULT_SITE_ORIGIN + route);
     if (route.startsWith('/blog/')) {
       const post = posts.find((entry) => route.endsWith(entry.slug));
-      assert.ok(html.includes(post.body[0].replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')), route);
+      // Inline emphasis may split a paragraph into several HTML text nodes.
+      const crawlableText = html.replace(/<!--[\s\S]*?-->/g, '').replace(/<[^>]*>/g, '');
+      assert.ok(crawlableText.toLowerCase().includes(post.body[0].replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').toLowerCase()), route);
       assert.equal(data['@graph'][2]['@type'], 'BlogPosting');
       assert.equal(data['@graph'][2].headline, post.title);
     }

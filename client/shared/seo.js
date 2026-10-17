@@ -8,6 +8,8 @@ export const PAGE_META = {
   '/pricing': { title: 'Cybersecurity Assessment & Monitoring Pricing | Anvexa', description: 'Discuss pricing for a one-time cybersecurity assessment or ongoing security support. Anvexa scopes each engagement around your environment and needs.' },
   '/blog': { title: 'Cybersecurity, VAPT & Compliance Articles | Anvexa', description: 'Read practical articles on VAPT, security controls, CERT-In, DPDP and compliance from Anvexa Security Solutions for Indian businesses.' },
   '/contact': { title: 'Contact Anvexa for Cybersecurity & VAPT Services', description: 'Contact Anvexa Security Solutions in Noida to discuss VAPT, compliance or ongoing security support. Start with a free discovery call.' },
+  '/faqs': { title: 'Cybersecurity Assessment FAQs | Anvexa', description: 'Answers about Anvexa security assessments, testing access, confidentiality, pricing, remediation and retesting.' },
+  '/team': { title: 'Our Team | Anvexa Security Solutions', description: 'Meet the Anvexa team working across cybersecurity, operations, product engineering, marketing and customer support.' },
   '/privacy': { title: 'Privacy Policy | Anvexa Security Solutions', description: 'Learn how Anvexa handles contact enquiries, website data and optional Google Analytics, and how to manage your cookie choices and privacy requests.' },
   '/terms': { title: 'Website Terms | Anvexa Security Solutions', description: 'Read the terms for using the Anvexa Security Solutions website, including website content, enquiries and responsible security reporting.' },
 };

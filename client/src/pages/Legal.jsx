@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from '../components/CopyStyle.jsx';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
@@ -62,8 +63,8 @@ function LegalPage({ doc, other }) {
         title={doc.title}
         aside={<AsideCard title="At a glance" mark="/anvexa-mark.svg" tiles={GLANCE[doc.slug]} />}
       >
-        <p><Rich text={doc.intro} /></p>
-        <p className="legal-updated">Last updated: {LEGAL_UPDATED}</p>
+        <p><Emphasis><Rich text={doc.intro} /></Emphasis></p>
+        <p className="legal-updated"><Emphasis>Last updated: {LEGAL_UPDATED}</Emphasis></p>
       </PageHero>
 
       <div className="wrap">
@@ -86,10 +87,10 @@ function LegalPage({ doc, other }) {
           <div className="legal-body">
             {doc.sections.map((s, i) => (
               <Reveal as="section" key={s.h} id={`s${i + 1}`} data-n={i + 1} className="legal-card" delay={0}>
-                <h2><span className="legal-n">{i + 1}</span>{s.h}</h2>
-                {s.p?.map((t) => <p key={t}><Rich text={t} /></p>)}
+                <h2><TitleCase><span className="legal-n">{i + 1}</span>{s.h}</TitleCase></h2>
+                {s.p?.map((t) => <p key={t}><Emphasis><Rich text={t} /></Emphasis></p>)}
                 {s.ul && <ul>{s.ul.map((t) => <li key={t}><Rich text={t} /></li>)}</ul>}
-                {s.after && <p><Rich text={s.after} /></p>}
+                {s.after && <p><Emphasis><Rich text={s.after} /></Emphasis></p>}
               </Reveal>
             ))}
           </div>
@@ -98,8 +99,8 @@ function LegalPage({ doc, other }) {
 
       <div className="cta-band">
         <div>
-          <h3>Questions about this {doc.slug === 'privacy' ? 'policy' : 'agreement'}?</h3>
-          <p>Write to us and a real person will reply. You can also read our <Link to={`/${other.slug}`}>{other.title}</Link>.</p>
+          <h3><TitleCase>Questions about this {doc.slug === 'privacy' ? 'policy' : 'agreement'}?</TitleCase></h3>
+          <p><Emphasis>Write to us and a real person will reply. You can also read our <Link to={`/${other.slug}`}>{other.title}</Link>.</Emphasis></p>
         </div>
         <Link to="/contact" className="btn btn-c">Contact us</Link>
       </div>

@@ -1,9 +1,9 @@
+import { TitleCase, Emphasis } from '../components/CopyStyle.jsx';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Select from '../components/Select.jsx';
 import Icon from '../components/Icon.jsx';
 import Seo from '../components/Seo.jsx';
-import BuyerQuestions from '../components/BuyerQuestions.jsx';
 import { api, ApiError } from '../api/client.js';
 import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
 import { validateLead, DEVELOPMENT_SERVICE } from '../../shared/leads.js';
@@ -70,10 +70,10 @@ export default function Contact() {
       <div className="contact-grid">
         <div className="contact-info">
           <div className="label">Contact</div>
-          <h1>Tell us what you need.</h1>
-          <p>Share the service you are interested in, a short description of your requirements and any target dates. Our team will follow up to clarify the scope and next steps.</p>
-          <p className="contact-development-note">For a security assessment, tell us whether you need web application, API, server or network testing. Approximate asset counts and any customer or auditor requirements help us scope the work. Share access details only through an agreed secure channel.</p>
-          <p className="contact-development-note">For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</p>
+          <h1><TitleCase>Tell us what you need.</TitleCase></h1>
+          <p><Emphasis>Share the service you are interested in, a short description of your requirements and any target dates. Our team will follow up to clarify the scope and next steps.</Emphasis></p>
+          <p className="contact-development-note"><Emphasis>For a security assessment, tell us whether you need web application, API, server or network testing. Approximate asset counts and any customer or auditor requirements help us scope the work. Share access details only through an agreed secure channel.</Emphasis></p>
+          <p className="contact-development-note"><Emphasis>For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</Emphasis></p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
@@ -131,7 +131,7 @@ export default function Contact() {
               <div className="hp" aria-hidden="true">
                 <label>Website<input type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={set('website')} /></label>
               </div>
-              <p className="form-consent">By sending this message you agree to our <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms of Service</Link>.</p>
+              <p className="form-consent"><Emphasis>By sending this message you agree to our <Link to="/privacy">Privacy Policy</Link> and <Link to="/terms">Terms of Service</Link>.</Emphasis></p>
               <button type="submit" className="form-btn" disabled={status === 'sending'}>
                 {status === 'sending' ? 'Sending…' : 'Send Message'}
               </button>
@@ -141,7 +141,6 @@ export default function Contact() {
           </form>
         </div>
       </div>
-      <BuyerQuestions />
     </>
   );
 }

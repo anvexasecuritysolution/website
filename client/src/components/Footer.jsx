@@ -1,3 +1,4 @@
+import { TitleCase } from './CopyStyle.jsx';
 import { Link } from 'react-router-dom';
 import SocialIcon from './SocialIcon.jsx';
 import Icon from './Icon.jsx';
@@ -32,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="fc fc-services">
-          <h4>Services</h4>
+          <h4><TitleCase>Services</TitleCase></h4>
           <ul>
             {['Asset Discovery & VAPT', 'Remediation & Retest', 'Compliance Mapping', 'Continuous Monitoring', 'Incident Response', 'Evidence Vault'].map((t) => (
               <li key={t}><Link to="/services">{t}</Link></li>
@@ -40,17 +41,18 @@ export default function Footer() {
           </ul>
         </div>
         <div className="fc">
-          <h4>Company</h4>
+          <h4><TitleCase>Company</TitleCase></h4>
           <ul>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/how-it-works">How It Works</Link></li>
             <li><Link to="/pricing">Pricing</Link></li>
             <li><Link to="/blog">Blog</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/faqs">FAQs</Link></li>
           </ul>
         </div>
         <div className="fc">
-          <h4>Compliance</h4>
+          <h4><TitleCase>Compliance</TitleCase></h4>
           <ul>
             {['CERT-In', 'DPDP Act 2023', 'ISO 27001', 'SOC 2', 'PCI DSS', 'SEBI / RBI / IRDAI'].map((t) => (
               <li key={t}><Link to="/about">{t}</Link></li>
@@ -58,7 +60,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="fc fc-contact">
-          <h4>Contact Us</h4>
+          <h4><TitleCase>Contact Us</TitleCase></h4>
           <ul>
             <li><a href={`mailto:${CONTACT.email}`}><Icon name="mail" size={16} /><span>{CONTACT.email}</span></a></li>
             <li><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}><Icon name="phone" size={16} /><span>{CONTACT.phone}</span></a></li>

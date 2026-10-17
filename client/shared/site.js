@@ -7,7 +7,7 @@ export function siteOrigin(value) {
   return url.origin;
 }
 
-export const PUBLIC_PATHS = ['/', '/about', '/services', '/how-it-works', '/pricing', '/blog', '/contact', '/privacy', '/terms'];
+export const PUBLIC_PATHS = ['/', '/about', '/services', '/how-it-works', '/pricing', '/blog', '/contact', '/faqs', '/team', '/privacy', '/terms'];
 
 export function sitemapXml(origin, posts) {
   const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');

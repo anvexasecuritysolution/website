@@ -84,7 +84,7 @@ export const FLOW = [
 
 export const PHASES = [
   { n: 'Stage 1', time: 'Discover', items: ['Scoping call and environment walkthrough', 'Asset inventory and attack-surface mapping', 'Agreed scope and rules of engagement', 'Defined success criteria'] },
-  { n: 'Stage 2', time: 'Assess', items: ['Vulnerability scanning and penetration testing', 'Risk ranking by business impact', 'Executive and technical reporting', 'Prioritised remediation roadmap'] },
+  { n: 'Stage 2', time: 'Assess', items: ['VAPT with relevant OWASP web and API risk references', 'Risk ranking by business impact', 'Executive and technical reporting', 'Prioritised remediation roadmap'] },
   { n: 'Stage 3', time: 'Remediate', items: ['Findings converted to tracked tasks', 'Owners and deadlines assigned', 'Patch verification and retesting', 'Controls mapped to applicable frameworks'] },
   { n: 'Stage 4', time: 'Handover & ongoing assurance', items: ['Reports and verification records handed over', 'Outstanding risks and next steps documented', 'Monitoring and reporting where contracted', 'Reassessment schedule for ongoing engagements'] },
 ];

@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from './CopyStyle.jsx';
 import Reveal from './Reveal.jsx';
 import { Link } from 'react-router-dom';
 
@@ -12,15 +13,15 @@ export default function DevelopmentPartner() {
     <section className="wrap partner-section" aria-labelledby="development-partner-title">
       <Reveal className="ab partner-card">
         <div className="label development-support-label">Our Development Support Partner</div>
-        <h2 id="development-partner-title">Benkyō Technologies</h2>
-        <p className="partner-description">Our India-based development partner supports software projects, with enquiries and coordination handled by Anvexa.</p>
+        <h2 id="development-partner-title"><TitleCase>Benkyō Technologies</TitleCase></h2>
+        <p className="partner-description"><Emphasis>Our India-based development partner supports software projects, with enquiries and coordination handled by Anvexa.</Emphasis></p>
         <div className="partner-profile-grid">
           <div>
-            <h3>Services</h3>
+            <h3><TitleCase>Services</TitleCase></h3>
             <ul className="partner-service-list">{services.map((service) => <li key={service}>{service}</li>)}</ul>
           </div>
           <div>
-            <h3>Leadership</h3>
+            <h3><TitleCase>Leadership</TitleCase></h3>
             <dl className="partner-leaders">
               <Reveal delay={0}><dt>Founder & CEO</dt><dd>Divesh Chaudhary</dd></Reveal>
               <Reveal delay={80}><dt>Co-founder & CTO</dt><dd>Ashu Kumar</dd></Reveal>

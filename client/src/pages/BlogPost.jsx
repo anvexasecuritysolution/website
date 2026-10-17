@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from '../components/CopyStyle.jsx';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
@@ -21,7 +22,7 @@ export default function BlogPost() {
 
   if (error?.status === 404) return <NotFound />;
   if (error) return <p className="state-msg" role="alert">We couldn't load this article: {error.message}</p>;
-  if (!post) return <p className="state-msg">Loading…</p>;
+  if (!post) return <p className="state-msg"><Emphasis>Loading…</Emphasis></p>;
 
   return (
     <>
@@ -29,12 +30,12 @@ export default function BlogPost() {
       <article className="article">
         <Link to="/blog" className="back-link">← All articles</Link>
         <div className="label">{post.tag}</div>
-        <h1>{post.title}</h1>
+        <h1><TitleCase>{post.title}</TitleCase></h1>
         <div className="meta">{fmtDate(post.publishedAt)} · {post.readMinutes} min read</div>
-        {post.body.map((para, i) => <p key={i}>{para}</p>)}
+        {post.body.map((para, i) => <p key={i}><Emphasis>{para}</Emphasis></p>)}
       </article>
       <div className="cta-band">
-        <h3>Want help applying this to your own setup?</h3>
+        <h3><TitleCase>Want help applying this to your own setup?</TitleCase></h3>
         <Link to="/contact" className="btn btn-c">Talk to us</Link>
       </div>
     </>

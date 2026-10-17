@@ -1,6 +1,6 @@
 export const SECURITY_DOMAINS = [
-  { icon: 'shield', title: 'Web application security', text: 'Assess sign-in, user permissions, uploads and business workflows in websites, SaaS products, portals and ERPs.', outcome: 'Prioritised findings your development team can act on.' },
-  { icon: 'link', title: 'API security', text: 'Review authentication, access to records, data exposure and misuse of agreed API endpoints and integrations.', outcome: 'Evidence of API weaknesses and practical remediation guidance.' },
+  { icon: 'shield', title: 'Web application security', text: 'Assess sign-in, permissions, uploads and business workflows, using the OWASP Top 10 as a risk reference for agreed web-app testing.', outcome: 'Prioritised findings your development team can act on.' },
+  { icon: 'link', title: 'API security', text: 'Review authentication, record access and data exposure, using the OWASP API Security Top 10 as a reference for agreed endpoints.', outcome: 'Evidence of API weaknesses and practical remediation guidance.' },
   { icon: 'building', title: 'Server security', text: 'Assess exposed services, patch levels, access settings and configuration on agreed internet-facing or internal servers.', outcome: 'A clear list of hardening and patching priorities.' },
   { icon: 'radar', title: 'Network security', text: 'Assess agreed network assets, exposed ports, remote access and segmentation boundaries within an authorised scope.', outcome: 'Visibility of exposure and actions to reduce unnecessary access.' },
 ];

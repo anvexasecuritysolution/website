@@ -1,3 +1,4 @@
+import { TitleCase, Emphasis } from '../components/CopyStyle.jsx';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
@@ -37,12 +38,12 @@ export default function Blog() {
           ]} />
         )}
       >
-        <p>Practical articles on VAPT, compliance, CERT-In updates and the threats Indian businesses actually run into.</p>
+        <p><Emphasis>Practical articles on VAPT, compliance, CERT-In updates and the threats Indian businesses actually run into.</Emphasis></p>
       </PageHero>
 
       {error && <p className="state-msg" role="alert">We couldn't load the articles: {error}</p>}
-      {!posts && !error && <p className="state-msg">Loading articles…</p>}
-      {posts && posts.length === 0 && <p className="state-msg">Nothing here yet. Please check back soon.</p>}
+      {!posts && !error && <p className="state-msg"><Emphasis>Loading articles…</Emphasis></p>}
+      {posts && posts.length === 0 && <p className="state-msg"><Emphasis>Nothing here yet. Please check back soon.</Emphasis></p>}
 
       {posts && posts.length > 0 && (
         <div className="chips" role="group" aria-label="Filter articles by topic">
@@ -59,8 +60,8 @@ export default function Blog() {
               <div className="bc-img"><Icon name={TAG_ICON[p.tag] || 'shield'} size={40} /><span className="bc-tag">{p.tag}</span></div>
               <div className="bc-body">
                 <div className="bc-meta">{fmtDate(p.publishedAt)} · {p.readMinutes} min read</div>
-                <h3>{p.title}</h3>
-                <p>{p.excerpt}</p>
+                <h3><TitleCase>{p.title}</TitleCase></h3>
+                <p><Emphasis>{p.excerpt}</Emphasis></p>
                 <span className="bc-read">Read article →</span>
               </div>
             </Reveal>
