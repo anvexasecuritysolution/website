@@ -27,7 +27,8 @@ test('organization data separates address fields and contains configured public 
   const organization = structuredData({ origin: DEFAULT_SITE_ORIGIN, pathname: '/', title: 'Anvexa', contact: CONTACT })['@graph'][0];
   assert.equal(organization.address.streetAddress, 'A Block, Sector 63');
   assert.equal(organization.address.addressLocality, 'Noida');
-  assert.equal(organization.sameAs.length, 2);
+  assert.equal(organization.sameAs.length, 3);
+  assert.ok(organization.sameAs.includes('https://www.linkedin.com/company/anvexa-security-solution/'));
   assert.ok(organization.sameAs.every((url) => url.startsWith('https://')));
 });
 

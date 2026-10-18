@@ -29,7 +29,7 @@ export function structuredData({ origin, pathname, title, description, article, 
     '@type': 'Organization', '@id': `${origin}/#organization`, name: SITE_NAME,
     url: origin + '/', logo: { '@type': 'ImageObject', url: origin + '/anvexa-mark.svg' },
     ...(contact ? { email: contact.email, telephone: contact.phone, ...(contact.postalAddress ? { address: { '@type': 'PostalAddress', ...contact.postalAddress } } : {}) } : {}),
-    sameAs: ['https://www.instagram.com/anvexasecuritysolution/', 'https://x.com/anvexasecurity'],
+    sameAs: ['https://www.instagram.com/anvexasecuritysolution/', 'https://x.com/anvexasecurity', 'https://www.linkedin.com/company/anvexa-security-solution/'],
   };
   const graph = [organization, {
     '@type': 'WebSite', '@id': `${origin}/#website`, url: origin + '/', name: SITE_NAME,

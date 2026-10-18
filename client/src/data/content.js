@@ -104,7 +104,7 @@ export { INDUSTRIES, SERVICES } from '../../shared/leads.js';
 // Profiles with an empty URL are hidden in the footer.
 export const SOCIALS = [
   { name: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/anvexasecuritysolution/' },
-  { name: 'linkedin', label: 'LinkedIn', url: '' },
+  { name: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/company/anvexa-security-solution/' },
   { name: 'x', label: 'X', url: 'https://x.com/anvexasecurity' },
 ];
 
