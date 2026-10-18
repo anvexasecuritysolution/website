@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
 
 // Fully styled dropdown so the option list is always dark and readable on every OS/browser.
-export default function Select({ id, label, value, onChange, options, placeholder = 'Select…' }) {
+export default function Select({ id, label, value, onChange, options, placeholder = 'Select…', getOptionLabel = (option) => option }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const root = useRef(null);
@@ -34,7 +34,7 @@ export default function Select({ id, label, value, onChange, options, placeholde
         aria-haspopup="listbox" aria-expanded={open} aria-controls={listId} aria-label={label}
         onClick={() => setOpen((o) => !o)} onKeyDown={onKey}
       >
-        <span>{value || placeholder}</span>
+        <span>{value ? getOptionLabel(value) : placeholder}</span>
         <ChevronDown size={18} aria-hidden="true" className={open ? 'flip' : ''} />
       </button>
       {open && (
@@ -45,7 +45,7 @@ export default function Select({ id, label, value, onChange, options, placeholde
               className={`dd-opt${i === active ? ' act' : ''}${o === value ? ' sel' : ''}`}
               onMouseEnter={() => setActive(i)} onMouseDown={(e) => { e.preventDefault(); choose(o); }}
             >
-              <span>{o}</span>{o === value && <Check size={16} aria-hidden="true" />}
+              <span>{getOptionLabel(o)}</span>{o === value && <Check size={16} aria-hidden="true" />}
             </li>
           ))}
         </ul>

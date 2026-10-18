@@ -14,3 +14,11 @@ These are edited portraits, not additional credentials or evidence of profession
 Naresh, Shruti, Vartika, Lalit and Shraddha use `client/public/team/<name>-coat.webp`. Created with the built-in image tool. Puneet, Tanay and Lucky already had jackets and were left unchanged.
 
 Shared prompt: clothing-only edit; add a professionally fitted navy blazer over the existing shirt or blouse. Preserve the source face, facial geometry, expression, hair, skin tone, pose and background. No beautification, replacement face, accessories, ties, badges or text. Keep hair naturally over the jacket. Square output with full hair and face visible. Preserve identity above all else.
+
+
+## Puneet pocket square removal
+
+- Updated `client/public/team/puneet-professional.webp` using the built-in image editing tool.
+- Prompt: Remove only the patterned pocket square above the breast pocket; reconstruct matching navy fabric and an empty pocket seam. Preserve facial identity, hair, expression, pose, shirt, background, lighting and framing. No beautification or other changes.
+- The generated PNG is retained at `C:/Users/lenovo/.codex/generated_images/01a11b73-ac59-74e1-ad5d-11ec3a903ea8/exec-e4e2feab-fe43-4858-93fd-c6c87b458e6a.png`.
+- Inspected the edited portrait before encoding as WebP. Existing team card positioning is unchanged.

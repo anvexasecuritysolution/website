@@ -27,7 +27,7 @@ export default function Seo({ title, description, noindex = false, article = fal
       <meta property="og:image" content={`${origin}/social-preview.png`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Anvexa Security Solutions — Assess, Remediate, Monitor, Respond" />
+      <meta property="og:image:alt" content="Anvexa Security Solutions — Security Assessments, Remediation Guidance and Retesting" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={full} />
       {description && <meta name="twitter:description" content={description} />}

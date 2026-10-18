@@ -9,6 +9,20 @@ import { CONTACT, INDUSTRIES, SERVICES } from '../data/content.js';
 import { validateLead, DEVELOPMENT_SERVICE } from '../../shared/leads.js';
 
 const PLAN_TO_SERVICE = { land: SERVICES[0], retain: SERVICES[1], expand: SERVICES[2], development: DEVELOPMENT_SERVICE };
+const SERVICE_LABELS = {
+  [SERVICES[0]]: 'Security Assessment',
+  [SERVICES[1]]: 'Recurring Security Reviews',
+  [SERVICES[2]]: 'Monitoring or Incident Support (By Agreement)',
+  [DEVELOPMENT_SERVICE]: 'Development Support',
+  [SERVICES[4]]: 'Help Choosing a Service',
+};
+const serviceLabel = (value) => SERVICE_LABELS[value] || value;
+
+function focusInvalidField(fields) {
+  const field = document.getElementById(Object.keys(fields)[0]);
+  field?.closest('details')?.setAttribute('open', '');
+  field?.focus();
+}
 
 export default function Contact() {
   const [params] = useSearchParams();
@@ -34,18 +48,14 @@ export default function Contact() {
     });
   };
 
-  const validate = () => {
-    return validateLead(form).errors;
-  };
-
   async function onSubmit(e) {
     e.preventDefault();
     setFormError('');
     setStatus('idle');
-    const err = validate();
+    const err = validateLead(form).errors;
     setErrors(err);
     if (Object.keys(err).length) {
-      document.getElementById(Object.keys(err)[0])?.focus();
+      focusInvalidField(err);
       return;
     }
 
@@ -56,7 +66,10 @@ export default function Contact() {
       setStatus('sent');
     } catch (ex) {
       setStatus('idle');
-      if (ex instanceof ApiError && ex.fields) setErrors(ex.fields);
+      if (ex instanceof ApiError && ex.fields) {
+        setErrors(ex.fields);
+        focusInvalidField(ex.fields);
+      }
       setFormError(ex.message);
     }
   }
@@ -70,10 +83,9 @@ export default function Contact() {
       <div className="contact-grid">
         <div className="contact-info">
           <div className="label">Contact</div>
-          <h1><TitleCase>Tell us what you need.</TitleCase></h1>
-          <p><Emphasis>Share the service you are interested in, a short description of your requirements and any target dates. Our team will follow up to clarify the scope and next steps.</Emphasis></p>
-          <p className="contact-development-note"><Emphasis>For a security assessment, tell us whether you need web application, API, server or network testing. Approximate asset counts and any customer or auditor requirements help us scope the work. Share access details only through an agreed secure channel.</Emphasis></p>
-          <p className="contact-development-note"><Emphasis>For websites, apps, software or AI automation, select Development Support below. Our Anvexa team will handle your enquiry and coordinate with our development partner.</Emphasis></p>
+          <h1><TitleCase>Discuss Your Requirements.</TitleCase></h1>
+          <p><Emphasis>Tell us what needs testing or where you need support. We’ll follow up to agree the scope and next steps.</Emphasis></p>
+          <p className="contact-development-note"><Emphasis>For development work, choose Development Support. Anvexa will coordinate your enquiry with our partner.</Emphasis></p>
           <div className="cdetails">
             <div className="cdetail"><div className="cdetail-icon"><Icon name="mail" size={18} /></div><a href={`mailto:${CONTACT.email}`} style={{ color: 'inherit' }}>{CONTACT.email}</a></div>
             <div className="cdetail"><div className="cdetail-icon"><Icon name="phone" size={18} /></div><a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} style={{ color: 'inherit' }}>{CONTACT.phone}</a></div>
@@ -119,7 +131,7 @@ export default function Contact() {
               </div>
               <div className="field">
                 <label htmlFor="service">What do you need?</label>
-                <Select id="service" label="Service" value={form.service} onChange={(v) => setForm((f) => ({ ...f, service: v }))} options={SERVICES} placeholder="Select a service" />
+                <Select id="service" label="Service" value={form.service} onChange={(v) => setForm((f) => ({ ...f, service: v }))} options={SERVICES} getOptionLabel={serviceLabel} placeholder="Select a service" />
                 <Err k="service" />
               </div>
               <div className="field">

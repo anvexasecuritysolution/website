@@ -27,7 +27,7 @@ export function seoAssets(originValue) {
         { tag: 'link', attrs: { rel: 'canonical', href: origin + '/', 'data-rh': 'true' }, injectTo: 'head' },
         meta('og:title', 'Anvexa Security Solutions'),
         { tag: 'meta', attrs: { name: 'description', content: PAGE_META['/'].description, 'data-rh': 'true' }, injectTo: 'head' },
-        meta('og:description', 'Security assessments, continuous monitoring, and incident response for your business.'),
+        meta('og:description', 'Web application, API, server and network assessments, with fix guidance and agreed retesting.'),
         meta('og:type', 'website'), meta('og:url', origin + '/'), meta('og:image', origin + '/social-preview.png'),
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image', 'data-rh': 'true' }, injectTo: 'head' },
       ];

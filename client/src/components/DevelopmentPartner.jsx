@@ -14,7 +14,7 @@ export default function DevelopmentPartner() {
       <Reveal className="ab partner-card">
         <div className="label development-support-label">Our Development Support Partner</div>
         <h2 id="development-partner-title"><TitleCase>Benkyō Technologies</TitleCase></h2>
-        <p className="partner-description"><Emphasis>Our India-based development partner supports software projects, with enquiries and coordination handled by Anvexa.</Emphasis></p>
+        <p className="partner-description"><Emphasis>Our India-based development partner supports software projects, with enquiries and coordination handled by Anvexa. Development requirements are scoped separately from security assessments.</Emphasis></p>
         <div className="partner-profile-grid">
           <div>
             <h3><TitleCase>Services</TitleCase></h3>

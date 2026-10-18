@@ -4,10 +4,10 @@ import Seo from '../components/Seo.jsx';
 import Icon from '../components/Icon.jsx';
 import Reveal from '../components/Reveal.jsx';
 import PipelineRing from '../components/PipelineRing.jsx';
-import Dashboard from '../components/Dashboard.jsx';
 import AssessmentScope from '../components/AssessmentScope.jsx';
+import { SERVICE_PAGES } from '../../shared/service-pages.js';
 import { SECURITY_DOMAINS } from '../data/positioning.js';
-import { FRAMEWORKS, ENGAGE, GAP_CARDS } from '../data/content.js';
+import { ENGAGE } from '../data/content.js';
 
 const enquiries = [
   { plan: 'land', need: 'Before a launch, customer security review or first assessment.', label: 'Discuss an assessment' },
@@ -16,10 +16,10 @@ const enquiries = [
 ];
 
 const engagement = [
-  { title: 'Agree scope and safeguards', text: 'We identify the applications, APIs, servers or network assets to assess. Before testing, we agree written authorisation, access, the testing window, exclusions and stop conditions.' },
-  { title: 'Assess and validate the risks', text: 'Testing combines discovery and technical checks with validation appropriate to the scope. For applications and APIs, this includes permissions and business workflows; infrastructure work checks exposure and configuration.' },
-  { title: 'Help your team remediate', text: 'We explain the findings to your developers or IT team, recommend fixes and track actions. Where a fix needs more time, we document agreed interim safeguards.' },
-  { title: 'Retest and hand over the evidence', text: 'We check the agreed fixes, record any remaining issues and hand over the results. Recurring monitoring or reassessment can be scoped separately.' },
+  { title: 'Agree the Scope', icon: 'filecheck', text: 'Confirm the systems, access, testing window and written authorisation before work starts.' },
+  { title: 'Validate the Risks', icon: 'shield', text: 'Check for weaknesses and explain their impact with evidence and clear priorities.' },
+  { title: 'Guide the Fixes', icon: 'wrench', text: 'Walk your developers or IT team through recommended fixes and agreed actions.' },
+  { title: 'Verify the Results', icon: 'refresh', text: 'Retest agreed fixes and record resolved findings, remaining risks and limitations.' },
 ];
 
 const applications = [
@@ -38,57 +38,67 @@ export default function Home() {
       <section className="hero">
         <div className="hero-text">
           <div className="hero-badge">Cybersecurity for Indian MSMEs & Startups</div>
-          <h1><TitleCase>Find and Fix Security Risks in Your Web Apps, APIs, Servers and Networks.</TitleCase></h1>
-          <p><Emphasis>Anvexa helps growing businesses <strong>assess security weaknesses</strong>, prioritise the fixes and <strong>verify remediation</strong>. Get findings your developers can use and a clear summary for business decisions.</Emphasis></p>
+          <h1><TitleCase>Find Security Gaps. Fix What Matters.</TitleCase></h1>
+          <p><Emphasis><strong>Web Application, API, Server and Network Security Assessments</strong> for Indian MSMEs and startups. Find out where your systems are exposed, what to fix first and whether the agreed fixes work.</Emphasis></p>
           <div className="hero-acts">
-            <Link to="/contact?plan=land" className="btn btn-c">Discuss your security scope →</Link>
-            <a href="#application-coverage" className="btn btn-ghost">See what we assess</a>
+            <Link to="/contact?plan=land" className="btn btn-c">Discuss an Assessment →</Link>
+            <Link to="/services" className="home-hero-secondary">Explore Our Services <span aria-hidden="true">→</span></Link>
           </div>
         </div>
         <div className="pipeline-visual"><div className="pipeline-ring"><PipelineRing /></div></div>
       </section>
 
+      <section className="wrap-sm home-identity" aria-labelledby="who-we-are-title">
+        <div>
+          <div className="label">Meet Anvexa</div>
+          <h2 id="who-we-are-title">Who We Are</h2>
+        </div>
+        <div>
+          <p className="home-company-intro"><Emphasis>Based in Noida, <strong>Anvexa Security Solutions</strong> helps <strong>Indian MSMEs and Startups</strong> find security weaknesses across web applications, APIs, servers and networks. We turn <strong>Technical Findings</strong> into <strong>Clear Priorities, Practical Fix Guidance and Agreed Retests</strong>, helping your team address real risks.</Emphasis></p>
+          <div className="home-section-links"><Link to="/about">More About Anvexa <span aria-hidden="true">→</span></Link><Link to="/team">Meet the Team <span aria-hidden="true">→</span></Link></div>
+        </div>
+      </section>
+
       <section className="wrap home-applications" aria-labelledby="home-applications-title" id="application-coverage">
-        <div className="label">What we assess</div>
-        <h2 id="home-applications-title"><TitleCase>Four Connected Areas of Your Business Security.</TitleCase></h2>
-        <p className="home-section-intro"><Emphasis>Tell us what you need tested. Together, we confirm <strong>which systems are included</strong>, what access we need and <strong>when testing can take place</strong>.</Emphasis></p>
+        <div className="label">Our Expertise</div>
+        <h2 id="home-applications-title"><TitleCase>Proactive Testing. Practical Protection.</TitleCase></h2>
+        <p className="home-section-intro"><Emphasis>Tell us what you need tested. We’ll agree the systems, access requirements and testing window before work begins.</Emphasis></p>
         <div className="security-domain-grid home-assessment-grid">
           {SECURITY_DOMAINS.map((domain, i) => (
             <Reveal as="article" className="ab security-domain-card" key={domain.title} delay={(i % 2) * 70}>
               <div className="ab-icon"><Icon name={domain.icon} /></div>
-              <h3><TitleCase>{titleCase(domain.title)}</TitleCase></h3><p><Emphasis>{domain.text}</Emphasis></p>
+              <h3><TitleCase>{titleCase(domain.title)}</TitleCase></h3><p><Emphasis>{domain.text}</Emphasis></p><Link className="home-service-link" to={`/services/${SERVICE_PAGES[i].slug}`}>Explore {domain.title}</Link>
             </Reveal>
           ))}
         </div>
         <figure className="scope-figure"><AssessmentScope /><figcaption>Illustrative scope diagram. Your proposal defines the components and access included.</figcaption></figure>
         <div className="application-coverage-examples" aria-labelledby="application-examples-title">
         <h3 id="application-examples-title"><TitleCase>Where This Applies in Your Business.</TitleCase></h3>
-        <p className="home-section-intro"><Emphasis>For <strong>IT MSMEs and startups</strong>, these systems often hold customer, student, patient or staff data. We scope testing around the applications you use and <strong>the access each user should have</strong>.</Emphasis></p>
+        <p className="home-section-intro"><Emphasis>Examples include customer-facing products, systems handling personal data and internal business tools.</Emphasis></p>
         <div className="home-application-grid">
           {applications.map((application, i) => (
             <Reveal as="article" className="ab home-application-card" key={application.title} delay={(i % 3) * 70}>
               <div className="ab-icon"><Icon name={application.icon} /></div>
               <h3><TitleCase>{titleCase(application.title)}</TitleCase></h3>
               <p><Emphasis>{application.examples}.</Emphasis></p>
-              <p className="home-application-focus"><Emphasis><strong>What We Check:</strong> {application.focus}</Emphasis></p>
             </Reveal>
           ))}
         </div>
         </div>
         <p className="note"><Emphasis>Testing is limited to systems you own or are authorised to have assessed.</Emphasis></p>
-        <Link to="/contact?plan=land" className="home-service-link">Discuss your application <span aria-hidden="true">→</span></Link>
+        <Link to="/contact?plan=land" className="home-service-link">Discuss an Assessment <span aria-hidden="true">→</span></Link>
       </section>
 
       <section className="wrap home-process" aria-labelledby="home-process-title" id="security-process">
-        <div className="label">What happens next</div>
-        <h2 id="home-process-title"><TitleCase>From Agreed Scope to Verified Fixes.</TitleCase></h2>
-        <p className="home-section-intro"><Emphasis>You know what will be tested, how findings will be shared and <strong>what evidence your team receives</strong>. Fix implementation remains with your team unless separately agreed.</Emphasis></p>
+        <div className="label">Our Approach</div>
+        <h2 id="home-process-title"><TitleCase>Identify. Assess. Fix. Verify.</TitleCase></h2>
+        <p className="home-section-intro"><Emphasis>Four steps from your first discussion to the final retest. Your team implements fixes unless agreed otherwise.</Emphasis></p>
         <ol className="home-process-grid">
           {engagement.map((stage, i) => (
             <li key={stage.title}>
               <Reveal className="ab" delay={i * 70}>
                 <div className="home-stage-header" aria-hidden="true">
-                  <div className="ab-icon"><Icon name={['search', 'shield', 'wrench', 'filecheck'][i]} /></div>
+                  <div className="ab-icon"><Icon name={stage.icon} /></div>
                   <span className="home-stage-number">0{i + 1}</span>
                 </div>
                 <h3><TitleCase>{titleCase(stage.title)}</TitleCase></h3>
@@ -101,8 +111,8 @@ export default function Home() {
       </section>
 
       <section className="wrap home-services" aria-labelledby="home-services-title" id="choose-support">
-        <div className="label">Choose your starting point</div>
-        <h2 id="home-services-title"><TitleCase>What Do You Need Help With?</TitleCase></h2>
+        <div className="label">Our Services</div>
+        <h2 id="home-services-title"><TitleCase>Choose the Support You Need.</TitleCase></h2>
         <p className="home-section-intro"><Emphasis>Begin with a <strong>focused assessment</strong>. Plan recurring checks as your product and infrastructure change, with any <strong>monitoring or response coverage confirmed separately</strong>.</Emphasis></p>
         <div className="engage-grid">
           {ENGAGE.map((service, i) => (
@@ -110,8 +120,7 @@ export default function Home() {
               <div className="k">{service.k}</div>
               <h3><TitleCase>{titleCase(service.title)}</TitleCase></h3>
               <p className="home-service-need"><Emphasis>{enquiries[i].need}</Emphasis></p>
-              <p><Emphasis>{service.text}</Emphasis></p>
-              <Link to={`/contact?plan=${enquiries[i].plan}`} className="home-service-link">{enquiries[i].label} <span aria-hidden="true">→</span></Link>
+              <Link to={`/contact?plan=${enquiries[i].plan}`} className="home-service-link">{enquiries[i].plan === 'land' ? 'Discuss an Assessment' : enquiries[i].label} <span aria-hidden="true">→</span></Link>
             </Reveal>
           ))}
         </div>
@@ -121,40 +130,18 @@ export default function Home() {
       </section>
 
       <section className="wrap why-now" aria-labelledby="why-now-title">
-        <div className="label">Why Now</div>
-        <h2 id="why-now-title"><TitleCase>A Finding Needs an Owner, a Fix and Verification.</TitleCase></h2>
-        <p className="home-section-intro"><Emphasis>An assessment helps you prioritise. <strong>Following through on remediation</strong> and <strong>checking changes</strong> makes that work useful beyond the report.</Emphasis></p>
-        <aside className="research-context" aria-label="Published security research">
-          <div><strong>20%</strong><p><Emphasis>of breaches in Verizon’s 2025 DBIR involved vulnerability exploitation as an initial access vector.</Emphasis></p></div>
-          <div><strong>30%</strong><p><Emphasis>of breaches in the same report involved a third party.</Emphasis></p></div>
-          <p className="research-source"><Emphasis>Source: <a href="https://www.verizon.com/about/news/2025-data-breach-investigations-report" target="_blank" rel="noopener noreferrer">Verizon 2025 DBIR</a>, published 23 April 2025. Global research, not India-only data or Anvexa performance figures.</Emphasis></p>
-        </aside>
-        <div className="gap-grid">
-          {GAP_CARDS.map((card, i) => (
-            <Reveal key={card.title} className={`gap-card ${card.kind}`} delay={i * 80}>
-              <div className="gap-icon"><Icon name={card.icon} /></div>
-              <h3><TitleCase>{card.title}</TitleCase></h3>
-              <div className="pb-flow gap-flow" role="list" aria-label={card.title}>
-                {card.steps.map((label, j) => (
-                  <div className="pb-step" role="listitem" key={label}>
-                    <div className={`pb-chip${card.kind === 'solution' ? ' c' : ''}`}>{label}</div>
-                    {j < card.steps.length - 1 && <div className="pb-arrow" aria-hidden="true">→</div>}
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <div className="label">Why Choose Us?</div>
+        <h2 id="why-now-title">Why Anvexa?</h2>
+        <p className="home-section-intro"><Emphasis>Finding a weakness is only the start. We help your team <strong>understand the risk, plan the fix and verify the result</strong>.</Emphasis></p>
+        <ul className="home-reasons">
+          <li><strong>Clear Commitments</strong><p>The scope, access, deliverables and retest terms are agreed before testing starts.</p></li>
+          <li><strong>Practical Fix Guidance</strong><p>Your developers or IT team get evidence and recommendations they can act on.</p></li>
+          <li><strong>Verified Results</strong><p>Agreed fixes are retested, with remaining issues and testing limitations recorded.</p></li>
+        </ul>
+        <Link to="/how-it-works#delivery-comparison-title" className="home-service-link">See How We Follow Through <span aria-hidden="true">→</span></Link>
       </section>
 
-      <section className="wrap-sm home-frameworks" aria-labelledby="home-frameworks-title" id="compliance-support">
-        <h2 id="home-frameworks-title"><TitleCase>Support for the Frameworks You Answer To.</TitleCase></h2>
-        <p className="home-section-intro"><Emphasis>Security testing and compliance evidence should work together. We connect relevant findings, remediation and verification records to your applicable controls, helping you prepare for <strong>audits and customer security reviews</strong>.</Emphasis></p>
-        <ul className="home-framework-list" aria-label="Supported frameworks">
-          {FRAMEWORKS.map((framework) => <li key={framework.name}>{framework.name}</li>)}
-        </ul>
-        <p className="note"><Emphasis>Requirements vary with your sector, licence and the data you handle. <Link to="/about">Rules and frameworks explained <span aria-hidden="true">→</span></Link></Emphasis></p>
-      </section>
+      <div className="wrap-sm" id="compliance-support"><p><Emphasis>Preparing for an audit or customer security review? We support technical readiness and evidence mapping. This is <strong>not formal certification, attestation or an accredited audit</strong>. <Link to="/about#frameworks" className="home-service-link">Explore Frameworks &amp; Technical Readiness <span aria-hidden="true">→</span></Link></Emphasis></p></div>
 
       <section className="wrap" aria-labelledby="home-dashboard-title">
         <div className="label">Your assessment deliverables</div>
@@ -164,11 +151,8 @@ export default function Home() {
           <Reveal className="engage-cell" delay={70}><h3><TitleCase>Technical Findings</TitleCase></h3><p><Emphasis>What we found, where we found it, <strong>why it matters</strong> and <strong>how your team can fix it</strong>. We include evidence and explain what we could not test.</Emphasis></p></Reveal>
           <Reveal className="engage-cell" delay={140}><h3><TitleCase>Verification Record</TitleCase></h3><p><Emphasis>Results for agreed retests, with <strong>resolved and unresolved findings</strong> distinguished. Retest terms are confirmed in the proposal.</Emphasis></p></Reveal>
         </div>
-        <p className="home-section-intro"><Emphasis><a href="/sample-security-report.html" target="_blank" rel="noopener noreferrer" className="home-service-link">View an illustrative report format →</a></Emphasis></p>
-        <details className="sample-dashboard"><summary>See an Illustrative Reporting View</summary>
-        <Dashboard />
-        <p className="note"><Emphasis>Illustrative example. Sample figures are for demonstration only.</Emphasis></p>
-        </details>
+        <p className="home-section-intro"><Emphasis><a href="/sample-security-report.html" target="_blank" rel="noopener noreferrer" className="home-service-link">View an Illustrative Report Format →</a></Emphasis></p>
+        <p className="note">This is a sample format, not a completed client assessment.</p>
       </section>
 
       <section className="wrap-sm home-partner" aria-labelledby="partner-summary-title" id="development-support">
@@ -182,10 +166,10 @@ export default function Home() {
 
       <div className="cta-band">
         <div>
-          <h3><TitleCase>Not Sure Where to Start?</TitleCase></h3>
-          <p style={{ marginTop: '.5rem' }}><Emphasis>Tell us about your business and we'll help you choose the next step.</Emphasis></p>
+          <h3><TitleCase>Planning a Security Assessment?</TitleCase></h3>
+          <p style={{ marginTop: '.5rem' }}><Emphasis>Tell us what you run and what concerns you. We’ll discuss what needs testing and send you a proposal with the scope and fees.</Emphasis></p>
         </div>
-        <Link to="/contact" className="btn btn-c">Discuss your requirements →</Link>
+        <Link to="/contact?plan=land" className="btn btn-c">Discuss an Assessment →</Link>
       </div>
     </>
   );

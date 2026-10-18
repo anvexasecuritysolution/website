@@ -8,8 +8,12 @@ import CookieConsent from './CookieConsent.jsx';
 import Analytics from './Analytics.jsx';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    const section = hash ? document.getElementById(hash.slice(1)) : null;
+    if (section) section.scrollIntoView({ behavior: 'auto', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [pathname, hash]);
   return null;
 }
 

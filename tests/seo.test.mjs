@@ -7,6 +7,29 @@ import { DEFAULT_SITE_ORIGIN, sitemapXml, siteOrigin } from '../client/shared/si
 import { seoAssets } from '../client/build/seo.js';
 import { readFileSync } from 'node:fs';
 import { PAGE_META, canonicalPath, structuredData, serializeJsonLd } from '../client/shared/seo.js';
+import { SERVICE_PAGES } from '../client/shared/service-pages.js';
+import { CONTACT } from '../client/src/data/content.js';
+
+test('service pages are discoverable and contain their distinct assessment guidance', () => {
+  const sitemap = sitemapXml(DEFAULT_SITE_ORIGIN, posts);
+  for (const service of SERVICE_PAGES) {
+    const route = `/services/${service.slug}`;
+    assert.ok(PAGE_META[route]);
+    assert.ok(sitemap.includes(DEFAULT_SITE_ORIGIN + route));
+    const html = readFileSync(new URL(`../client/dist${route}/index.html`, import.meta.url), 'utf8');
+    assert.ok(html.includes(service.title), route);
+    assert.ok(html.includes(service.access.replaceAll('&', '&amp;').replaceAll("'", '&#x27;')), route);
+    assert.ok(html.includes('/contact?plan=land'), route);
+  }
+});
+
+test('organization data separates address fields and contains configured public profiles', () => {
+  const organization = structuredData({ origin: DEFAULT_SITE_ORIGIN, pathname: '/', title: 'Anvexa', contact: CONTACT })['@graph'][0];
+  assert.equal(organization.address.streetAddress, 'A Block, Sector 63');
+  assert.equal(organization.address.addressLocality, 'Noida');
+  assert.equal(organization.sameAs.length, 2);
+  assert.ok(organization.sameAs.every((url) => url.startsWith('https://')));
+});
 
 test('all deployment paths use the same blog content', () => {
   assert.equal(frontendPosts, posts);

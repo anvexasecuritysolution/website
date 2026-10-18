@@ -8,16 +8,16 @@ import { TIERS } from '../data/content.js';
 export default function Pricing() {
   return (
     <>
-      <Seo title="Pricing" description="Anvexa prices each engagement after looking at your environment. Start with a one-time assessment or go straight to ongoing security." />
+      <Seo title="Pricing" description="Security assessment and recurring review pricing based on your systems, testing scope and deliverables. Monitoring and incident support are scoped separately." />
       <PageHero
         label="Pricing"
         title="Pricing based on your scope."
         aside={(
-          <AsideCard title="Included in every engagement" tiles={[
-            { icon: 'phone', label: 'Free discovery call' },
-            { icon: 'scan', label: 'Scoped to your environment' },
-            { icon: 'filecheck', label: 'Evidence at every step' },
-            { icon: 'badge', label: 'One named contact' },
+          <AsideCard title="Before and During Your Engagement" tiles={[
+            { icon: 'phone', label: 'Initial scope discussion' },
+            { icon: 'scan', label: 'Scope and fees agreed in writing' },
+            { icon: 'filecheck', label: 'Evidence-Backed Assessment Findings' },
+            { icon: 'badge', label: 'Responsibilities agreed before work starts' },
           ]} />
         )}
       >
@@ -39,13 +39,13 @@ export default function Pricing() {
           </Reveal>
         ))}
       </div>
-      <p className="pricing-note"><Emphasis>Fees are quoted after scoping. Your written proposal confirms the included work and any optional services before the engagement begins.</Emphasis></p>
+      <div className="pricing-note-wrap"><p className="pricing-note"><Emphasis>Not sure which option fits? Tell us about your systems and priorities. We will discuss what needs testing, then confirm the scope, deliverables and fees in a written proposal before work begins.</Emphasis></p></div>
       <section className="wrap" aria-labelledby="quote-scope-title">
         <div className="label">What shapes your quote</div>
         <h2 id="quote-scope-title"><TitleCase>Three things we clarify before pricing.</TitleCase></h2>
         <div className="engage-grid">
           <Reveal className="engage-cell"><h3><TitleCase>Environment and scope</TitleCase></h3><p><Emphasis>The applications, APIs, cloud resources or infrastructure in scope, their complexity and any testing restrictions.</Emphasis></p></Reveal>
-          <Reveal className="engage-cell" delay={70}><h3><TitleCase>Coverage and frequency</TitleCase></h3><p><Emphasis>Whether you need a single assessment or recurring work, including the required monitoring coverage, review schedule and response support.</Emphasis></p></Reveal>
+          <Reveal className="engage-cell" delay={70}><h3><TitleCase>Coverage and frequency</TitleCase></h3><p><Emphasis>Recurring reviews are assessments on an agreed schedule or after significant changes. They do not include continuous monitoring. Monitoring hours, alert handling and incident response commitments are agreed separately.</Emphasis></p></Reveal>
           <Reveal className="engage-cell" delay={140}><h3><TitleCase>Deliverables and timing</TitleCase></h3><p><Emphasis>The reports, retesting, evidence and handover you need, along with target dates and dependencies on your team.</Emphasis></p></Reveal>
         </div>
       </section>

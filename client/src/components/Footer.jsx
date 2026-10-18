@@ -14,28 +14,28 @@ export default function Footer() {
             <img src="/anvexa-mark.svg" alt="" width="47" height="40" />
             <span className="brand-text"><b>ANVEXA</b><small>Security Solutions</small></span>
           </Link>
-          <p>We assess web applications, APIs, servers and networks, help your team prioritise remediation and verify agreed fixes. Our focus is practical security work for Indian MSMEs and startups.</p>
-          <div className="follow-row">
+          <p>We help Indian MSMEs and Startups identify Security Weaknesses in Web Applications, APIs, Servers and Networks, prioritise fixes and verify agreed changes through Scoped Testing and Remediation Guidance.</p>
+          {SOCIALS.some((so) => so.url) && <div className="follow-row">
             <span className="follow-label">Follow us on</span>
             <div className="social-row">
             {SOCIALS.filter((so) => so.url).map((so) => (
               <a
                 key={so.name}
                 className={`social-link ${so.name}`}
-                href={so.url || '#'}
+                href={so.url}
                 aria-label={`Anvexa on ${so.label}`}
-                {...(so.url ? { target: '_blank', rel: 'noopener noreferrer' } : { onClick: (e) => e.preventDefault() })}
+                target="_blank" rel="noopener noreferrer"
               >
                 <SocialIcon name={so.name} />
               </a>
             ))}
             </div>
-          </div>
+          </div>}
         </div>
         <div className="fc fc-services">
           <h4><TitleCase>Services</TitleCase></h4>
           <ul>
-            {['Asset Discovery & VAPT', 'Remediation & Retest', 'Compliance Mapping', 'Continuous Monitoring', 'Incident Response', 'Evidence Vault'].map((t) => (
+            {['Asset Discovery & VAPT', 'Remediation & Retest', 'Compliance Mapping', 'Monitoring Support', 'Incident Response Support', 'Evidence & Audit Preparation'].map((t) => (
               <li key={t}><Link to="/services">{t}</Link></li>
             ))}
           </ul>
@@ -52,10 +52,10 @@ export default function Footer() {
           </ul>
         </div>
         <div className="fc">
-          <h4><TitleCase>Compliance</TitleCase></h4>
+          <h4><TitleCase>Frameworks & Technical Readiness</TitleCase></h4>
           <ul>
             {['CERT-In', 'DPDP Act 2023', 'ISO 27001', 'SOC 2', 'PCI DSS', 'SEBI / RBI / IRDAI'].map((t) => (
-              <li key={t}><Link to="/about">{t}</Link></li>
+              <li key={t}><Link to="/about#frameworks">{t}</Link></li>
             ))}
           </ul>
         </div>

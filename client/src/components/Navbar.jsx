@@ -35,7 +35,7 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="nav-right">
-            <Link to="/contact" className="nav-btn">Book a Call</Link>
+            <Link to="/contact" className="nav-btn">Secure Your Business</Link>
             <button
               className="hamburger"
               aria-label="Toggle menu"
@@ -52,7 +52,7 @@ export default function Navbar() {
         {NAV.map((l) => (
           <NavLink key={l.to} to={l.to} end={l.end}>{l.label}</NavLink>
         ))}
-        <Link to="/contact" className="nav-btn">Book a Call</Link>
+        <Link to="/contact" className="nav-btn">Secure Your Business</Link>
       </div>
     </>
   );

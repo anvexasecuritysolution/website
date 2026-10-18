@@ -6,6 +6,7 @@ import Reveal from '../components/Reveal.jsx';
 import PageHero, { AsideCard } from '../components/PageHero.jsx';
 import { FRAMEWORK_GUIDE } from '../data/frameworks.js';
 import DevelopmentPartner from '../components/DevelopmentPartner.jsx';
+import SecurityResearch from '../components/SecurityResearch.jsx';
 
 const approach = [
   { icon: 'search', title: 'Business context matters', text: 'A customer portal, an internal ERP and a public API carry different risks. Recommendations should reflect the data, users and business operations involved.' },
@@ -24,7 +25,7 @@ export default function About() {
         aside={(
           <AsideCard title="Anvexa Security Solutions" mark="/anvexa-mark.svg" tiles={[
             { icon: 'refresh', label: 'Defined assessment scopes' },
-            { icon: 'filecheck', label: 'Evidence at every step' },
+            { icon: 'filecheck', label: 'Evidence-Backed Assessment Findings' },
             { icon: 'landmark', label: 'Mapped to Indian frameworks' },
             { icon: 'shield', label: 'Developer handover and retesting' },
           ]} />
@@ -33,16 +34,17 @@ export default function About() {
         <p><Emphasis>Anvexa Security Solutions is a cybersecurity startup based in Noida, focused on web application, API, server and network security for Indian MSMEs and startups. We help teams understand vulnerabilities, plan fixes and verify remediation, with deliverables and access agreed for each engagement.</Emphasis></p>
         <p style={{ marginTop: '1rem' }}><Emphasis>What we want is simple: safer businesses, compliance that holds up, and a more secure India.</Emphasis></p>
         <div className="hero-actions-mt">
-          <Link to="/contact" className="btn btn-c">Get in touch</Link>
-          <Link to="/services" className="btn btn-ghost">Our services</Link>
+          <Link to="/contact" className="btn btn-c">Discuss Your Security Requirements</Link>
+          <Link to="/services" className="btn btn-ghost">Our Services</Link>
         </div>
+        <p className="note">Not sure where to start? Tell us what you operate and what concerns you. We will discuss an appropriate assessment scope.</p>
       </PageHero>
       <div className="wrap">
         <div>
           <div>
             <div className="label">Our principles</div>
             <h2><TitleCase>What guides our decisions.</TitleCase></h2>
-            <p style={{ marginTop: '1rem' }}><Emphasis>These principles shape how we discuss risk, make recommendations and set expectations with your team.</Emphasis></p>
+            <p className="about-principles-intro" style={{ marginTop: '1rem' }}><Emphasis>These principles shape how we discuss risk, make recommendations and set expectations with your team.</Emphasis></p>
             <div className="about-blocks about-principles-grid">
               {approach.map((b, i) => (
                 <Reveal as="div" className="ab" key={b.title} delay={(i % 3) * 80}>
@@ -56,7 +58,7 @@ export default function About() {
         </div>
       </div>
       <section className="wrap framework-guide" aria-labelledby="framework-guide-title" id="frameworks">
-        <div className="label">Rules and frameworks explained</div>
+        <div className="label">Rules and Frameworks Explained</div>
         <h2 id="framework-guide-title"><TitleCase>Understand what applies to your business.</TitleCase></h2>
         <p className="home-section-intro"><Emphasis>A quick guide to key requirements and how our technical work supports them.</Emphasis></p>
         <p className="note"><Emphasis><strong>Testing Guidance:</strong> OWASP Top 10, OWASP API Security Top 10 and the Web Security Testing Guide (WSTG) inform application testing. They are technical references, separate from the laws and assurance frameworks below.</Emphasis></p>
@@ -73,7 +75,13 @@ export default function About() {
             </Reveal>
           ))}
         </div>
-        <p className="note"><Emphasis>Applicability depends on scope, exemptions and current notifications. We support technical readiness; independent bodies handle certification and assurance.</Emphasis></p>
+        <p className="note"><Emphasis>Applicability depends on scope, exemptions and current notifications. Our work supports technical readiness and evidence; it does not itself provide certification, SOC 2 attestation, PCI validation or a regulator-approved audit. Where an accredited or empanelled assessor is required, confirm eligibility before commissioning the work.</Emphasis></p>
+      </section>
+      <section className="wrap" aria-labelledby="security-context-title">
+        <div className="label">Security Context</div>
+        <h2 id="security-context-title">Why Regular Security Reviews Matter.</h2>
+        <p className="home-section-intro">Published research shows why exposed systems and third-party access deserve attention. These figures provide context, rather than a prediction of risk for your business.</p>
+        <SecurityResearch />
       </section>
       <DevelopmentPartner />
     </>

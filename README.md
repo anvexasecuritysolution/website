@@ -34,6 +34,7 @@ The preview is available at http://127.0.0.1:4173. It does not start Express or 
 | --- | --- |
 | `/` | Assessment coverage, application examples, delivery overview, support options and deliverables |
 | `/services` | Four assessment domains, OWASP references and eight assessment/follow-up services |
+| `/services/web-application-security`, `/services/api-security`, `/services/server-security`, `/services/network-security` | Individual assessment coverage, access needs, limits and deliverables |
 | `/how-it-works` | Testing safeguards, animated delivery journey and engagement stages |
 | `/pricing` | Engagement options and factors used to prepare a quote |
 | `/about` | Company principles, concise rules/framework summaries and development partner |
@@ -208,11 +209,15 @@ Benkyō Technologies is listed as Anvexa's development support partner on Home a
 
 The client-focused positioning review is in `docs/CLIENT-POV-REVIEW.md`. Primary coverage is web application, API, server and network assessments for Indian MSMEs and startups. The responsive scope diagram is `client/src/components/AssessmentScope.jsx`; its original standalone SVG remains at `client/public/assessment-scope.svg`. Cards highlight in sequence and the diagram adapts to light/dark mode. `client/public/sample-security-report.html` is an explicitly illustrative, noindex report-format preview. Published research figures link to their dated source and are not presented as Anvexa results. Advanced monitoring/response availability requires written confirmation; existing lead service identifiers remain unchanged for compatibility. The mobile theme switch sits in the header to avoid obscuring section headings.
 
-The homepage includes four assessment cards, permanently visible application examples, four engagement steps, three support options, a traditional-versus-Anvexa comparison, a compact framework summary and a separate deliverables section. The illustrative dashboard stays behind a disclosure. A compact development partner introduction and contact prompt follow. Service enquiry links preselect the matching option in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`. The theme, lifecycle animation and card reveals remain in use.
+The homepage answers “Who We Are?” and “Why Anvexa?”, alongside four assessment cards, permanently visible application examples, concise engagement steps, three support options and assessment deliverables. The hero states the assessment scope and uses “Discuss an Assessment” as its primary contact action. The company introduction links to the real team profiles, and the report preview is explicitly labelled as illustrative. A compact framework link points to About's detailed explanations. Published research figures live on About; the delivery comparison and synthetic example finding live on How It Works. A compact development partner introduction and contact prompt remain on Home. Service enquiry links preselect the matching option in the existing contact form. Edit the layout and homepage copy in `client/src/pages/Home.jsx`. The theme, lifecycle animation and card reveals remain in use.
 
 ## Public page content
 
 Public page content has distinct roles: Home summarises the available support; About explains the working approach, frameworks and development partner; Services describes technical activities; How It Works describes delivery and handover; Pricing explains engagement options and quote factors; Contact gathers security and development requirements. Ongoing monitoring and response depend on the agreed scope. Dashboard figures are explicitly marked as a sample.
+
+The Contact page keeps first name, email and phone mandatory. Company and industry are visible in the restored contact form; validation and submission handling remain in place. Service choices use plain-language display labels while preserving the existing submitted identifiers for backend and Apps Script compatibility. Monitoring, incident response and implementation support require written scope and availability confirmation.
+
+Home retains the animated eight-part lifecycle overview, its assessment-scope illustration and a concise four-step approach. Assessment CTAs lead to `/contact?plan=land`, selecting Security Assessment in the separate Contact form. There is no embedded enquiry form on Home.
 
 Services distinguishes OWASP Top 10:2025, OWASP API Security Top 10:2023 and the Web Security Testing Guide (WSTG). These are testing/risk references, not claims of OWASP certification or exhaustive coverage. About's six rules/framework cards use concise bullet points and distinguish applicability from Anvexa's technical support.
 
@@ -237,3 +242,8 @@ To replace a portrait, add the approved image to `client/public/team`, update it
 ## Database migrations
 
 This repository does not currently include migration files or a migration command. MongoDB models are in `server/src/models`. The seed command initializes missing content and an admin account; it is not a database migration. Switching GitHub storage modes does not move historical records automatically.
+
+## SEO maintenance
+
+Public pages are prerendered with canonical URLs, metadata, a sitemap and structured data. Four assessment detail pages are linked from Home and Services. Shared search metadata is maintained in client/shared/seo.js and assessment content in client/shared/service-pages.js. See [SEO launch checklist](docs/SEO-LAUNCH-CHECKLIST.md) for domain, Search Console, live routing and mobile performance checks.
+

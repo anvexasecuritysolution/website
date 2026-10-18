@@ -21,7 +21,7 @@ export default function PipelineRing() {
     <svg
       ref={svg} onMouseEnter={pause} onMouseLeave={play}
       viewBox="-150 -30 760 520" role="img" fill="none" xmlns="http://www.w3.org/2000/svg"
-      aria-label="Eight-step security lifecycle: asset discovery, VAPT, remediation, retest, control mapping, monitoring, incident response and evidence"
+      aria-label={`Eight-part security lifecycle: ${RING_NODES.map(node => node.label).join(', ')}`}
     >
       <defs>
         <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
@@ -39,7 +39,7 @@ export default function PipelineRing() {
           <animateTransform attributeName="transform" type="rotate" from={`0 ${CX} ${CY}`} to={`360 ${CX} ${CY}`} dur={DUR} repeatCount="indefinite" />
         )}
         {RING_NODES.map((node, i) => {
-          const a = (i * 45 * Math.PI) / 180;
+          const a = (i * (360 / RING_NODES.length) * Math.PI) / 180;
           const x = CX + R * Math.sin(a), y = CY - R * Math.cos(a);
           return (
             <g key={node.label} transform={`translate(${x} ${y})`}>
@@ -51,9 +51,9 @@ export default function PipelineRing() {
                 <g className="ring-node">
                   <title>{`${i + 1}. ${node.label}`}</title>
                   <circle r="22" style={{ fill: 'var(--ink2)', stroke: color(node.tone) }} strokeWidth="1.75" />
-                  <text y="6" textAnchor="middle" fontSize="16" fontWeight="700" style={{ fill: color(node.tone) }} fontFamily="Roboto Slab, serif">{i + 1}</text>
+                  <text y="6" textAnchor="middle" fontSize="15.5" fontWeight="700" style={{ fill: color(node.tone) }} fontFamily="Roboto Slab, serif">{i + 1}</text>
                   <text
-                    y="46" textAnchor="middle" fontSize="18" fontWeight="500" fontFamily="Roboto Slab, serif"
+                    y="46" textAnchor="middle" fontSize="17.5" fontWeight="500" fontFamily="Roboto Slab, serif"
                     style={{ fill: node.tone === 'a' ? 'var(--amber)' : 'var(--text)', stroke: 'var(--ink)' }} strokeWidth="5" paintOrder="stroke" strokeLinejoin="round"
                   >{node.label}</text>
                 </g>
@@ -63,9 +63,8 @@ export default function PipelineRing() {
         })}
       </g>
 
-      <text x={CX} y="212" textAnchor="middle" fontSize="20" fontWeight="700" style={{ fill: 'var(--text)' }} fontFamily="Roboto Slab, serif">Find · Fix</text>
-      <text x={CX} y="238" textAnchor="middle" fontSize="20" fontWeight="700" style={{ fill: 'var(--text)' }} fontFamily="Roboto Slab, serif">Verify · Monitor</text>
-      <text x={CX} y="264" textAnchor="middle" fontSize="20" fontWeight="800" style={{ fill: 'var(--cyan)' }} fontFamily="Roboto Slab, serif">Prove</text>
+      <text x={CX} y="212" textAnchor="middle" fontSize="19.5" fontWeight="700" style={{ fill: 'var(--text)' }} fontFamily="Roboto Slab, serif">Find · Fix</text>
+      <text x={CX} y="244" textAnchor="middle" fontSize="19.5" fontWeight="800" style={{ fill: 'var(--cyan)' }} fontFamily="Roboto Slab, serif">Verify</text>
     </svg>
   );
 }

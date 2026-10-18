@@ -1,3 +1,4 @@
+import { SERVICE_PAGES } from './service-pages.js';
 export const DEFAULT_SITE_ORIGIN = 'https://anvexasecuritysolution.vercel.app';
 
 export function siteOrigin(value) {
@@ -7,7 +8,7 @@ export function siteOrigin(value) {
   return url.origin;
 }
 
-export const PUBLIC_PATHS = ['/', '/about', '/services', '/how-it-works', '/pricing', '/blog', '/contact', '/faqs', '/team', '/privacy', '/terms'];
+export const PUBLIC_PATHS = ['/', '/about', '/services', '/how-it-works', '/pricing', '/blog', '/contact', '/faqs', '/team', '/privacy', '/terms', ...SERVICE_PAGES.map((service) => `/services/${service.slug}`)];
 
 export function sitemapXml(origin, posts) {
   const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');

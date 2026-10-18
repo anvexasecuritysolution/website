@@ -1,18 +1,23 @@
+import { SERVICE_PAGES } from './service-pages.js';
 export const SITE_NAME = 'Anvexa Security Solutions';
 
 export const PAGE_META = {
   '/': { title: 'Web, API, Server & Network Security | Anvexa India', description: 'Security assessments for Indian MSMEs and startups: web applications, APIs, servers and networks, with remediation guidance and agreed retesting.' },
   '/about': { title: 'About Our Cybersecurity Team in Noida | Anvexa', description: 'Meet Anvexa Security Solutions, a Noida-based cybersecurity team helping Indian businesses assess risk, verify fixes and maintain audit evidence.' },
-  '/services': { title: 'VAPT, Compliance & Cybersecurity Services | Anvexa', description: 'Explore Anvexa’s cybersecurity services: asset discovery, VAPT, remediation, retesting, compliance mapping, continuous monitoring and incident response.' },
-  '/how-it-works': { title: 'Our Security Assessment & Remediation Process | Anvexa', description: 'See how an Anvexa engagement works: discover your environment, assess vulnerabilities, support remediation and verify controls with ongoing assurance.' },
-  '/pricing': { title: 'Cybersecurity Assessment & Monitoring Pricing | Anvexa', description: 'Discuss pricing for a one-time cybersecurity assessment or ongoing security support. Anvexa scopes each engagement around your environment and needs.' },
+  '/services': { title: 'Web Application, API & Infrastructure VAPT | Anvexa', description: 'Web application, API, server and network assessments for Indian businesses, with evidence-backed findings, fix guidance and agreed retesting.' },
+  '/how-it-works': { title: 'Our Security Assessment & Remediation Process | Anvexa', description: 'Understand the assessment scope, client responsibilities, remediation guidance and agreed retesting from your first enquiry to final handover.' },
+  '/pricing': { title: 'VAPT & Security Assessment Pricing | Anvexa', description: 'Get a scoped quote for a security assessment or recurring reviews. Your proposal confirms the systems, testing depth, deliverables, fees and retest terms.' },
   '/blog': { title: 'Cybersecurity, VAPT & Compliance Articles | Anvexa', description: 'Read practical articles on VAPT, security controls, CERT-In, DPDP and compliance from Anvexa Security Solutions for Indian businesses.' },
-  '/contact': { title: 'Contact Anvexa for Cybersecurity & VAPT Services', description: 'Contact Anvexa Security Solutions in Noida to discuss VAPT, compliance or ongoing security support. Start with a free discovery call.' },
+  '/contact': { title: 'Contact Anvexa for Cybersecurity & VAPT Services', description: 'Contact Anvexa in Noida about web application, API, server or network testing. Discuss your systems, priorities and assessment requirements.' },
   '/faqs': { title: 'Cybersecurity Assessment FAQs | Anvexa', description: 'Answers about Anvexa security assessments, testing access, confidentiality, pricing, remediation and retesting.' },
   '/team': { title: 'Our Team | Anvexa Security Solutions', description: 'Meet the Anvexa team working across cybersecurity, operations, product engineering, marketing and customer support.' },
   '/privacy': { title: 'Privacy Policy | Anvexa Security Solutions', description: 'Learn how Anvexa handles contact enquiries, website data and optional Google Analytics, and how to manage your cookie choices and privacy requests.' },
   '/terms': { title: 'Website Terms | Anvexa Security Solutions', description: 'Read the terms for using the Anvexa Security Solutions website, including website content, enquiries and responsible security reporting.' },
 };
+
+for (const service of SERVICE_PAGES) {
+  PAGE_META[`/services/${service.slug}`] = { title: `${service.title} | Anvexa India`, description: service.description };
+}
 
 export function canonicalPath(pathname) {
   return pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
@@ -23,7 +28,8 @@ export function structuredData({ origin, pathname, title, description, article, 
   const organization = {
     '@type': 'Organization', '@id': `${origin}/#organization`, name: SITE_NAME,
     url: origin + '/', logo: { '@type': 'ImageObject', url: origin + '/anvexa-mark.svg' },
-    ...(contact ? { email: contact.email, telephone: contact.phone, address: { '@type': 'PostalAddress', streetAddress: contact.address, addressLocality: 'Noida', addressRegion: 'Uttar Pradesh', postalCode: '201309', addressCountry: 'IN' } } : {}),
+    ...(contact ? { email: contact.email, telephone: contact.phone, ...(contact.postalAddress ? { address: { '@type': 'PostalAddress', ...contact.postalAddress } } : {}) } : {}),
+    sameAs: ['https://www.instagram.com/anvexasecuritysolution/', 'https://x.com/anvexasecurity'],
   };
   const graph = [organization, {
     '@type': 'WebSite', '@id': `${origin}/#website`, url: origin + '/', name: SITE_NAME,

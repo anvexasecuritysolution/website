@@ -66,14 +66,14 @@ export const STEPS = [
   { n: '08', tone: 'a', title: 'Evidence & Audit Preparation', tag: 'Document', text: 'Organise assessment reports, remediation actions and retest records for audits and customer reviews. Independent certification or attestation is outside this service.' },
 ];
 
-// Ring nodes on the home hero — order matches STEPS
+// Full lifecycle overview; coverage is defined in each engagement's scope.
 export const RING_NODES = [
   { label: 'Asset Discovery', tone: 'c' },
   { label: 'VAPT & Risk', tone: 'c' },
   { label: 'Remediation', tone: 'a' },
   { label: 'Retest', tone: 'a' },
   { label: 'Control Mapping', tone: 'c' },
-  { label: 'Continuous Watch', tone: 'c' },
+  { label: 'Monitoring Support', tone: 'c' },
   { label: 'Incident Response', tone: 'a' },
   { label: 'Evidence & Audit', tone: 'a' },
 ];
@@ -83,25 +83,25 @@ export const FLOW = [
 ];
 
 export const PHASES = [
-  { n: 'Stage 1', time: 'Discover', items: ['Scoping call and environment walkthrough', 'Asset inventory and attack-surface mapping', 'Agreed scope and rules of engagement', 'Defined success criteria'] },
-  { n: 'Stage 2', time: 'Assess', items: ['VAPT with relevant OWASP web and API risk references', 'Risk ranking by business impact', 'Executive and technical reporting', 'Prioritised remediation roadmap'] },
-  { n: 'Stage 3', time: 'Remediate', items: ['Findings converted to tracked tasks', 'Owners and deadlines assigned', 'Patch verification and retesting', 'Controls mapped to applicable frameworks'] },
-  { n: 'Stage 4', time: 'Handover & ongoing assurance', items: ['Reports and verification records handed over', 'Outstanding risks and next steps documented', 'Monitoring and reporting where contracted', 'Reassessment schedule for ongoing engagements'] },
+  { n: 'Stage 1', time: 'Discover', items: ['Scoping call and environment walkthrough', 'Attack-surface mapping: list agreed systems and exposed entry points', 'Testing scope, permissions and safeguards documented', 'Defined success criteria'] },
+  { n: 'Stage 2', time: 'Assess', items: ['VAPT guided by relevant OWASP web and API risks', 'Risk ranking by business impact', 'Executive and technical reporting', 'Prioritised remediation roadmap'] },
+  { n: 'Stage 3', time: 'Remediate', items: ['Findings converted to tracked tasks', 'Owners and deadlines assigned', 'Fix guidance and implementation questions', 'Where scoped, link findings to relevant framework controls'] },
+  { n: 'Stage 4', time: 'Verify & Handover', items: ['Agreed fixes retested within the retest window', 'Resolved and outstanding findings recorded', 'Reports and verification evidence handed over', 'Further reviews or monitoring scoped separately'] },
 ];
 
 export const TIERS = [
   { badge: 'land', name: 'ASSESS', title: 'Security Assessment', type: 'Defined scope', price: 'Custom quote', unit: '/ project', cta: 'Scope an Assessment', ctaClass: 'btn-ghost',
     features: ['Agreed application or infrastructure scope', 'Evidence-based technical findings', 'Management summary and fix priorities', 'Retest terms specified in the proposal'] },
   { badge: 'retain', name: 'REVIEW', title: 'Recurring Security Reviews', type: 'Agreed schedule', price: 'Custom quote', unit: '/ engagement', cta: 'Plan Recurring Reviews', ctaClass: 'btn-a', featured: true,
-    features: ['Reassessment of agreed assets', 'Review after significant changes', 'Remediation and retest follow-up', 'Reporting and cadence agreed in writing'] },
+    features: ['Reassessment of agreed assets', 'Review after significant changes', 'Remediation and retest follow-up', 'Scheduled testing; monitoring agreed separately'] },
   { badge: 'expand', name: 'DISCUSS', title: 'Response & Advisory', type: 'Availability confirmed first', price: 'By agreement', unit: '', cta: 'Discuss Requirements', ctaClass: 'btn-ghost',
-    features: ['Coverage and hours confirmed before purchase', 'Defined escalation responsibilities', 'Scope-specific advisory requirements', 'Separate agreement for monitoring or response'] },
+    features: ['Choose monitoring, incident readiness or incident handling', 'Scope and operating hours confirmed separately', 'Escalation and response commitments agreed in writing', 'Availability confirmed before work is accepted'] },
 ];
 
 export { INDUSTRIES, SERVICES } from '../../shared/leads.js';
 
 // Social profiles — paste each profile URL into `url` once the pages exist.
-// While `url` is empty the icon is shown but does not navigate anywhere.
+// Profiles with an empty URL are hidden in the footer.
 export const SOCIALS = [
   { name: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/anvexasecuritysolution/' },
   { name: 'linkedin', label: 'LinkedIn', url: '' },
@@ -112,6 +112,7 @@ export const CONTACT = {
   email: 'anvexasecuritysolution@gmail.com',
   phone: '+91 78359 47340',
   address: 'A Block, Sector 63, Noida, Uttar Pradesh 201309',
+  postalAddress: { streetAddress: 'A Block, Sector 63', addressLocality: 'Noida', addressRegion: 'Uttar Pradesh', postalCode: '201309', addressCountry: 'IN' },
 };
 
 export const METRICS = [
