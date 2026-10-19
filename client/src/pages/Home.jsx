@@ -55,7 +55,7 @@ export default function Home() {
         </div>
         <div>
           <p className="home-company-intro"><Emphasis>Based in Noida, <strong>Anvexa Security Solutions</strong> helps <strong>Indian MSMEs and Startups</strong> find security weaknesses across web applications, APIs, servers and networks. We turn <strong>Technical Findings</strong> into <strong>Clear Priorities, Practical Fix Guidance and Agreed Retests</strong>, helping your team address real risks.</Emphasis></p>
-          <div className="home-section-links"><Link to="/about">More About Anvexa <span aria-hidden="true">→</span></Link><Link to="/team">Meet the Team <span aria-hidden="true">→</span></Link></div>
+          <div className="home-section-links"><Link to="/about" className="company-action-button">More About Anvexa <span aria-hidden="true">→</span></Link><Link to="/team" className="company-action-button">Meet the Team <span aria-hidden="true">→</span></Link></div>
         </div>
       </section>
 

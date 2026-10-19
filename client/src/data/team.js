@@ -3,14 +3,14 @@
 // Anvexa roles. Education wording follows the latest instructions from Anvexa.
 export const TEAM = [
   {
-    name: 'Puneet Kumar Verma', role: 'Founder & CEO',
+    name: 'Puneet Kumar Verma', role: 'Co-Founder & CEO',
     description: 'MCA postgraduate combining PHP and Laravel development experience with business leadership, shaping Anvexa’s strategy, partnerships, client relationships and service priorities across the company’s cybersecurity and advisory engagements.',
     linkedin: 'https://www.linkedin.com/in/puneet-kumar-verma-426279294/', photo: '/team/puneet-professional.webp', photoPosition: 'center center',
     order: 1,
     highlights: ["MCA postgraduate", "PHP and Laravel", "business leadership"],
   },
   {
-    name: 'Tanay Jorihar', role: 'Co-founder & COO',
+    name: 'Tanay Jorihar', role: 'Co-Founder & COO',
     description: 'Post Graduate in Cyber Security, combining backend development and application security experience to coordinate Anvexa’s operations, teams and client engagements within each agreed assessment scope and timelines.',
     linkedin: 'https://www.linkedin.com/in/tanay-jorihar-352b00268/', photo: '/team/tanay.webp',
     order: 2,
