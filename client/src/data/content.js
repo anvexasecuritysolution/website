@@ -109,7 +109,7 @@ export const SOCIALS = [
 ];
 
 export const CONTACT = {
-  email: 'anvexasecuritysolution@gmail.com',
+  email: 'info@anvexasecuritysolution.in',
   phone: '+91 78359 47340',
   address: 'A Block, Sector 63, Noida, Uttar Pradesh 201309',
   postalAddress: { streetAddress: 'A Block, Sector 63', addressLocality: 'Noida', addressRegion: 'Uttar Pradesh', postalCode: '201309', addressCountry: 'IN' },
